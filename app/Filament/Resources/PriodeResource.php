@@ -17,13 +17,15 @@ class PriodeResource extends Resource
 {
     protected static ?string $model = Priode::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-calendar-days';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 //
+                Forms\Components\TextInput::make('name')->helpertext('Gunakan name data dengan tepat.')->required()->maxLength(255),
+
             ]);
     }
 
@@ -32,6 +34,7 @@ class PriodeResource extends Resource
         return $table
             ->columns([
                 //
+                Tables\Columns\TextColumn::make('name')->searchable(),
             ])
             ->filters([
                 //

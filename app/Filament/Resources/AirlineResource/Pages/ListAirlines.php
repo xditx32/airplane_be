@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\AirPlaneResource\Pages;
+namespace App\Filament\Resources\AirlineResource\Pages;
 
-use App\Filament\Resources\AirPlaneResource;
+use App\Filament\Resources\AirlineResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
-class ListAirPlanes extends ListRecords
+class ListAirlines extends ListRecords
 {
-    protected static string $resource = AirPlaneResource::class;
+    protected static string $resource = AirlineResource::class;
 
     protected function getHeaderActions(): array
     {

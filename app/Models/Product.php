@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
@@ -15,7 +16,7 @@ class Product extends Model
 
     protected $fillable = [
         'name',
-        'thumnail',
+        'thumbnail',
         'is_open',
         'price',
         'duration',
@@ -40,18 +41,23 @@ class Product extends Model
         return $this->belongsTo(Priode::class, 'priode_id');
     }
 
-    public function product_photos():HasMany
+    public function ProductPhotos():HasMany
     {
-        return $this->hasMany(ProductPhoto::class);
+        return $this->hasMany(ProductPhoto::class, 'product_id');
     }
 
-    public function product_benefits():HasMany
+    public function ProductBenefits():HasMany
     {
-        return $this->hasMany(ProductBenefit::class);
+        return $this->hasMany(ProductBenefit::class, 'product_id');
     }
 
-    public function product_airplanes():HasMany
+    public function ProductHotels():HasMany
     {
-        return $this->hasMany(ProductAirplane::class, 'product_id');
+        return $this->hasMany(ProductHotel::class, 'product_id');
+    }
+
+    public function ProductAirlines():HasMany
+    {
+        return $this->hasMany(ProductAirline::class, 'product_id');
     }
 }

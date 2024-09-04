@@ -9,13 +9,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
-class Airplane extends Model
+class Airline extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'name',
-        'logo',
+        'icon',
         'photo',
         'slug',
     ];
@@ -25,8 +25,8 @@ class Airplane extends Model
         $this->attributes['slug'] = Str::slug($value);
     }
 
-    public function product_airplanes():HasMany
+    public function ProductAirlines():HasMany
     {
-        return $this->hasMany(productAirplane::class, 'airplane_id');
+        return $this->hasMany(ProductAirline::class, 'airline_id');
     }
 }

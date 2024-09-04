@@ -26,7 +26,7 @@ class CategoryResource extends Resource
                 //
                 Forms\Components\TextInput::make('name')->helpertext('Gunakan name data dengan tepat.')->required()->maxLength(255),
 
-                Forms\Components\FileUpload::make('logo')->image()->required(),
+                Forms\Components\FileUpload::make('icon')->image()->required(),
 
                 Forms\Components\FileUpload::make('photo')->image()->required(),
             ]);
@@ -39,7 +39,7 @@ class CategoryResource extends Resource
                 //
                 Tables\Columns\TextColumn::make('name')->searchable(),
 
-                Tables\Columns\ImageColumn::make('logo'),
+                Tables\Columns\ImageColumn::make('icon'),
 
                 Tables\Columns\ImageColumn::make('photo'),
 

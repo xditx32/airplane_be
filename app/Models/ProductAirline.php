@@ -7,24 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ProductAirplane extends Model
+class ProductAirline extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'airplane_id',
+        'airline_id',
         'product_id',
     ];
 
-    public function airplane():BelongsTo
+    public function airline():BelongsTo
     {
-        return $this->belongsTo(airplane_id::class, 'airplane_id');
+        return $this->belongsTo(airline::class, 'airline_id');
     }
 
     public function product():BelongsTo
     {
-        return $this->belongsTo(product_id::class, 'product_id');
+        return $this->belongsTo(product::class, 'product_id');
     }
-
-
 }

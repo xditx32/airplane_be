@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('airplanes', function (Blueprint $table) {
+        Schema::create('product_airlines', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('logo');
-            $table->string('photo');
-            $table->string('slug')->unique();
+            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('airline_id')->constrained()->cascadeOnDelete();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('airplanes');
+        Schema::dropIfExists('product_airlines');
     }
 };
