@@ -7,6 +7,8 @@ use App\Filament\Resources\AirlineResource\RelationManagers;
 use App\Models\Airline;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Tables\Columns\{TextColumn, ImageColumn, IconColumn};
+use Filament\Forms\Components\{TextInput, FileUpload, Select, Textarea, Repeater};
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -24,11 +26,11 @@ class AirlineResource extends Resource
         return $form
             ->schema([
                 //
-                Forms\Components\TextInput::make('name')->helpertext('Gunakan name data dengan tepat.')->required()->maxLength(255),
+                TextInput::make('name')->helpertext('Gunakan name data dengan tepat.')->required()->maxLength(255),
 
-                Forms\Components\FileUpload::make('icon')->image()->required(),
+                FileUpload::make('icon')->image()->required(),
 
-                Forms\Components\FileUpload::make('photo')->image()->required(),
+                FileUpload::make('photo')->image()->required(),
             ]);
     }
 
@@ -37,11 +39,14 @@ class AirlineResource extends Resource
         return $table
             ->columns([
                 //
-                Tables\Columns\TextColumn::make('name')->searchable(),
+                TextColumn::make('name')->searchable(),
 
-                Tables\Columns\ImageColumn::make('icon'),
+                ImageColumn::make('icon'),
 
-                Tables\Columns\ImageColumn::make('photo'),
+                ImageColumn::make('photo'),
+
+                TextColumn::make('created_at')->dateTime('d-M-Y H:i:s')
+                ->label('Created Airline'),
             ])
             ->filters([
                 //

@@ -6,12 +6,16 @@ use App\Filament\Resources\ProductResource\Pages;
 use App\Models\Product;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Tables\Columns\{TextColumn, ImageColumn, IconColumn};
+use Filament\Forms\Components\{TextInput, FileUpload, Select, Textarea, Repeater};
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+
+use Carbon\Carbon;
 
 class ProductResource extends Resource
 {
@@ -24,33 +28,33 @@ class ProductResource extends Resource
         return $form
             ->schema([
                 //
-                Forms\Components\TextInput::make('name')->required()->maxLength(255),
+                TextInput::make('name')->required()->maxLength(255),
 
-                Forms\Components\FileUpload::make('thumbnail')->image()->required(),
+                FileUpload::make('thumbnail')->image()->required(),
 
-                Forms\Components\Select::make('category_id')->relationship('category', 'name')->searchable()->preload()->required(),
+                Select::make('category_id')->relationship('category', 'name')->searchable()->preload()->required(),
 
-                Forms\Components\Select::make('priode_id')->relationship('priode', 'name')->searchable()->preload()->required(),
+                Select::make('priode_id')->relationship('priode', 'name')->searchable()->preload()->required(),
 
-                Forms\Components\Textarea::make('about')->required()->rows(10)->cols(20),
+                Textarea::make('about')->required()->rows(10)->cols(20),
 
-                Forms\Components\Repeater::make('ProductPhotos')->relationship('ProductPhotos')->schema([Forms\Components\FileUpload::make('photo')->required()]),
+                Repeater::make('ProductPhotos')->relationship('ProductPhotos')->schema([FileUpload::make('photo')->required()]),
 
-                Forms\Components\Repeater::make('ProductBenefits')->relationship('ProductBenefits')->schema([Forms\Components\TextInput::make('name')->required()]),
+                Repeater::make('ProductBenefits')->relationship('ProductBenefits')->schema([TextInput::make('name')->required()]),
 
-                Forms\Components\Repeater::make('ProductHotels')->relationship('ProductHotels')->schema([Forms\Components\TextInput::make('name')->required()]),
+                Repeater::make('ProductHotels')->relationship('ProductHotels')->schema([TextInput::make('name')->required()]),
 
-                Forms\Components\Repeater::make('ProductAirlines')->relationship()
-                ->schema([Forms\Components\Select::make('airline_id')
+                Repeater::make('ProductAirlines')->relationship()
+                ->schema([Select::make('airline_id')
                 ->relationship('airline', 'name')
                 ->required(),
                 ]),
 
-                Forms\Components\TextInput::make('duration')->required()->numeric()->prefix('Days'),
+                TextInput::make('duration')->required()->numeric()->prefix('Days'),
 
-                Forms\Components\TextInput::make('price')->required()->numeric()->prefix('IDR'),
+                TextInput::make('price')->required()->numeric()->prefix('IDR')->maxValue(42949672.95),
 
-                Forms\Components\Select::make('is_open')->options([
+                Select::make('is_open')->options([
                     true => 'Open',
                     false => 'Not Open',
                 ])->required(),
@@ -64,11 +68,28 @@ class ProductResource extends Resource
         return $table
             ->columns([
                 //
-                Tables\Columns\TextColumn::make('name')->searchable(),
 
-                Tables\Columns\ImageColumn::make('thumbnail'),
+                TextColumn::make('name')->searchable(),
 
-                Tables\Columns\TextColumn::make('category.name'),
+                ImageColumn::make('thumbnail'),
+
+                TextColumn::make('category.name'),
+
+                TextColumn::make('price')
+                ->money('IDR')
+                ->sortable(),
+
+                IconColumn::make('is_open')
+                ->boolean()
+                ->falseColor('danger')
+                ->trueColor('success')
+                ->falseIcon('heroicon-o-x-circle')
+                ->trueIcon('heroicon-o-check-circle')
+                ->label('Available'),
+
+                TextColumn::make('created_at')->dateTime('d-M-Y H:i:s')
+                ->label('Created Product'),
+
             ])
             ->filters([
                 //

@@ -7,6 +7,8 @@ use App\Filament\Resources\PriodeResource\RelationManagers;
 use App\Models\Priode;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Tables\Columns\{TextColumn, ImageColumn, IconColumn};
+use Filament\Forms\Components\{TextInput, FileUpload, Select, Textarea, Repeater};
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -24,7 +26,7 @@ class PriodeResource extends Resource
         return $form
             ->schema([
                 //
-                Forms\Components\TextInput::make('name')->helpertext('Gunakan name data dengan tepat.')->required()->maxLength(255),
+                TextInput::make('name')->helpertext('Gunakan name data dengan tepat.')->required()->maxLength(255),
 
             ]);
     }
@@ -34,7 +36,10 @@ class PriodeResource extends Resource
         return $table
             ->columns([
                 //
-                Tables\Columns\TextColumn::make('name')->searchable(),
+                TextColumn::make('name')->searchable(),
+
+                TextColumn::make('created_at')->dateTime('d-M-Y H:i:s')
+                ->label('Created Priode'),
             ])
             ->filters([
                 //
