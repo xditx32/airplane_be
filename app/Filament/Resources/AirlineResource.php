@@ -21,6 +21,10 @@ class AirlineResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-flag';
 
+    protected static ?string $navigationGroup = 'Product';
+
+    protected static ?int $navigationSort = 1;
+
     public static function form(Form $form): Form
     {
         return $form

@@ -21,6 +21,10 @@ class PriodeResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-calendar-days';
 
+    protected static ?string $navigationGroup = 'Product';
+
+     protected static ?int $navigationSort = 2;
+
     public static function form(Form $form): Form
     {
         return $form

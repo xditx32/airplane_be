@@ -23,6 +23,10 @@ class ProductResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rocket-launch';
 
+    protected static ?string $navigationGroup = 'Product';
+
+    protected static ?int $navigationSort = 4;
+
     public static function form(Form $form): Form
     {
         return $form
@@ -85,7 +89,8 @@ class ProductResource extends Resource
                 ->trueColor('success')
                 ->falseIcon('heroicon-o-x-circle')
                 ->trueIcon('heroicon-o-check-circle')
-                ->label('Available'),
+                ->label('Visibility')
+                ->sortable(),
 
                 TextColumn::make('created_at')->dateTime('d-M-Y H:i:s')
                 ->label('Created Product'),
@@ -103,6 +108,7 @@ class ProductResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
+
     }
 
     public static function getRelations(): array
