@@ -7,6 +7,8 @@ use Filament\Facades\Filament;
 use Filament\Navigation\NavigationGroup;
 use Filament\Navigation\NavigationBuilder;
 use App\Filament\Resources\{CategoryResource, ProductResource};
+use Illuminate\Support\Facades\Blade;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,7 +26,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
-
+        Blade::directive('money', function ($amount) {
+            return "<?php echo 'Rp' . number_format($amount, 2); ?>";
+        });
 
     }
 }

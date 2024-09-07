@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('priodes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->date('date');
             $table->string('slug')->unique();
             $table->softDeletes();
             $table->timestamps();

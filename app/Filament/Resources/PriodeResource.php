@@ -8,7 +8,7 @@ use App\Models\Priode;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Tables\Columns\{TextColumn, ImageColumn, IconColumn};
-use Filament\Forms\Components\{TextInput, FileUpload, Select, Textarea, Repeater};
+use Filament\Forms\Components\{DatePicker, TextInput, FileUpload, Select, Textarea, Repeater};
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -31,6 +31,7 @@ class PriodeResource extends Resource
             ->schema([
                 //
                 TextInput::make('name')->helpertext('Gunakan name data dengan tepat.')->required()->maxLength(255),
+                DatePicker::make('date'),
 
             ]);
     }

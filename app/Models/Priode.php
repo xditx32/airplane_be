@@ -14,7 +14,8 @@ class Priode extends Model
 
     protected $fillable = [
         'name',
-        'slug'
+        'date',
+        'slug',
     ];
 
     public function setNameAttribute($value) {
