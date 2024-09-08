@@ -30,11 +30,18 @@ class AirlineResource extends Resource
         return $form
             ->schema([
                 //
-                TextInput::make('name')->helpertext('Gunakan name data dengan tepat.')->required()->maxLength(255),
+                TextInput::make('name')
+                    ->helpertext('Gunakan name data dengan tepat.')
+                    ->required()
+                    ->maxLength(255),
 
-                FileUpload::make('icon')->image()->required(),
+                FileUpload::make('icon')
+                    ->image()
+                    ->required(),
 
-                FileUpload::make('photo')->image()->required(),
+                FileUpload::make('photo')
+                    ->image()
+                    ->required(),
             ]);
     }
 
@@ -43,14 +50,16 @@ class AirlineResource extends Resource
         return $table
             ->columns([
                 //
-                TextColumn::make('name')->searchable(),
+                TextColumn::make('name')
+                    ->searchable(),
 
                 ImageColumn::make('icon'),
 
                 ImageColumn::make('photo'),
 
-                TextColumn::make('created_at')->dateTime('d-M-Y H:i:s')
-                ->label('Created Airline'),
+                TextColumn::make('created_at')
+                    ->dateTime('d-M-Y H:i:s')
+                    ->label('Created Airline'),
             ])
             ->filters([
                 //
@@ -80,5 +89,10 @@ class AirlineResource extends Resource
             'create' => Pages\CreateAirline::route('/create'),
             'edit' => Pages\EditAirline::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
     }
 }

@@ -8,48 +8,28 @@
 
  <!-- Section Hero -->
   <div id="slider">
+    @forelse ($sliders as $slider)
     <div class="h-screen w-full overflow-hidden">
       <div class="absolute inset-0">
         <img alt="title" class="h-full w-full object-cover object-right md:object-center"
-          src="./assets/images/slider/14699_b40d8fa1d0c902abca5fb30b711c5a05.jpg">
+          src="{!! Storage::url($slider->photo_desktop) !!}">
         <div class="absolute inset-0 bg-black opacity-60"></div>
       </div>
       <div class="relative z-10 flex flex-col justify-center items-center h-full text-center">
         <h2 class="md:max-w-lg lg:max-w-lg xl:max-w-2xl mx-auto text-xl md:text-2xl md:leading-normal text-white">
-          Umroh penuh makna dengan</h2>
+           {!! $slider->sub_title !!}</h2>
         <h1
           class="md:max-w-lg lg:max-w-lg xl:max-w-2xl mx-auto text-4xl md:text-5xl font-black md:leading-normal text-white">
-          Alia Wisata</h1>
+          {!! $slider->title !!}</h1>
         <div
           class="max-w-xs md:max-w-md lg:max-w-2xl mx-auto text-white text-base md:text-lg md:leading-normal tracking-wide">
-          <p class="text-base md:text-lg">“Ibadah umrah ke ibadah umrah berikutnya adalah penggugur (dosa) di antara
-            keduanya, dan haji yang mabrur
-            tiada
-            balasan (bagi pelakunya) melainkan surga” (HR al-Bukhari dan Muslim)</p>
+          <p class="text-base md:text-lg"> {!! $slider->description !!}</p>
         </div>
       </div>
     </div>
-    <div class="h-screen w-full overflow-hidden">
-      <div class="absolute inset-0">
-        <img alt="title" class="h-full w-full object-cover object-right md:object-center"
-          src="./assets/images/slider/masjid-nabawi-1.jpg">
-        <div class="absolute inset-0 bg-black opacity-60"></div>
-      </div>
-      <div class="relative z-10 flex flex-col justify-center items-center h-full text-center">
-        <h2 class="md:max-w-lg lg:max-w-lg xl:max-w-2xl mx-auto text-xl md:text-2xl md:leading-normal text-white">
-          Umroh penuh makna dengan</h2>
-        <h1
-          class="md:max-w-lg lg:max-w-lg xl:max-w-2xl mx-auto text-4xl md:text-5xl font-black md:leading-normal text-white">
-          Alia Wisata</h1>
-        <div
-          class="max-w-xs md:max-w-md lg:max-w-2xl mx-auto text-white text-base md:text-lg md:leading-normal tracking-wide">
-          <p class="text-base md:text-lg">“Ibadah umrah ke ibadah umrah berikutnya adalah penggugur (dosa) di antara
-            keduanya, dan haji yang mabrur
-            tiada
-            balasan (bagi pelakunya) melainkan surga” (HR al-Bukhari dan Muslim)</p>
-        </div>
-      </div>
-    </div>
+    @empty
+
+    @endforelse
   </div>
 
   <!-- Section About -->
@@ -185,9 +165,11 @@
         @endif
         @endforeach
         @empty
-        <p class="text-sm md:text-base text-primary"> Data Belum Tersedia </p>
+        <p class="text-sm md:text-base text-primary text-center"> Data Belum Tersedia </p>
         @endforelse
   </section>
+
+            <img src="{!! asset('/assets/frontend/images/wavy-line-1.svg') !!}" class="absolute -z-10 md:top-[120rem] w-full" alt="tickety-assets">
 
   <!-- Section Package Umrah -->
   <section class="container relative max-w-screen-xl py-10">
@@ -198,67 +180,28 @@
         reguler dengan biaya yang lebih hemat hingga paket VIP
         untuk mendapatkan pelayanan terbaik. Semoga kita dimudahkan untuk beribadah umroh di Tanah Suci.</h3>
     </div>
+
+    @forelse ($categories as $category)
     <div class="grid lg:grid-cols-12 md:grid-cols-4 grid-cols-1 gap-[20px] mb-[40px]">
-
-      <!-- card 1 -->
+        @foreach (@$category->products as $product)
       <div
         class="group lg:col-span-3 md:col-span-2 col-span-12 w-full overflow-hidden relative min-h-[300px] rounded-xl">
         <div class="absolute inset-0">
           <img class="h-full w-full object-cover object-right md:object-center"
-            src="./assets/images/package_umroh/41902efc-e68f-44dd-9383-51005d8dabdd.jpg">
+            src="{!! Storage::url($product->thumbnail) !!}">
           <div class="absolute inset-0 bg-black opacity-60"></div>
         </div>
         <div class="relative z-10 flex flex-col gap-y-2 justify-center items-center h-full">
-          <h3 class="text-xl md:text-2xl font-bold">UMROH REGULER</h3>
+          <h3 class="text-xl md:text-2xl font-bold">{!! $product->name !!}</h3>
           <h4 class="text-lg md:text-xl">mulai dari</h4>
-          <h3 class="text-xl md:text-2xl font-bold">Rp 29.9000.000</h3>
+          <h3 class="text-xl md:text-2xl font-bold">@money($product->price)</h3>
         </div>
       </div>
-      <!-- card 2 -->
-      <div
-        class="group lg:col-span-3 md:col-span-2 col-span-12 w-full overflow-hidden relative min-h-[300px] rounded-xl">
-        <div class="absolute inset-0">
-          <img class="h-full w-full object-cover object-right md:object-center"
-            src="./assets/images/package_umroh/41902efc-e68f-44dd-9383-51005d8dabdd.jpg">
-          <div class="absolute inset-0 bg-black opacity-60"></div>
-        </div>
-        <div class="relative z-10 flex flex-col gap-y-2 justify-center items-center h-full">
-          <h3 class="text-xl md:text-2xl font-bold">UMROH VIP</h3>
-          <h4 class="text-lg md:text-xl">mulai dari</h4>
-          <h3 class="text-xl md:text-2xl font-bold">Rp 29.9000.000</h3>
-        </div>
-      </div>
-      <!-- card 3 -->
-      <div
-        class="group lg:col-span-3 md:col-span-2 col-span-12 w-full overflow-hidden relative min-h-[300px] rounded-xl">
-        <div class="absolute inset-0">
-          <img class="h-full w-full object-cover object-right md:object-center"
-            src="./assets/images/package_umroh/41902efc-e68f-44dd-9383-51005d8dabdd.jpg">
-          <div class="absolute inset-0 bg-black opacity-60"></div>
-        </div>
-        <div class="relative z-10 flex flex-col gap-y-2 justify-center items-center h-full">
-          <h3 class="text-xl md:text-2xl font-bold">sdadasd</h3>
-          <h4 class="text-lg md:text-x">mulai dari</h4>
-          <h3 class="text-xl md:text-2xl font-bold">Rp 29.9000.000</h3>
-        </div>
-      </div>
-      <!-- card 4 -->
-      <div
-        class="group lg:col-span-3 md:col-span-2 col-span-12 w-full overflow-hidden relative min-h-[300px] rounded-xl">
-        <div class="absolute inset-0">
-          <img class="h-full w-full object-cover object-right md:object-center"
-            src="./assets/images/package_umroh/41902efc-e68f-44dd-9383-51005d8dabdd.jpg">
-          <div class="absolute inset-0 bg-black opacity-60"></div>
-        </div>
-        <div class="relative z-10 flex flex-col gap-y-2 justify-center items-center h-full">
-          <h3 class="text-xl md:text-2xl font-bold">sdadasd</h3>
-          <h4 class="text-lg md:text-xl">sdadasd</h4>
-          <h3 class="text-xl md:text-2xl font-bold">sdadasd</h3>
-        </div>
-      </div>
-
-
+    @endforeach
     </div>
+    @empty
+    <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
+    @endforelse
   </section>
 
   <!-- Section Select New Package Umrah -->
@@ -267,7 +210,7 @@
       <!-- <h3 class="text-xl md:text-2xl text-primary">Umroh Musim 1445 H</h3> -->
       <h2 class="text-2xl md:text-4xl font-bold text-secondary">Paket Umroh Terbaru</h2>
     </div>
-        @forelse ($categories as $category)
+    @forelse ($categories as $category)
     @foreach (@$category->products as $product)
     @if ($product->category_id == 2)
     <!-- Card Product Group -->
@@ -355,7 +298,7 @@
         @endif
         @endforeach
         @empty
-        <p class="text-sm md:text-base text-primary"> Data Belum Tersedia </p>
+        <p class="text-sm md:text-base text-primary text-center"> Data Belum Tersedia </p>
         @endforelse
     <!-- End Card Product Group -->
   </section>
@@ -383,7 +326,6 @@
     </div>
 
   </section>
-  <img src="./assets/images/wavy-line-1.svg" class="absolute -z-10 md:top-[100rem] w-full" alt="tickety-assets">
   <!-- Section Our Services -->
   <section class="container relative max-w-screen-xl py-10 bg-white rounded-md">
     <div class="flex flex-col justify-between items-center w-full gap-1 mb-[50px]">
@@ -453,16 +395,14 @@
       </h3>
     </div>
     <div id="lightgallery" class="grid grid-cols-2 md:grid-cols-3 gap-4">
-      <a href="./assets/images/gallery/Bahrah-Tour-2.webp" data-lg-size="1600-2400">
-        <img class="h-[300px] max-w-full rounded-lg" alt="img1" src="./assets/images/gallery/Bahrah-Tour-2.webp" />
       </a>
-      <a href="./assets/images/gallery/Bahrah-Tour-3.webp" data-lg-size="1600-2400">
-        <img class="h-[300px] max-w-full rounded-lg" alt="img1" src="./assets/images/gallery/Bahrah-Tour-3.webp" />
-      </a>
-      <a href="./assets/images/gallery/Bahrah-Tour-4-1.webp" data-lg-size="1600-2400">
-        <img class="h-[300px] max-w-full rounded-lg" alt="img1" src="./assets/images/gallery/Bahrah-Tour-4-1.webp" />
-      </a>
-
+        @forelse ($galleries as $galleri)
+        <a href="{!! Storage::url($galleri->photo) !!}" data-lg-size="1600-2400">
+        <img class="h-[300px] max-w-full rounded-lg" alt="{!! $galleri->CategoryGallery->name !!}" src="{!! Storage::url($galleri->photo) !!}" />
+        </a>
+        @empty
+        <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
+        @endforelse
     </div>
 
   </section>
@@ -625,31 +565,13 @@
         </h3> -->
     </div>
     <div id="mitraCarousel">
-      <img class="w-[150px] h-[120px] rounded-2xl mr-[30px]" src="./assets/images/mitra/logo-citilink-abt.webp"
-        alt="tickety-assets">
-      <img class="w-[150px] h-[120px] rounded-2xl mr-[30px]" src="./assets/images/mitra/logo-elaf-hotel-abt.webp"
-        alt="tickety-assets">
-      <img class="w-[150px] h-[120px] rounded-2xl mr-[30px]" src="./assets/images/mitra/logo-emirates-abt.webp"
-        alt="tickety-assets">
-      <img class="w-[150px] h-[120px] rounded-2xl mr-[30px]" src="./assets/images/mitra/logo-etihad-abt.webp"
-        alt="tickety-assets">
-      <img class="w-[150px] h-[120px] rounded-2xl mr-[30px]" src="./assets/images/mitra/logo-garuda-indonesia-abt.webp"
-        alt="tickety-assets">
-      <img class="w-[150px] h-[120px] rounded-2xl mr-[30px]" src="./assets/images/mitra/logo-hotel-fajr-badie-icon.webp"
-        alt="tickety-assets">
-      <img class="w-[150px] h-[120px] rounded-2xl mr-[30px]"
-        src="./assets/images/mitra/logo-hotel-le-meridien-mekah.webp" alt="tickety-assets">
-    </div>
-    <!-- <div id="galleryCarousel">
-      <img src="./assets/images/logo-alia-wisata.png" class="w-[433px] h-[310px] rounded-2xl mr-[30px]"
-        alt="tickety-assets">
-      <img src="./assets/images/logo-alia-wisata.png" class="w-[433px] h-[310px] rounded-2xl mr-[30px]"
-        alt="tickety-assets">
-      <img src="./assets/images/logo-alia-wisata.png" class="w-[433px] h-[310px] rounded-2xl mr-[30px]"
-        alt="tickety-assets">
-      <img src="./assets/images/logo-alia-wisata.png" class="w-[433px] h-[310px] rounded-2xl mr-[30px]"
-        alt="tickety-assets">
-    </div> -->
+        @forelse ($partners as $partner)
+        <img class="w-[150px] h-[120px] rounded-2xl mr-[30px]" src="{!! Storage::url($partner->icon) !!}"
+          alt="{!! $partner->title !!}">
+        @empty
+        <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
+        @endforelse
+
     <!-- Prev Button -->
     <!-- <div class="absolute hidden -translate-y-1/2 top-1/2 right-4 lg:right-[200px] cursor-pointer"
       id="carouselRightButton">

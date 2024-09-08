@@ -32,36 +32,80 @@ class ProductResource extends Resource
         return $form
             ->schema([
                 //
-                TextInput::make('name')->required()->maxLength(255),
+                TextInput::make('name')
+                    ->required()
+                    ->maxLength(255),
 
-                FileUpload::make('thumbnail')->image()->required(),
+                FileUpload::make('thumbnail')
+                    ->image()
+                    ->required(),
 
-                Select::make('category_id')->relationship('category', 'name')->searchable()->preload()->required(),
+                Select::make('category_id')
+                    ->relationship('category', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->required(),
 
-                Select::make('priode_id')->relationship('priode', 'name')->searchable()->preload()->required(),
+                Select::make('priode_id')
+                    ->relationship('priode', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->required(),
 
-                Textarea::make('about')->required()->rows(10)->cols(20),
+                Textarea::make('about')->required()
+                    ->rows(10)
+                    ->cols(20),
 
-                Repeater::make('ProductPhotos')->relationship('ProductPhotos')->schema([FileUpload::make('photo')->required()]),
+                Repeater::make('ProductPhotos')
+                    ->relationship('ProductPhotos')
+                    ->schema([
+                        FileUpload::make('photo')
+                        ->required()
+                    ]
+                ),
 
-                Repeater::make('ProductBenefits')->relationship('ProductBenefits')->schema([TextInput::make('name')->required()]),
+                Repeater::make('ProductBenefits')
+                    ->relationship('ProductBenefits')
+                    ->schema([
+                            TextInput::make('name')
+                            ->required()
+                        ]
+                ),
 
-                Repeater::make('ProductHotels')->relationship('ProductHotels')->schema([TextInput::make('name')->required()]),
+                Repeater::make('ProductHotels')
+                    ->relationship('ProductHotels')
+                    ->schema([
+                        TextInput::make('name')
+                        ->required()
+                    ]
+                ),
 
-                Repeater::make('ProductAirlines')->relationship()
-                ->schema([Select::make('airline_id')
-                ->relationship('airline', 'name')
-                ->required(),
-                ]),
+                Repeater::make('ProductAirlines')
+                    ->relationship()
+                    ->schema([
+                        Select::make('airline_id')
+                    ->relationship('airline', 'name')
+                    ->required()
+                    ]
+                ),
 
-                TextInput::make('duration')->required()->numeric()->prefix('Days'),
+                TextInput::make('duration')
+                    ->required()
+                    ->numeric()
+                    ->prefix('Days'),
 
-                TextInput::make('price')->required()->numeric()->prefix('IDR')->maxValue(42949672.95),
+                TextInput::make('price')
+                    ->required()
+                    ->numeric()
+                    ->prefix('IDR')
+                    ->maxValue(42949672.95),
 
-                Select::make('is_open')->options([
-                    true => 'Open',
-                    false => 'Not Open',
-                ])->required(),
+                Select::make('is_open')
+                    ->options([
+                        true => 'Open',
+                        false => 'Not Open',
+                    ])
+                    ->required(),
 
 
             ]);
@@ -73,27 +117,29 @@ class ProductResource extends Resource
             ->columns([
                 //
 
-                TextColumn::make('name')->searchable(),
+                TextColumn::make('name')
+                    ->searchable(),
 
                 ImageColumn::make('thumbnail'),
 
                 TextColumn::make('category.name'),
 
                 TextColumn::make('price')
-                ->money('IDR')
-                ->sortable(),
+                    ->money('IDR')
+                    ->sortable(),
 
                 IconColumn::make('is_open')
-                ->boolean()
-                ->falseColor('danger')
-                ->trueColor('success')
-                ->falseIcon('heroicon-o-x-circle')
-                ->trueIcon('heroicon-o-check-circle')
-                ->label('Visibility')
-                ->sortable(),
+                    ->boolean()
+                    ->falseColor('danger')
+                    ->trueColor('success')
+                    ->falseIcon('heroicon-o-x-circle')
+                    ->trueIcon('heroicon-o-check-circle')
+                    ->label('Visibility')
+                    ->sortable(),
 
-                TextColumn::make('created_at')->dateTime('d-M-Y H:i:s')
-                ->label('Created Product'),
+                TextColumn::make('created_at')
+                    ->dateTime('d-M-Y H:i:s')
+                    ->label('Created Product'),
 
             ])
             ->filters([
@@ -126,5 +172,10 @@ class ProductResource extends Resource
             'create' => Pages\CreateProduct::route('/create'),
             'edit' => Pages\EditProduct::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
     }
 }

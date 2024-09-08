@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('airlines', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('icon');
-            $table->string('photo');
+            $table->string('icon')->nullable();
+            $table->string('photo')->nullable();
             $table->string('slug')->unique();
             $table->softDeletes();
             $table->timestamps();

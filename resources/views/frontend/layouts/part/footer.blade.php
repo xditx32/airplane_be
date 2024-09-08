@@ -51,7 +51,7 @@
           <h5 class="tracking-wide text-lg md:text-xl font-bold py-4 text-primary">
             Kebijakan & Privasi</h5>
           <a href="https://umrahcerdas.kemenag.go.id/home/detail/23" target="_blank" rel="noopener noreferrer">
-            <img src="./assets/images/siskopatuh.webp" alt="">
+            <img src="{!! asset('/assets/frontend/images/siskopatuh.webp') !!}" alt="">
           </a>
         </div>
         <!-- <div class="lg:col-span-3 md:col-span-4 col-span-12">

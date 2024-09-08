@@ -30,11 +30,18 @@ class CategoryResource extends Resource
         return $form
             ->schema([
                 //
-                TextInput::make('name')->helpertext('Gunakan name data dengan tepat.')->required()->maxLength(255),
+                TextInput::make('name')
+                    ->helpertext('Gunakan name data dengan tepat.')
+                    ->required()
+                    ->maxLength(255),
 
-                FileUpload::make('icon')->image()->required(),
+                FileUpload::make('icon')
+                    ->image()
+                    ->required(),
 
-                FileUpload::make('photo')->image()->required(),
+                FileUpload::make('photo')
+                    ->image()
+                    ->required(),
             ]);
     }
 
@@ -80,5 +87,10 @@ class CategoryResource extends Resource
             'create' => Pages\CreateCategory::route('/create'),
             'edit' => Pages\EditCategory::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
     }
 }
