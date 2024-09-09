@@ -7,6 +7,7 @@ use Filament\Facades\Filament;
 use Filament\Navigation\NavigationGroup;
 use Filament\Navigation\NavigationBuilder;
 use App\Filament\Resources\{CategoryResource, ProductResource};
+use Filament\FilamentManager;
 use Illuminate\Support\Facades\Blade;
 
 
@@ -29,6 +30,5 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('money', function ($amount) {
             return "<?php echo 'Rp ' . number_format($amount, 2); ?>";
         });
-
     }
 }

@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\HomeResource\Pages;
+namespace App\Filament\Resources\BrochureResource\Pages;
 
-use App\Filament\Resources\HomeResource;
+use App\Filament\Resources\BrochureResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
-class ListHomes extends ListRecords
+class ListBrochures extends ListRecords
 {
-    protected static string $resource = HomeResource::class;
+    protected static string $resource = BrochureResource::class;
 
     protected function getHeaderActions(): array
     {

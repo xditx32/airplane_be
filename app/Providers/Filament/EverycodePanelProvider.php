@@ -27,6 +27,7 @@ class EverycodePanelProvider extends PanelProvider
             ->id('everycode')
             ->path('everycode')
             ->login()
+            ->registration()
             ->colors([
                 'primary' => Color::Amber,
             ])

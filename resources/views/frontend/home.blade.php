@@ -28,7 +28,7 @@
       </div>
     </div>
     @empty
-
+        <p class="text-sm md:text-base text-primary"> Data Belum Tersedia </p>
     @endforelse
   </div>
 
@@ -78,18 +78,16 @@
       <h2 class="text-2xl md:text-4xl font-bold text-secondary">Paket Umroh Unggulan</h2>
     </div>
     @forelse ($categories as $category)
-    @foreach (@$category->products as $product)
-    @if ($product->category_id == 1)
-    <!-- Card Product Group -->
-        <div class="grid lg:grid-cols-12 md:grid-cols-4 grid-cols-1 gap-[20px] mb-[40px]">
-            <div
-            class="group lg:col-span-3 md:col-span-2 col-span-12 rounded-2xl w-full overflow-hidden relative min-h-[650px] bg-primary">
-            <img src="{!! Storage::url( $product->thumbnail ) !!}" class="w-full h-full max-h-[150px]"
+        @foreach (@$category->products as $product)
+            @if ($product->category_id == 1)
+                <!-- Card Product Group -->
+            <div class="grid lg:grid-cols-12 md:grid-cols-4 grid-cols-1 gap-[20px] mb-[40px]">
+                <div class="group lg:col-span-3 md:col-span-2 col-span-12 rounded-2xl w-full overflow-hidden relative min-h-[650px] bg-primary">
+                <img src="{!! Storage::url( $product->thumbnail ) !!}" class="w-full h-full max-h-[150px]"
             alt="tickety-assets">
-            <p
-            class="px-[14px] py-2 rounded-xl bg-butter-yellow text-dark-indigo font-semibold text-sm absolute top-5 right-5">
-            Popular
-            </p>
+                <p class="px-[14px] py-2 rounded-xl bg-butter-yellow text-dark-indigo font-semibold text-sm absolute top-5 right-5">
+                    Popular
+                </p>
             <div class="p-5 w-full bg-primary flex flex-col h-full">
                 <div class="max-w-[290px]">
                     <div class="flex flex-col gap-y-4 text-white">
@@ -149,7 +147,7 @@
                         @money($product->price )
                     </h3>
                         <div class="mt-auto">
-<a href="{{ route('product.details', [$category->slug, $product->slug]) }}" class="block btn-secondary">
+                            <a href="{{ route('product.details', [$category->slug, $product->slug]) }}" class="block btn-secondary">
                             Detail Jadwal
                             </a>
                           </div>
@@ -158,18 +156,18 @@
                 </div>
             </div>
         </div>
-        <!-- End Card Product Group -->
-        <div class="flex flex-col justify-between items-center">
-            <a class="block btn-primary" href="{!! route('category', $category->slug) !!}">Paket Umroh Unggulan Lainnya</a>
-        </div>
+            <!-- End Card Product Group -->
+            <div class="flex flex-col justify-between items-center">
+                <a class="block btn-primary" href="{!! route('category', $category->slug) !!}">Paket Umroh Unggulan Lainnya</a>
+            </div>
         @endif
         @endforeach
         @empty
         <p class="text-sm md:text-base text-primary text-center"> Data Belum Tersedia </p>
-        @endforelse
+    @endforelse
   </section>
 
-            <img src="{!! asset('/assets/frontend/images/wavy-line-1.svg') !!}" class="absolute -z-10 md:top-[120rem] w-full" alt="tickety-assets">
+<img src="{!! asset('/assets/frontend/images/wavy-line-1.svg') !!}" class="absolute -z-10 md:top-[120rem] w-full" alt="tickety-assets">
 
   <!-- Section Package Umrah -->
   <section class="container relative max-w-screen-xl py-10">
@@ -311,18 +309,13 @@
     </div>
 
     <div id="new-browsur">
-      <a href="http://">
-        <img class="w-fit h-[600px] rounded-lg mr-[30px]" src="./assets/images/browsur/02.jpg" alt="">
-      </a>
-      <a href="http://">
-        <img class="w-fit h-[600px] rounded-lg mr-[30px]" src="./assets/images/browsur/04-1.jpg" alt="">
-      </a>
-      <a href="http://">
-        <img class="w-fit h-[600px] rounded-lg mr-[30px]" src="./assets/images/browsur/04-1.jpg" alt="">
-      </a>
-      <a href="http://">
-        <img class="w-fit h-[600px] rounded-lg mr-[30px]" src="./assets/images/browsur/04-1.jpg" alt="">
-      </a>
+    @forelse ($brochures as $brochure)
+        <a href="http://">
+        <img class="w-fit h-[600px] rounded-lg mr-[30px]" src="{!! Storage::url($brochure->photo) !!}" alt="{!! $brochure->name !!}">
+        </a>
+    @empty
+        <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
+    @endforelse
     </div>
 
   </section>
@@ -395,11 +388,11 @@
       </h3>
     </div>
     <div id="lightgallery" class="grid grid-cols-2 md:grid-cols-3 gap-4">
-      </a>
+
         @forelse ($galleries as $galleri)
         <a href="{!! Storage::url($galleri->photo) !!}" data-lg-size="1600-2400">
-        <img class="h-[300px] max-w-full rounded-lg" alt="{!! $galleri->CategoryGallery->name !!}" src="{!! Storage::url($galleri->photo) !!}" />
-        </a>
+            <img class="h-[300px] max-w-full rounded-lg" alt="{!! $galleri->CategoryGallery->name !!}" src="{!! Storage::url($galleri->photo) !!}" />
+            </a>
         @empty
         <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
         @endforelse
