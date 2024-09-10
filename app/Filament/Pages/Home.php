@@ -42,9 +42,7 @@ class Home extends Page implements HasForms
     public ?Home $record = null;
 
 
-
-
-        public function mount(): void
+    public function mount(): void
     {
          $this->form->fill();
     }
@@ -63,26 +61,26 @@ class Home extends Page implements HasForms
     //     }
     // }
 
-        public function fillForm(): void
-    {
-        $data = $this->record->attributesToArray();
+    //     public function fillForm(): void
+    // {
+    //     $data = $this->record->attributesToArray();
 
-        $this->form->fill($data);
-    }
+    //     $this->form->fill($data);
+    // }
 
-     public function save(): void
-    {
-        try {
-            $data = $this->form->getState();
+    //  public function save(): void
+    // {
+    //     try {
+    //         $data = $this->form->getState();
 
-            $this->handleRecordUpdate($this->record, $data);
+    //         $this->handleRecordUpdate($this->record, $data);
 
-        } catch (Halt $exception) {
-            return;
-        }
+    //     } catch (Halt $exception) {
+    //         return;
+    //     }
 
-        $this->getSavedNotification()->send();
-    }
+    //     $this->getSavedNotification()->send();
+    // }
 
 
     public function form(Form $form): Form
@@ -129,48 +127,48 @@ class Home extends Page implements HasForms
             // });
     }
 
-        protected function getDataPresentationSection(): Component
-    {
-        return Section::make('Data Presentation')
-            ->schema([
-                Select::make('table_sort_direction')
-                    ->softRequired()
-                    ->localizeLabel()
-                    ->options(TableSortDirection::class),
-                Select::make('records_per_page')
-                    ->softRequired()
-                    ->localizeLabel()
-                    ->options(RecordsPerPage::class),
-            ])->columns();
-    }
+    //     protected function getDataPresentationSection(): Component
+    // {
+    //     return Section::make('Data Presentation')
+    //         ->schema([
+    //             Select::make('table_sort_direction')
+    //                 ->softRequired()
+    //                 ->localizeLabel()
+    //                 ->options(TableSortDirection::class),
+    //             Select::make('records_per_page')
+    //                 ->softRequired()
+    //                 ->localizeLabel()
+    //                 ->options(RecordsPerPage::class),
+    //         ])->columns();
+    // }
 
 
-       protected function handleRecordUpdate(Home $record, array $data): Home
-    {
-        $record->fill($data);
+    //    protected function handleRecordUpdate(Home $record, array $data): Home
+    // {
+    //     $record->fill($data);
 
-        $keysToWatch = [
-            'primary_color',
-            'max_content_width',
-            'has_top_navigation',
-            'font',
-        ];
+    //     $keysToWatch = [
+    //         'primary_color',
+    //         'max_content_width',
+    //         'has_top_navigation',
+    //         'font',
+    //     ];
 
-        if ($record->isDirty($keysToWatch)) {
-            $this->dispatch('appearanceUpdated');
-        }
+    //     if ($record->isDirty($keysToWatch)) {
+    //         $this->dispatch('appearanceUpdated');
+    //     }
 
-        $record->save();
+    //     $record->save();
 
-        return $record;
-    }
+    //     return $record;
+    // }
 
-     protected function getFormActions(): array
-    {
-        return [
-            $this->getSaveFormAction(),
-        ];
-    }
+    //  protected function getFormActions(): array
+    // {
+    //     return [
+    //         $this->getSaveFormAction(),
+    //     ];
+    // }
 
 
        protected function getSaveFormAction(): Action
@@ -207,67 +205,83 @@ class Home extends Page implements HasForms
 //  }
 
 
-    //  public function save(): void {
-    //     try {
-    //         $tenant = Filament::getTenant();
-    //         $data = $this->form->getState();
+     public function save(): void {
+        try {
+            $tenant = Filament::getTenant();
+            // $data = $this->form->getState();
 
-    //         // dd($data);
-    //         // $data['slide_id'] = $data['slide_id'] ?? null;
+            // $data = $this->form->getState();
+            // $record->update($data);
+            // return $record;
 
-    //         // $record->update($data);
+                $results = [];
+                $players = $this->form->getState();
 
-    //         // return $record;
+                foreach ($players as $key => $item) {
+                    $results[] = [
+                        // 'user_id' => auth()->id(),
+                        //'slider_id' => $slider_Id,
+                        // 'position' => $key + 1,
+                        // 'player_id' => $item['name'],
+                        'created_at' => now(),
+                        'updated_at' => now(),
+                    ];
+                }
 
-    //         // Home::updateOrInsert(
-    //         //      $data['slide_id'] = $data['slide_id'] ?? null;
-    //         // );
+                Home::insert($results);
 
-    //         Home::updateOrInsert(
-    //            ['slider_id' => $tenant->id],
-    //         //    ['title' => $tenant->title],
-    //         //    ['description' => $tenant->description],
-    //         //    ['gmap_link' => $tenant->gmap_link],
-    //             $data
-    //         );
-    //         // Home::updateOrInsert(
-    //         // //    $data['slider_id'] = $tenant->id,
-    //         // //    $data['title'] = $tenant->title,
-    //         // //    $data['description'] = $tenant->description,
-    //         // //    $data['gmap_link'] = $tenant->gmap_link,
-    //         //     $data
-    //         // );
-    //         // Home::updateOrInsert(
-    //         // $tenant->id,
-    //         // $tenant->title,
-    //         // $tenant->description,
-    //         // $tenant->gmap_link,
-    //         //     $data
-    //         // );
+            // $record = $this->form->getState();
+            // $record->save();
 
-    //         Notification::make()
-    //             ->title('Saved successfully')
-    //             ->success()
-    //             ->send();
+            // dd($data);
+            // $data['slide_id'] = $data['slide_id'] ?? null;
+
+            // $record->update($data);
+
+            // return $record;
+
+            // Home::updateOrInsert(
+            //      $data['slide_id'] = $data['slide_id'] ?? null;
+            // );
+
+            // Home::updateOrInsert(
+            //    ['slider_id' => $tenant->id],
+            // //    ['title' => $tenant->title],
+            // //    ['description' => $tenant->description],
+            // //    ['gmap_link' => $tenant->gmap_link],
+            //     $data
+            // );
+            // // Home::updateOrInsert(
+            // //    $data['slider_id'] = $tenant->id,
+            // //    $data['title'] = $tenant->title,
+            // //    $data['description'] = $tenant->description,
+            // //    $data['gmap_link'] = $tenant->gmap_link,
+            //     $data
+            // );
+
+            Notification::make()
+                ->title('Saved successfully')
+                ->success()
+                ->send();
 
 
-    //     } catch (Halt $exception) {
-    //         Notification::make()
-    //             ->title('Something went wrong!')
-    //             ->danger()
-    //             ->send();
-    //         return;
-    //     }
-    // }
+        } catch (Halt $exception) {
+            Notification::make()
+                ->title('Something went wrong!')
+                ->danger()
+                ->send();
+            return;
+        }
+    }
 
-    // public function getFormActions(): array
-    // {
-    //     return [
-    //         Action::make('save')
-    //             ->label(__('filament-panels::resources/pages/edit-record.form.actions.save.label'))
-    //             ->submit('save'),
-    //     ];
-    // }
+    public function getFormActions(): array
+    {
+        return [
+            Action::make('save')
+                ->label(__('filament-panels::resources/pages/edit-record.form.actions.save.label'))
+                ->submit('save'),
+        ];
+    }
 
 
 
