@@ -16,8 +16,8 @@ class Home extends Model
         'gmap_link'
     ];
 
-    public function HomeSlider():HasMany
-    {
-        return $this->hasMany(HomeSlider::class, 'home_id');
-    }
+    // public function HomeSlider():HasMany
+    // {
+    //     return $this->hasMany(HomeSlider::class, 'home_id');
+    // }
 }
