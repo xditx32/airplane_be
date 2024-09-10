@@ -3,25 +3,29 @@
 namespace App\Filament\Pages;
 
 use Filament\Actions\Action;
+use Filament\Facades\Filament;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Pages\Page;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\{TextColumn, ImageColumn, IconColumn};
-use Filament\Forms\Components\{TextInput, FileUpload, Select, Textarea, Repeater};
+use Filament\Forms\Components\{Component, TextInput, FileUpload, Select, Textarea, Repeater, Section};
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Notification as NotificationsNotification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+// use App\Models\Home as Home;
+
+use Illuminate\Database\Eloquent\Model;
 
 class Home extends Page implements HasForms
 {
 
     use InteractsWithForms;
 
-    public ?array $data = [];
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
@@ -29,28 +33,31 @@ class Home extends Page implements HasForms
 
     protected static string $view = 'filament.pages.home';
 
-    // public static $label = 'Custom Navigation Label';
+    // public ?array $data = [];
 
-    // public static $slug = 'custom-url-slug';
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+        $data['user_id'] = auth()->id();
 
+        return $data;
+    }
 
-    public Home $home;
+    protected function handleRecordCreation(array $data): Model
+    {
+        return static::getModel()::create($data);
+    }
 
     public function mount(): void
     {
         $this->form->fill();
     }
 
-    // public function mount(): void
-    // {
-    //     $this->record = auth()->user();
-    //     $this->fillForm();
-    // }
+    public function fillForm(): void
+    {
+        $data = $this->record->attributesToArray();
 
-//    public function mount(): void
-//     {
-//         $this->form->fill(auth()->user()->attributesToArray());
-//     }
+        $this->form->fill($data);
+    }
 
      public function form(Form $form): Form
     {
@@ -73,8 +80,7 @@ class Home extends Page implements HasForms
                             ->required(),
                         TextArea::make('description')
                             ->required(),
-                        FileUpload::make('photo')
-                            ->required(),
+                        FileUpload::make('photo'),
                         TextInput::make('button_title')
                             ->required(),
                         TextInput::make('button_link')
@@ -85,7 +91,6 @@ class Home extends Page implements HasForms
                                 false => 'Not Active',
                             ])
                     ->required()
-                    // ->record()
                 ]),
 
                 TextInput::make('gmap_link')
@@ -96,60 +101,80 @@ class Home extends Page implements HasForms
             ])->statePath('data');
     }
 
-    public function getFormActions():array
+    public function save(): void {
+        try {
+            // $home = Home::getHome();
+            $data = $this->form->getState();
+
+            $this->json = json_encode($data);
+            // file_put_contents($this->json);
+            //$this->save();
+            // dd($data);
+
+            // Home::updateOrInsert(
+            //     ['title' => $data->title],
+            //     $data
+            // );
+            Notification::make()
+                ->title('Saved successfully')
+                ->success()
+                ->send();
+
+        } catch (Halt $exception) {
+            Notification::make()
+                ->title('Something went wrong!')
+                ->danger()
+                ->send();
+            return;
+        }
+    }
+
+    // public function save():void
+    // {
+    //     try{
+    //         $data = $this->form->getState();
+
+    //         // $this->handleRecordUpdate($this->record, $data);
+
+    //         // $data = $this->form->getState();
+    //         $home = Home::updateOrCreate()
+    //         $home->title = $data['title'];
+
+
+
+    //            // dd($data);
+    //         // $home = Home::find();
+    //         // $home = Request::all();
+    //         // $home->title = $data['title'];
+    //         // $data->all();
+    //         // $home->save();
+    //         // dd($test);
+    //         // foreach($data as $datas) {
+    //         //         $datas[] = [
+    //         //             'title_id' => $title_id,
+    //         //             'screening_id' => $screening_id
+    //         //         ];
+    //         //     }
+    //         Home::save($data);
+
+    //     }catch(Halt $exception){
+    //         return;
+    //     }
+
+    //     Notification::make()
+    //         ->success()
+    //         // ->title(__('filament-panels::resources/pages/edit-record.notifications.saved.title'))
+    //         ->send();
+    // }
+
+     protected function getFormActions(): array
     {
         return [
             Action::make('save')
-            ->submit('save'),
-        ];
-        return [
-        Action::make('Update')
-            ->color('primary')
-            ->submit('Update'),
+                ->label(__('filament-panels::resources/pages/edit-record.form.actions.save.label'))
+                ->submit('save'),
         ];
     }
-
-    public function save()
-    {
-        try{
-            $data = $this->form->getState();
-            // $home = Home::updateOrCreate()
-            // $home->title = $data['title'];
-
-
-               // dd($data);
-            // $home = Home::find();
-            // $home = Request::all();
-            // $home->title = $data['title'];
-            // $data->all();
-            // $home->save();
-            // dd($test);
-            // foreach($data as $datas) {
-            //         $datas[] = [
-            //             'title_id' => $title_id,
-            //             'screening_id' => $screening_id
-            //         ];
-            //     }
-            Home::save($data);
-
-        }catch(Halt $ex){
-            return;
-        }
-
-        Notification::make()
-            ->success()
-            // ->title(__('filament-panels::resources/pages/edit-record.notifications.saved.title'))
-            ->send();
-    }
-
-    //  protected function getFormActions(): array
-    // {
-    //     return [
-    //         Action::make('save')
-    //             ->label(__('filament-panels::resources/pages/edit-record.form.actions.save.label'))
-    //             ->submit('save'),
-    //     ];
-    // }
 
     // public function save(): void
     // {

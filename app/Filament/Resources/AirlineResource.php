@@ -37,6 +37,9 @@ class AirlineResource extends Resource
 
                 FileUpload::make('icon')
                     ->image()
+                    ->disk('public')
+                    ->optimaze('webp')
+                    ->directory('airline')
                     ->required(),
 
                 FileUpload::make('photo')
