@@ -41,6 +41,9 @@ class Home extends Page implements HasForms
 
     public ?Home $record = null;
 
+   public $Home = '';
+    public $HomeSlider = [];
+
 
 
     public function mount(): void
@@ -68,6 +71,7 @@ class Home extends Page implements HasForms
     //                 ,
 
     //             // Repeater::make('HomeSlider')
+    // ->dehydrated()
     //             // //    ->relationship('HomeSlider')
     //             //     ->schema([
     //             //         TextInput::make('title')
@@ -110,7 +114,7 @@ class Home extends Page implements HasForms
             ->keyBindings(['mod+s']);
     }
 
-    // public function save() {
+    // public function saveee() {
     //     try{
     //         $data = $this->form->getState();
     //         $user = User::find(Auth::user()->id);
@@ -121,12 +125,40 @@ class Home extends Page implements HasForms
     //     }
     // }
 
-    public function save() {
+    public function saveee() {
         try {
+            //$tenant = Filament::getTenant();
+
             $data = $this->form->getState();
-            $home = Home::where();
-            $home->title = $data['title'];
+            $home = new Home;
+            //$home->title = $data['title'];
             $home->save();
+
+        //$results = [];
+        // $data = $this->form->getState();
+
+        // $state = array_filter([
+        //     'title' => $this['title'],
+        // ]);
+        //  Home::record($data);
+
+        // foreach ($data as $key => $item) {
+        //     $results[] = [
+        //         'title' => $item['title'],
+        //         //'title' => $item['title'],
+        //     ];
+        // }
+
+        // Home::insert($results);
+
+        // $insert = [];
+        // foreach($data as $row){
+        //     array_push($insert,[
+        //         'title' => $row
+        //     ]);
+        // }
+        // Home::record($insert);
+
         }catch(Halt$ex) {
             return;
         }
@@ -136,7 +168,7 @@ class Home extends Page implements HasForms
     public function getFormActions(): array
     {
         return [
-            Action::make('save')
+            Action::make('saveee')
                 ->label(__('filament-panels::resources/pages/edit-record.form.actions.save.label'))
                 ->submit('save'),
         ];

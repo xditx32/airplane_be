@@ -31,7 +31,7 @@
 </x-filament::page> --}}
 
 <x-filament-panels::page>
-    <x-filament-panels::form wire:submit="save">
+    <x-filament-panels::form wire:submit="saveee">
         {{ $this->form }}
 
         <x-filament-panels::form.actions
