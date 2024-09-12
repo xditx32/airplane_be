@@ -9,7 +9,7 @@ use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Pages\Page;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\{TextColumn, ImageColumn, IconColumn};
-use Filament\Forms\Components\{Component, TextInput, FileUpload, Select, Textarea, Repeater, Section};
+use Filament\Forms\Components\{Card, Component, TextInput, FileUpload, Select, Textarea, Repeater, Section};
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;
@@ -41,8 +41,8 @@ class Home extends Page implements HasForms
 
     public ?Home $record = null;
 
-   public $Home = '';
-    public $HomeSlider = [];
+   public $Home = [];
+    // public $HomeSlider = [];
 
 
 
@@ -53,12 +53,25 @@ class Home extends Page implements HasForms
 
     public function form(Form $form): Form{
         return $form->schema([
-            TextInput::make('title')->maxLength(255),
-        ])->statePath('data');
+            TextInput::make('title')
+            ->maxLength(255)
+        ])
+        ->statePath('data');
         // return $form->schema([
         //     TextInput::make('name')->maxLength(255)->default(auth()->user()->name),
         // ])->statePath('data');
     }
+
+
+    // public function getFormSchema(): array
+    // {
+    //     return [
+    //         Card::make()
+    //         ->schema([
+    //          TextInput::make('title')->options(Home::get()->pluck('title','id')),
+    //         ])
+    //         ];
+    // }
 
     // public function form(Form $form): Form
     // {
@@ -114,7 +127,7 @@ class Home extends Page implements HasForms
             ->keyBindings(['mod+s']);
     }
 
-    // public function saveee() {
+    // public function save() {
     //     try{
     //         $data = $this->form->getState();
     //         $user = User::find(Auth::user()->id);
@@ -125,14 +138,26 @@ class Home extends Page implements HasForms
     //     }
     // }
 
-    public function saveee() {
+    public function save(): void {
         try {
             //$tenant = Filament::getTenant();
 
             $data = $this->form->getState();
-            $home = new Home;
-            //$home->title = $data['title'];
-            $home->save();
+            $insert = [];
+            foreach($data as $row) {
+                array_push($insert, [
+                    'title' => $row
+                ]);
+            }
+            Home::record($insert);
+            // $home = new Home;
+            // $home->title = $data['title'];
+            // $home->save();
+
+            // $state = array_filter([
+            // 'title' => $this['title'],
+            // ]);
+            // Home::record($state);
 
         //$results = [];
         // $data = $this->form->getState();
@@ -141,15 +166,21 @@ class Home extends Page implements HasForms
         //     'title' => $this['title'],
         // ]);
         //  Home::record($data);
+        //$data->update($data);
+        //$data()->update(['title' => 'title']);
 
         // foreach ($data as $key => $item) {
+        //     //dd($item);
         //     $results[] = [
-        //         'title' => $item['title'],
+        //         'title' => $item,
         //         //'title' => $item['title'],
         //     ];
-        // }
+        // };
+        //dd($results);
 
-        // Home::insert($results);
+       // home()->update($data);
+
+        // Home::update($results);
 
         // $insert = [];
         // foreach($data as $row){
@@ -168,7 +199,7 @@ class Home extends Page implements HasForms
     public function getFormActions(): array
     {
         return [
-            Action::make('saveee')
+            Action::make('save')
                 ->label(__('filament-panels::resources/pages/edit-record.form.actions.save.label'))
                 ->submit('save'),
         ];

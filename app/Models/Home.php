@@ -16,6 +16,10 @@ class Home extends Model
         'gmap_link'
     ];
 
+    protected $casts = [
+    'title' => 'array'
+    ];
+
     public function HomeSlider():HasMany
     {
         return $this->hasMany(HomeSlider::class, 'home_id');
