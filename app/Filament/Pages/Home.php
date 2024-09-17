@@ -3,6 +3,7 @@
 namespace App\Filament\Pages;
 
 use App\Models\User;
+use App\Models\Coba;
 use Filament\Actions\Action;
 use Filament\Facades\Filament;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -29,21 +30,17 @@ use Illuminate\Contracts\Support\Htmlable;
 class Home extends Page implements HasForms
 {
 
-    use InteractsWithForms;
-
-    public ?array $data = [];
-
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
     protected static ?string $title = 'Home Page';
 
     protected static string $view = 'filament.pages.home';
 
-    public ?Home $record = null;
+    public ?array $data = [];
 
-   public $Home = [];
-    // public $HomeSlider = [];
+    use InteractsWithForms;
 
+    //public ?Home $record = null;
 
 
     public function mount(): void
@@ -53,25 +50,15 @@ class Home extends Page implements HasForms
 
     public function form(Form $form): Form{
         return $form->schema([
-            TextInput::make('title')
-            ->maxLength(255)
+            TextInput::make('name')
+            ->default(Coba::get()->dd()->pluck('name', 'id'))
+            //->formatStateUsing(fn(?Coba $record) => $record?->field ?? 'default')
+            //->default(Coba::query()->pluck('name', 'id'))
+            // ->afterStateUpdated(fn ($ => dd($state))
         ])
         ->statePath('data');
-        // return $form->schema([
-        //     TextInput::make('name')->maxLength(255)->default(auth()->user()->name),
-        // ])->statePath('data');
     }
 
-
-    // public function getFormSchema(): array
-    // {
-    //     return [
-    //         Card::make()
-    //         ->schema([
-    //          TextInput::make('title')->options(Home::get()->pluck('title','id')),
-    //         ])
-    //         ];
-    // }
 
     // public function form(Form $form): Form
     // {
@@ -119,13 +106,7 @@ class Home extends Page implements HasForms
     // }
 
 
-    protected function getSaveFormAction(): Action
-    {
-        return Action::make('save')
-            ->label(__('filament-panels::resources/pages/edit-record.form.actions.save.label'))
-            ->submit('save')
-            ->keyBindings(['mod+s']);
-    }
+
 
     // public function save() {
     //     try{
@@ -140,59 +121,21 @@ class Home extends Page implements HasForms
 
     public function save(): void {
         try {
-            //$tenant = Filament::getTenant();
 
             $data = $this->form->getState();
-            $insert = [];
-            foreach($data as $row) {
-                array_push($insert, [
-                    'title' => $row
-                ]);
-            }
-            Home::record($insert);
-            // $home = new Home;
-            // $home->title = $data['title'];
-            // $home->save();
-
-            // $state = array_filter([
-            // 'title' => $this['title'],
-            // ]);
-            // Home::record($state);
-
-        //$results = [];
-        // $data = $this->form->getState();
-
-        // $state = array_filter([
-        //     'title' => $this['title'],
-        // ]);
-        //  Home::record($data);
-        //$data->update($data);
-        //$data()->update(['title' => 'title']);
-
-        // foreach ($data as $key => $item) {
-        //     //dd($item);
-        //     $results[] = [
-        //         'title' => $item,
-        //         //'title' => $item['title'],
-        //     ];
-        // };
-        //dd($results);
-
-       // home()->update($data);
-
-        // Home::update($results);
-
-        // $insert = [];
-        // foreach($data as $row){
-        //     array_push($insert,[
-        //         'title' => $row
-        //     ]);
-        // }
-        // Home::record($insert);
+            //$user = Coba::create(['name' => 'name']);
+            $user = new Coba();
+            // dd($user);
+            $user->name = $data['name'];
+            $user->save();
 
         }catch(Halt$ex) {
             return;
         }
+        Notification::make()
+        ->success()
+        ->title(__('filament-panels::resources/pages/edit-record.notifications.saved.title'))
+        ->send();
     }
 
 
