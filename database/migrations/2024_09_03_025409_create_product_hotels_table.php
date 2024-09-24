@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('product_hotels', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->nullable();
+            $table->bigInteger('rating')->nullable();
             $table->foreignId('product_id')->constrained()->cascadeOnDelete();
             $table->softDeletes();
             $table->timestamps();

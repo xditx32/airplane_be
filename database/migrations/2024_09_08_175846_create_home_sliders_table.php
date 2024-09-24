@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('home_sliders', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('sub_title');
-            $table->text('description');
+            $table->string('title')->nullable();
+            $table->string('sub_title')->nullable();
+            $table->text('detail')->nullable();
             $table->string('photo')->nullable();
-            $table->string('button_title');
-            $table->string('button_link');
+            $table->string('button_title')->nullable();
+            $table->string('button_link')->nullable();
             $table->boolean('is_active');
             $table->foreignId('home_id')->constrained()->cascadeOnDelete();
             $table->softDeletes();
