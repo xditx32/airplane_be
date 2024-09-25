@@ -36,15 +36,24 @@ class AirlineResource extends Resource
                     ->maxLength(255),
 
                 FileUpload::make('icon')
+                    ->required()
                     ->image()
                     ->disk('public')
-                    ->optimaze('webp')
-                    ->directory('airline')
-                    ->required(),
+                    ->optimize('webp')
+                    ->preserveFilenames()
+                    ->directory('assets/frontend/images/airline/icon')
+                    ->maxSize(512)
+                    ->label('Icon Maskapai'),
 
                 FileUpload::make('photo')
                     ->image()
-                    ->required(),
+                    ->required()
+                    ->disk('public')
+                    ->optimize('webp')
+                    ->preserveFilenames()
+                    ->directory('assets/frontend/images/airline')
+                    ->maxSize(512)
+                    ->label('Gambar Maskapai'),
             ]);
     }
 
@@ -97,5 +106,15 @@ class AirlineResource extends Resource
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Maskapai');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+      return __('Maskapai');
     }
 }

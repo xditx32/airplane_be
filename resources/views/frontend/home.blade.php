@@ -32,15 +32,30 @@
     @endforelse
   </div>
 
+  <!-- Section Promo -->
+  <section class="container relative max-w-screen-xl py-10 bg-white rounded-md">
+    <div class="flex flex-col justify-between w-full gap-0 mb-[50px]">
+        <h2 class="text-2xl md:text-3xl font-bold text-secondary">Klaim Voucher</h2>
+        <p class="text-base md:text-lg text-primary">Dapatkan promo potongan harga menarik untuk perjalanan ibadh umroh sahabat semua.</p>
+    </div>
+    <div id="promoCarousel">
+        @forelse ($promos as $promo)
+            <img class="w-[550px] h-[200px] rounded-2xl mr-[30px]" src="{!! Storage::url($promo->photo) !!}" alt="">
+        @empty
+            <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
+        @endforelse
+    </div>
+  </section>
+
   <!-- Section About -->
   <section class="container relative max-w-screen-xl py-10 bg-primary">
     <div class="flex flex-wrap justify-between items-center w-full gap-8 align-middle">
       <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-8 items-center">
         <div class="lg:col-span-2 w-full relative overflow-hidden">
-          <div class="flex flex-col gap-[2px]">
+          <div class="flex flex-col gap-[2px] py-4">
             <!-- <div class="w-full max-w-[400px] flex flex-col gap-[2px]"> -->
-            <h3 class="text-xl md:text-2xl">Selamat datang</h3>
-            <h2 class="text-2xl md:text-4xl font-bold">Alia Wisata</h2>
+            {{-- <h3 class="text-xl md:text-2xl">Selamat datang</h3> --}}
+            <h2 class="text-2xl md:text-3xl font-bold py-2">Alia Wisata, Travel Umroh Terbaik dan Terpercaya.</h2>
             <p class="text-sm md:text-base text-justify">Berdiri sejak tahun 2000, Alia Wisata terus berkembang
               memberikan pelayanan kepada
               Jamaah Umroh & Haji Khusus. Alia
@@ -60,6 +75,35 @@
               (PPIU) dengan
               SK NOMOR 832 TAHUN 2019 dan dapat di lihat pada web Sisko Patuh Kemenag melalui link berikut ini</p>
           </div>
+          <div class="grid grid-cols-6 gap-4">
+            <div class="bg-white rounded-md">
+                <img src="{!! asset('/assets/frontend/images/logo_lembaga/amphuri-logo.png') !!}" alt="" srcset="">
+            </div>
+            <div class="bg-white rounded-md">
+                <img src="{!! asset('/assets/frontend/images/logo_lembaga/bank-bsi-logo.png') !!}" alt="" srcset="">
+            </div>
+            <div class="bg-white rounded-md">
+                <img src="{!! asset('/assets/frontend/images/logo_lembaga/iata-logo.png') !!}" alt="" srcset="">
+            </div>
+            <div class="bg-white rounded-md">
+                <img src="{!! asset('/assets/frontend/images/logo_lembaga/iqra-logo.png') !!}" alt="" srcset="">
+            </div>
+            <div class="bg-white rounded-md">
+                <img src="{!! asset('/assets/frontend/images/logo_lembaga/kan-logo.png') !!}" alt="" srcset="">
+            </div>
+            <div class="bg-white rounded-md">
+                <img src="{!! asset('/assets/frontend/images/logo_lembaga/logo-bnsp.png') !!}" alt="" srcset="">
+            </div>
+            <div class="bg-white rounded-md">
+                <img src="{!! asset('/assets/frontend/images/logo_lembaga/logo-kemenag.png') !!}" alt="" srcset="">
+            </div>
+            <div class="bg-white rounded-md">
+                <img src="{!! asset('/assets/frontend/images/logo_lembaga/siskopatuh-logo.png') !!}" alt="" srcset="">
+            </div>
+            <div class="bg-white rounded-md">
+                <img src="{!! asset('/assets/frontend/images/logo_lembaga/tims-logo.png') !!}" alt="" srcset="">
+            </div>
+          </div>
         </div>
         <div class="lg:col-span-2 w-full relative overflow-hidden">
           <iframe class="w-full aspect-video rounded-[20px] bg-[#D9D9D9]"
@@ -75,7 +119,7 @@
   <section class="container relative max-w-screen-xl py-10 bg-white rounded-md">
     <div class="flex flex-col justify-between items-center w-full gap-0 mb-[50px]">
       <h3 class="text-xl md:text-2xl font-semibold text-primary">Umroh Musim 1445 H</h3>
-      <h2 class="text-2xl md:text-4xl font-bold text-secondary">Paket Umroh Unggulan</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-secondary">Paket Umroh Unggulan</h2>
     </div>
     @forelse ($categories as $category)
         @foreach (@$category->products as $product)
@@ -88,11 +132,11 @@
                 <p class="px-[14px] py-2 rounded-xl bg-butter-yellow text-dark-indigo font-semibold text-sm absolute top-5 right-5">
                     Popular
                 </p>
-            <div class="p-5 w-full bg-primary flex flex-col h-full">
+            <div class="w-full bg-primary flex flex-col h-full">
                 <div class="max-w-[290px]">
                     <div class="flex flex-col gap-y-4 text-white">
                     <div class="text-base font-bold text-center uppercase">
-                        {!! $product->name !!}
+                        {!! $product->priode->name !!}
                     </div>
                     <div class="flex flex-row gap-x-1 text-secondary items-center justify-center text-xl">
                         <ion-icon name="star"></ion-icon>
@@ -114,7 +158,7 @@
                         </div>
                     </div>
                     <!-- hotel -->
-                    <div class="flex flex-col gap-y-4">
+                    <div class="flex flex-col gap-y-4 border">
                         <div class="flex items-center gap-4">
                         <ion-icon name="bed-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
                         <h3 class="text-sm md:text-base font-bold">Hotel</h3>
@@ -129,24 +173,27 @@
                             @endforelse
                     </div>
                     <!-- maskapai -->
-                    <div class="flex flex-col gap-y-6">
-                        <div class="flex items-center gap-4">
-                        <ion-icon name="airplane-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
-                        <h3 class="text-sm md:text-base font-bold">Maskapai</h3>
-                        </div>
+                    <div class="flex flex-row gap-y-6 gap-x-4 p-4">
+                        {{-- <div class="flex items-center gap-4">
+                            <ion-icon name="airplane-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
+                            <h3 class="text-sm md:text-base font-bold">Maskapai</h3>
+                        </div> --}}
                         @forelse ($product->ProductAirlines as $ProductAirline)
-                        <div class="flex flex-row gap-2 ">
-                        <img class="w-2/4" src="{!! Storage::url( $ProductAirline->airline->icon ) !!}" alt="">
-                        </div>
+                        {{-- <div class="flex flex-row"> --}}
+                            <img class="w-[40%] bg-white rounded-xl" src="{!! Storage::url( $ProductAirline->airline->icon ) !!}" alt="">
+                        {{-- </div> --}}
                         @empty
                             <p class="text-sm md:text-base text-primary"> Data Belum Tersedia </p>
                         @endforelse
+                        <div>
+                            <p>Harga Mulai</p>
+                            <h3 class="text-lg md:text-xl font-bold text-secondary">
+                                {!! $product->price !!} Juta
+                            </h3>
+                        </div>
                     </div>
 
-                    <h3 class="text-lg md:text-xl font-bold text-secondary text-center">
-                        @money($product->price )
-                    </h3>
-                        <div class="mt-auto">
+                        <div class="mt-auto p-4">
                             <a href="{{ route('product.details', [$category->slug, $product->slug]) }}" class="block btn-secondary">
                             Detail Jadwal
                             </a>
@@ -172,11 +219,11 @@
   <!-- Section Package Umrah -->
   <section class="container relative max-w-screen-xl py-10">
     <div class="flex flex-col justify-between items-center w-full gap-1 mb-[50px]">
-      <h2 class="text-2xl md:text-4xl font-bold text-white">Paket Umroh</h2>
-      <h3 class="text-xl md:text-2xl text-white text-center">Kami memiliki paket-paket umroh yang dapat anda
+      <h2 class="text-2xl md:text-3xl font-bold text-white">Paket Umroh</h2>
+      <p class="text-base md:text-lg text-white text-center">Kami memiliki paket-paket umroh yang dapat anda
         pilih dari paket
         reguler dengan biaya yang lebih hemat hingga paket VIP
-        untuk mendapatkan pelayanan terbaik. Semoga kita dimudahkan untuk beribadah umroh di Tanah Suci.</h3>
+        untuk mendapatkan pelayanan terbaik. Semoga kita dimudahkan untuk beribadah umroh di Tanah Suci.</p>
     </div>
 
     @forelse ($categories as $category)
@@ -206,7 +253,7 @@
   <section class="container relative max-w-screen-xl py-10 bg-white rounded-md">
     <div class="flex flex-col justify-between items-center w-full gap-0 mb-[50px]">
       <!-- <h3 class="text-xl md:text-2xl text-primary">Umroh Musim 1445 H</h3> -->
-      <h2 class="text-2xl md:text-4xl font-bold text-secondary">Paket Umroh Terbaru</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-secondary">Paket Umroh Terbaru</h2>
     </div>
     @forelse ($categories as $category)
     @foreach (@$category->products as $product)
@@ -277,7 +324,7 @@
                     </div>
 
                     <h3 class="text-lg md:text-xl font-bold text-secondary text-center">
-                        @money($product->price )
+                        $product->price Jt
                     </h3>
                         <div class="mt-auto">
 <a href="{{ route('product.details', [$category->slug, $product->slug]) }}" class="block btn-secondary">
@@ -305,25 +352,23 @@
   <section class="container relative max-w-screen-xl py-10">
     <div class="flex flex-col justify-between items-center w-full gap-1 mb-[50px]">
       <!-- <h3 class="text-xl md:text-2xl font-semibold text-white">Brosur Terbaru Update</h3> -->
-      <h2 class="text-2xl md:text-4xl font-bold text-secondary">Brosur Terbaru Update</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-secondary">Brosur Terbaru Update</h2>
     </div>
-
-    <div id="new-browsur">
-    @forelse ($brochures as $brochure)
+    <div id="brochurCarousel">
+        @forelse ($brochures as $brochure)
         <a href="http://">
-        <img class="w-fit h-[600px] rounded-lg mr-[30px]" src="{!! Storage::url($brochure->photo) !!}" alt="{!! $brochure->name !!}">
+            <img class="w-fit h-[600px] rounded-lg mr-[30px]" src="{!! Storage::url($brochure->photo) !!}" alt="{!! $brochure->name !!}">
         </a>
-    @empty
+        @empty
         <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
-    @endforelse
+        @endforelse
     </div>
-
   </section>
   <!-- Section Our Services -->
   <section class="container relative max-w-screen-xl py-10 bg-white rounded-md">
     <div class="flex flex-col justify-between items-center w-full gap-1 mb-[50px]">
       <h3 class="text-xl md:text-2xl font-semibold text-white">Layanan Kami</h3>
-      <h2 class="text-2xl md:text-4xl font-bold text-primary">Kenapa Harus Kami</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-primary">Kenapa Harus Kami</h2>
     </div>
     <div class="flex flex-col md:flex-row flex-wrap justify-center gap-8 lg:gap-[120px] items-center">
       <img class="w-full md:max-w-[536px]"
@@ -335,7 +380,7 @@
           <p class="text-sm md:text-base text-primary mb-1">Anda adalah prioritas kami!</p>
         </header>
         <!-- Service Item -->
-        <div class="flex items-center gap-6">
+        <div class="flex items-center gap-6 py-3">
           <img class="w-[60px]" src="./assets/images/service/customer-service.png" alt="">
           <div>
             <h3 class="text-xl md:text-2xl font-bold text-primary mb-1">Support</h3>
@@ -347,7 +392,7 @@
               baik maskapai penerbangan, hotel, maupun pemerintah</p>
           </div>
         </div>
-        <div class="flex items-center gap-6">
+        <div class="flex items-center gap-6 py-3">
           <img class="w-[60px]" src="./assets/images/service/achievement.png" alt="">
           <div>
             <h3 class="text-xl md:text-2xl font-bold text-primary mb-1">Quality</h3>
@@ -360,7 +405,7 @@
               kualitas dan layanannya</p>
           </div>
         </div>
-        <div class="flex items-center gap-6">
+        <div class="flex items-center gap-6 py-3">
           <img class="w-[60px]" src="./assets/images/service/response.png" alt="">
           <div>
             <h3 class="text-xl md:text-2xl font-bold text-primary mb-1">Responsive</h3>
@@ -381,32 +426,30 @@
 
   <!-- Section Galery -->
   <section class="container relative max-w-screen-xl py-10">
-    <div class="flex flex-col justify-between items-center w-full gap-1 mb-[50px]">
-      <h2 class="text-2xl md:text-4xl font-bold text-white">Galei Foto</h2>
-      <h3 class="text-xl md:text-2xl text-white text-center">Kami memiliki paket-paket umroh yang dapat anda
+    <div class="flex flex-col justify-between w-full gap-1 mb-[50px]">
+      <h2 class="text-2xl md:text-3xl font-bold text-white">Galei Foto.</h2>
+      <p class="text-base md:text-lg text-white">Kami memiliki paket-paket umroh yang dapat anda
         Dibawah ini adalah dokumentasi foto-foto keberangkantan umroh Alia Wisata bersama dengan para jamaah.
-      </h3>
+      </p>
     </div>
-    <div id="lightgallery" class="grid grid-cols-2 md:grid-cols-3 gap-4">
-
+    <div>
         @forelse ($galleries as $galleri)
-        <a href="{!! Storage::url($galleri->photo) !!}" data-lg-size="1600-2400">
-            <img class="h-[300px] max-w-full rounded-lg" alt="{!! $galleri->CategoryGallery->name !!}" src="{!! Storage::url($galleri->photo) !!}" />
+        <div id="lightgallery" class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <a href="{!! Storage::url($galleri->photo) !!}" data-lg-size="1600-2400">
+                <img class="h-[300px] max-w-full rounded-lg" alt="{!! $galleri->CategoryGallery->name !!}" src="{!! Storage::url($galleri->photo) !!}" />
             </a>
+        </div>
         @empty
-        <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
+            <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
         @endforelse
     </div>
-
   </section>
 
   <!-- Section Testimonial -->
   <section class="container relative max-w-screen-xl py-10">
-    <div class="flex flex-col justify-between items-center w-full gap-1 mb-[50px]">
-      <h2 class="text-2xl md:text-4xl font-bold text-white">Testimoni Para Jamaah</h2>
-      <!-- <h3 class="text-xl md:text-2xl text-white text-center">Kami memiliki paket-paket umroh yang dapat anda
-        Dibawah ini adalah dokumentasi foto-foto keberangkantan umroh Alia Wisata bersama dengan para jamaah.
-      </h3> -->
+    <div class="flex flex-col justify-between w-full gap-1 mb-[50px]">
+      <h2 class="text-2xl md:text-3xl font-bold text-white">Testimoni Jamaah.</h2>
+      <p class="text-base md:text-lg text-white">Dapatkan promo potongan harga menarik untuk perjalanan ibadh umroh sahabat semua.</p>
     </div>
     <div id="testimonial">
       <div class="grid lg:grid-cols-12 md:grid-cols-4 grid-cols-1 gap-4">
@@ -551,19 +594,30 @@
 
   <!-- Section Mitra -->
   <section class="container relative max-w-screen-xl py-10">
-    <div class="flex flex-col justify-between items-center w-full gap-1 mb-[50px]">
-      <h2 class="text-2xl md:text-4xl font-bold text-white">Mitra Pendukung Kami</h2>
-      <!-- <h3 class="text-xl md:text-2xl text-white text-center">Kami memiliki paket-paket umroh yang dapat anda
-          Dibawah ini adalah dokumentasi foto-foto keberangkantan umroh Alia Wisata bersama dengan para jamaah.
-        </h3> -->
+    <div class="flex flex-col justify-between w-full gap-1 mb-[50px]">
+      <h2 class="text-2xl md:text-3xl font-bold text-white">Partner Maskapai.</h2>
+      <p class="text-base md:text-lg text-white">Dapatkan promo potongan harga menarik untuk perjalanan ibadah umroh sahabat semua.</p>
     </div>
     <div id="mitraCarousel">
-        @forelse ($partners as $partner)
-        <img class="w-[150px] h-[120px] rounded-2xl mr-[30px]" src="{!! Storage::url($partner->icon) !!}"
-          alt="{!! $partner->title !!}">
+        @forelse ($airlines as $airline)
+            <img class="w-[14%] rounded-2xl bg-white mr-[30px]" src="{!! Storage::url($airline->photo) !!}"
+                alt="{!! $airline->title !!}">
+            {{-- <img class="w-[150px] h-[120px] rounded-2xl mr-[30px]" src="{!! Storage::url($airline->icon) !!}"
+                alt="{!! $airline->title !!}"> --}}
         @empty
         <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
         @endforelse
+    </div>
+    {{-- <div class="mitraCarousel">
+        @forelse ($airlines as $airline)
+  <div class="carousel-cell">
+    <img class="w-[50%] rounded-2xl bg-white" src="{!! Storage::url($airline->photo) !!}"
+                alt="{!! $airline->title !!}">
+  </div>
+        @empty
+        <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
+        @endforelse
+</div> --}}
 
     <!-- Prev Button -->
     <!-- <div class="absolute hidden -translate-y-1/2 top-1/2 right-4 lg:right-[200px] cursor-pointer"
@@ -605,22 +659,41 @@
     })
 
 
-    // element argument can be a selector string
-    //   for an individual element
-    var flkty = new Flickity('#mitraCarousel', {
-      cellAlign: 'center',
-      imagesLoaded: true,
-      contain: true,
-      prevNextButtons: true,
-      autoPlay: true,
-      wrapAround: true,
-      draggable: true,
-      adaptiveHeight: true,
-      pageDots: false,
-      groupCells: false,
+    var flktyPromo = new Flickity('#promoCarousel', {
+        cellAlign: 'left',
+        imagesLoaded: true,
+        contain: true,
+        prevNextButtons: true,
+        autoPlay: 5000,
+        wrapAround: true,
+        draggable: true,
+        adaptiveHeight: true,
+        pageDots: false,
+        groupCells: false,
+        pauseAutoPlayOnHover: false,
+    });
+    // flktyPromo.on('pointerUp', (event, pointer) => {
+    //     flktyPromo.player.play();
+    // });
+
+    var flktyMitra = new Flickity('#mitraCarousel', {
+        cellAlign: 'left',
+        imagesLoaded: true,
+        contain: true,
+        prevNextButtons: false,
+        autoPlay: true,
+        wrapAround: true,
+        draggable: true,
+        adaptiveHeight: true,
+        pageDots: false,
+        groupCells: false,
+        pauseAutoPlayOnHover: false,
+    });
+    flktyMitra.on('pointerUp', function (event, pointer) {
+        flktyMitra.player.play();
     });
 
-    var flkty = new Flickity('#slider', {
+    var flktySlider = new Flickity('#slider', {
       cellAlign: 'left',
       imagesLoaded: true,
       contain: true,
@@ -633,7 +706,7 @@
       groupCells: false,
     });
 
-    var flkty = new Flickity('#new-browsur', {
+    var flktyBrochur = new Flickity('#brochurCarousel', {
       cellAlign: 'left',
       imagesLoaded: true,
       contain: true,
@@ -646,7 +719,7 @@
       groupCells: false,
     });
 
-    var flkty = new Flickity('#testimonial', {
+    var flktyTesti = new Flickity('#testimonial', {
       cellAlign: 'left',
       imagesLoaded: true,
       contain: true,
@@ -658,6 +731,7 @@
       pageDots: false,
       groupCells: false,
     });
+
 
 
     // lightGallery(document.getElementById('#lightgallery'), {

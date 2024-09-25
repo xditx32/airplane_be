@@ -20,7 +20,7 @@ return new class extends Migration
             $table->boolean('is_open');
             $table->unsignedBigInteger('price');
             $table->unsignedInteger('duration');
-            $table->unsignedInteger('seat_avaliable');
+            $table->unsignedInteger('seat_available');
             $table->text('about')->nullable();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->foreignId('priode_id')->constrained()->cascadeOnDelete();

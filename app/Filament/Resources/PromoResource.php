@@ -2,59 +2,41 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CategoryResource\Pages;
-use App\Filament\Resources\CategoryResource\RelationManagers;
-use App\Models\Category;
+use App\Filament\Resources\PromoResource\Pages;
+use App\Filament\Resources\PromoResource\RelationManagers;
+use App\Models\Promo;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Resources\Resource;
 use Filament\Tables\Columns\{TextColumn, ImageColumn, IconColumn};
 use Filament\Forms\Components\{TextInput, FileUpload, Select, Textarea, Repeater};
-use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class CategoryResource extends Resource
+class PromoResource extends Resource
 {
-    protected static ?string $model = Category::class;
+    protected static ?string $model = Promo::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationGroup = 'Product';
-
-    protected static ?int $navigationSort = 3;
+    //protected static ?string $navigationLabel = 'Promo';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 //
-                TextInput::make('name')
-                    ->required()
-                    ->helpertext('Gunakan name data dengan tepat.')
-                    ->maxLength(255)
-                    ->label('Nama Categori'),
-
-                FileUpload::make('icon')
-                    ->required()
-                    ->image()
-                    ->disk('public')
-                    ->optimize('webp')
-                    ->preserveFilenames()
-                    ->directory('assets/frontend/images/category/icon')
-                    ->maxSize(512)
-                    ->label('Icon Categori'),
-
                 FileUpload::make('photo')
                     ->required()
                     ->image()
                     ->disk('public')
                     ->optimize('webp')
                     ->preserveFilenames()
-                    ->directory('assets/frontend/images/category')
+                    ->directory('assets/frontend/images/promo')
                     ->maxSize(512)
-                    ->label('Gambar Categori'),
+                    ->label('Gambar Promo'),
             ]);
     }
 
@@ -63,22 +45,8 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 //
-                TextColumn::make('name')
-                ->label('Nama Categori')
-                ->searchable(),
-
-                ImageColumn::make('icon')
-                ->label('Icon Categori'),
-
                 ImageColumn::make('photo')
-                ->label('Gambar Categori'),
-
-                TextColumn::make('slug')
-                ->label('URL'),
-
-                TextColumn::make('created_at')->dateTime('d-M-Y H:i:s')
-                ->label('Categori Buat'),
-
+                ->label('Gambar Promo'),
             ])
             ->filters([
                 //
@@ -103,9 +71,9 @@ class CategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCategories::route('/'),
-            'create' => Pages\CreateCategory::route('/create'),
-            'edit' => Pages\EditCategory::route('/{record}/edit'),
+            'index' => Pages\ListPromos::route('/'),
+            'create' => Pages\CreatePromo::route('/create'),
+            'edit' => Pages\EditPromo::route('/{record}/edit'),
         ];
     }
 
@@ -116,11 +84,12 @@ class CategoryResource extends Resource
 
     public static function getModelLabel(): string
     {
-        return __('Categori');
+        return __('Promo');
     }
 
     public static function getPluralModelLabel(): string
     {
-      return __('Categori');
+      return __('Promo');
     }
+
 }

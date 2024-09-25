@@ -37,8 +37,14 @@ class ProductResource extends Resource
                     ->maxLength(255),
 
                 FileUpload::make('thumbnail')
+                    ->required()
                     ->image()
-                    ->required(),
+                    ->disk('public')
+                    ->optimize('webp')
+                    ->preserveFilenames()
+                    ->directory('assets/frontend/images/product/thumbnail')
+                    ->maxSize(512)
+                    ->label('Thumbnail'),
 
                 Select::make('category_id')
                     ->relationship('category', 'name')
@@ -52,7 +58,7 @@ class ProductResource extends Resource
                     ->preload()
                     ->required(),
 
-                Textarea::make('about')->required()
+                Textarea::make('detail')->required()
                     ->rows(10)
                     ->cols(20),
 
@@ -61,8 +67,15 @@ class ProductResource extends Resource
                     ->schema([
                         FileUpload::make('photo')
                         ->required()
-                    ]
-                ),
+                        ->image()
+                        ->disk('public')
+                        ->optimize('webp')
+                        ->preserveFilenames()
+                        ->directory('assets/frontend/images/product')
+                        ->maxSize(512)
+                        ]
+
+                )->label('Gambar Produk'),
 
                 Repeater::make('ProductBenefits')
                     ->relationship('ProductBenefits')
@@ -93,6 +106,11 @@ class ProductResource extends Resource
                     ->required()
                     ->numeric()
                     ->prefix('Days'),
+
+                TextInput::make('seat_available')
+                    ->required()
+                    ->numeric()
+                    ->prefix(''),
 
                 TextInput::make('price')
                     ->required()
