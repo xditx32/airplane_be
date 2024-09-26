@@ -45,7 +45,7 @@ class ProductResource extends Resource
                         ->preload()
                         ->required(),
 
-                    FileUpload::make('thumbnail')
+                    FileUpload::make('photo')
                         ->required()
                         ->image()
                         ->disk('public')
@@ -53,7 +53,7 @@ class ProductResource extends Resource
                         ->preserveFilenames()
                         ->directory('assets/frontend/images/product/thumbnail')
                         ->maxSize(512)
-                        ->label('Thumbnail'),
+                        ->label('Gambar'),
 
                     RichEditor::make('detail')
                         ->toolbarButtons([

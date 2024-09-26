@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->text('detail')->nullable();
-            $table->string('thumbnail')->nullable();
+            $table->string('photo')->nullable();
             $table->boolean('is_open');
             $table->unsignedBigInteger('duration')->default(0);
             $table->unsignedBigInteger('seat_available')->default(0);

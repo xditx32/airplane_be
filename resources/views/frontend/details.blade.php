@@ -51,7 +51,7 @@
                 <span class="text-butter-yellow">Event</span> About?
             </h5>
             <p class="text-primary text-lg leading-8 max-w-[640px] mt-4 mb-[30px]">
-                {!! $product->detail !!}
+                {!! @$product->detail !!}
             </p>
             </div>
             <div id="slider-banner-product">

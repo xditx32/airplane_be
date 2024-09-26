@@ -128,7 +128,7 @@
                 <!-- Card Product Group -->
             <div class="grid lg:grid-cols-12 md:grid-cols-4 grid-cols-1 gap-[20px] mb-[40px]">
                 <div class="group lg:col-span-3 md:col-span-2 col-span-12 rounded-2xl w-full overflow-hidden relative min-h-[630px] bg-primary">
-                <img src="{!! Storage::url( $product->thumbnail ) !!}" class="w-full h-full max-h-[180px]"
+                <img src="{!! Storage::url( $product->photo ) !!}" class="w-full h-full max-h-[180px]"
             alt="tickety-assets">
                 {{-- <p class="px-[14px] py-2 rounded-xl bg-butter-yellow text-dark-indigo font-semibold text-sm absolute top-5 right-5">
                     Popular
@@ -298,7 +298,7 @@
         class="group lg:col-span-3 md:col-span-2 col-span-12 w-full overflow-hidden relative min-h-[300px] rounded-xl">
         <div class="absolute inset-0">
           <img class="h-full w-full object-cover object-right md:object-center"
-            src="{!! Storage::url($product->thumbnail) !!}">
+            src="{!! Storage::url($product->photo) !!}">
           <div class="absolute inset-0 bg-black opacity-60"></div>
         </div>
         <div class="relative z-10 flex flex-col gap-y-2 justify-center items-center h-full">
