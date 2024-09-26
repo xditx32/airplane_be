@@ -7,13 +7,14 @@ use App\Models\Product;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Tables\Columns\{TextColumn, ImageColumn, IconColumn};
-use Filament\Forms\Components\{TextInput, FileUpload, Select, Textarea, Repeater};
+use Filament\Forms\Components\{RichEditor, DatePicker, TextInput, FileUpload, Group, Select, Textarea, Repeater};
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\Section;
 
 use Carbon\Carbon;
 
@@ -31,36 +32,51 @@ class ProductResource extends Resource
     {
         return $form
             ->schema([
-                //
-                TextInput::make('name')
+                Section::make("")
+                ->description('')
+                ->schema([
+                    TextInput::make('name')
                     ->required()
                     ->maxLength(255),
 
-                FileUpload::make('thumbnail')
-                    ->required()
-                    ->image()
-                    ->disk('public')
-                    ->optimize('webp')
-                    ->preserveFilenames()
-                    ->directory('assets/frontend/images/product/thumbnail')
-                    ->maxSize(512)
-                    ->label('Thumbnail'),
+                    Select::make('category_id')
+                        ->relationship('category', 'name')
+                        ->searchable()
+                        ->preload()
+                        ->required(),
 
-                Select::make('category_id')
-                    ->relationship('category', 'name')
-                    ->searchable()
-                    ->preload()
-                    ->required(),
+                    FileUpload::make('thumbnail')
+                        ->required()
+                        ->image()
+                        ->disk('public')
+                        ->optimize('webp')
+                        ->preserveFilenames()
+                        ->directory('assets/frontend/images/product/thumbnail')
+                        ->maxSize(512)
+                        ->label('Thumbnail'),
 
-                Select::make('priode_id')
-                    ->relationship('priode', 'name')
-                    ->searchable()
-                    ->preload()
-                    ->required(),
+                    RichEditor::make('detail')
+                        ->toolbarButtons([
+                            'attachFiles',
+                            'blockquote',
+                            'bold',
+                            'bulletList',
+                            'codeBlock',
+                            'h2',
+                            'h3',
+                            'italic',
+                            'link',
+                            'orderedList',
+                            'redo',
+                            'strike',
+                            'underline',
+                            'undo',
+                        ])
+                        ->required()
+                        ->columnSpanFull(),
 
-                Textarea::make('detail')->required()
-                    ->rows(10)
-                    ->cols(20),
+                ])->columns(2),
+
 
                 Repeater::make('ProductPhotos')
                     ->relationship('ProductPhotos')
@@ -74,7 +90,6 @@ class ProductResource extends Resource
                         ->directory('assets/frontend/images/product')
                         ->maxSize(512)
                         ]
-
                 )->label('Gambar Produk'),
 
                 Repeater::make('ProductBenefits')
@@ -85,13 +100,14 @@ class ProductResource extends Resource
                         ]
                 ),
 
-                Repeater::make('ProductHotels')
-                    ->relationship('ProductHotels')
+                Repeater::make('ProductHoteles')
+                    ->relationship()
                     ->schema([
-                        TextInput::make('name')
-                        ->required()
+                        Select::make('hotel_id')
+                    ->relationship('hotel', 'name')
+                    ->required()
                     ]
-                ),
+                )->label('Hotel'),
 
                 Repeater::make('ProductAirlines')
                     ->relationship()
@@ -100,23 +116,50 @@ class ProductResource extends Resource
                     ->relationship('airline', 'name')
                     ->required()
                     ]
-                ),
+                )->label('Maskapai'),
 
-                TextInput::make('duration')
-                    ->required()
-                    ->numeric()
-                    ->prefix('Days'),
+                Section::make("")
+                ->schema([
+                    DatePicker::make('start_priode')
+                        ->required(),
 
-                TextInput::make('seat_available')
-                    ->required()
-                    ->numeric()
-                    ->prefix(''),
+                    DatePicker::make('end_priode')
+                        ->required(),
 
-                TextInput::make('price')
-                    ->required()
-                    ->numeric()
-                    ->prefix('IDR')
-                    ->maxValue(42949672.95),
+                    TextInput::make('duration')
+                        ->required()
+                        ->numeric()
+                        ->prefix('Days'),
+
+                    TextInput::make('seat_available')
+                        ->required()
+                        ->numeric()
+                        ->prefix('Set'),
+
+                    TextInput::make('price_start_from')
+                        ->required()
+                        ->numeric()
+                        ->prefix('')
+                        ->label('Harga mulai dari'),
+
+                    Repeater::make('ProductPrices')
+                        ->relationship('ProductPrices')
+                        ->schema([
+                            TextInput::make('price_type')
+                            ->required(),
+                            TextInput::make('price_tier')
+                            ->required()
+                        ]
+                    ),
+                ])->columns(2),
+
+
+
+                // TextInput::make('price')
+                //     ->required()
+                //     ->numeric()
+                //     ->prefix('IDR')
+                //     ->maxValue(42949672.95),
 
                 Select::make('is_open')
                     ->options([
@@ -124,7 +167,6 @@ class ProductResource extends Resource
                         false => 'Not Open',
                     ])
                     ->required(),
-
 
             ]);
     }
@@ -142,8 +184,8 @@ class ProductResource extends Resource
 
                 TextColumn::make('category.name'),
 
-                TextColumn::make('price')
-                    ->money('IDR')
+                TextColumn::make('price_start_from')
+                    // ->money('IDR')
                     ->sortable(),
 
                 IconColumn::make('is_open')

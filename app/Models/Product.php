@@ -18,13 +18,18 @@ class Product extends Model
         'name',
         'thumbnail',
         'is_open',
-        'price',
+        'price_start_from',
         'duration',
         'detail',
         'seat_available',
         'category_id',
-        'priode_id',
+        'start_priode',
+        'end_priode',
         'slug',
+    ];
+
+    protected $casts = [
+        'start_priode' => 'datetime',
     ];
 
     public function setNameAttribute($value) {
@@ -37,11 +42,6 @@ class Product extends Model
         return $this->belongsTo(Category::class, 'category_id');
     }
 
-    public function priode():BelongsTo
-    {
-        return $this->belongsTo(Priode::class, 'priode_id');
-    }
-
     public function ProductPhotos():HasMany
     {
         return $this->hasMany(ProductPhoto::class, 'product_id');
@@ -52,7 +52,12 @@ class Product extends Model
         return $this->hasMany(ProductBenefit::class, 'product_id');
     }
 
-    public function ProductHotels():HasMany
+    public function ProductPrices():HasMany
+    {
+        return $this->hasMany(ProductPrice::class, 'product_id');
+    }
+
+    public function ProductHoteles():HasMany
     {
         return $this->hasMany(ProductHotel::class, 'product_id');
     }

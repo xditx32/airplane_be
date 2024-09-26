@@ -51,7 +51,7 @@
                 <span class="text-butter-yellow">Event</span> About?
             </h5>
             <p class="text-primary text-lg leading-8 max-w-[640px] mt-4 mb-[30px]">
-                {!! $product->about !!}
+                {!! $product->detail !!}
             </p>
             </div>
             <div id="slider-banner-product">
@@ -66,17 +66,28 @@
             </div>
           </div>
           <!-- Sider-Right -->
-          <div class="lg:col-span-2 bg-white gap-4 p-7 rounded-lg">
-            <div class="flex flex-row gap-x-1 text-secondary items-center justify-center text-xl">
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
+          <div class="lg:col-span-2 bg-white gap-4 p-7 rounded-lg relative md:sticky top-0 max-h-[650px]">
+              @forelse ($product->ProductPrices as $ProductPrice)
+            <div class="">
+                <div class="flex flex-col border p-4">
+                    <div class="flex flex-row justify-between">
+                        <div class="text-primary">
+                            {!! $ProductPrice->price_type !!}
+                        </div>
+                        <div class="text-secondary">
+                            {!! $ProductPrice->price_tier !!} Juta
+                        </div>
+                    </div>
                 </div>
-                <h1 class="text-2xl md:text-3xl font-bold text-center text-white p-4 border bg-secondary rounded-full">
-                    @money($product->price )
+            </div>
+            @empty
 
-                </h1>
+            @endforelse
+
+            <div>
+
+            </div>
+
                 <div class="flex flex-col gap-y-4 pt-2">
                 <!-- priode -->
                 <div class="flex flex-col gap-y-4">
@@ -87,7 +98,7 @@
                     <div>
                         <div class="flex flex-row items-center gap-1">
                         <ion-icon name="checkmark-circle" class="text-secondary"></ion-icon>
-                        <p class="text-sm md:text-base text-primary">{!! $product->priode->date !!}</p>
+                        <p class="text-sm md:text-base text-primary">{!! $product->start_priode !!}</p>
                         </div>
                     </div>
                 </div>
@@ -98,10 +109,10 @@
                     <h3 class="text-base md:text-lg font-bold text-primary">Hotel</h3>
                     </div>
                     <div>
-                        @forelse ($product->ProductHotels as $ProductHotel)
+                        @forelse ($product->ProductHoteles as $ProductHotel)
                         <div class="flex flex-row items-center gap-2">
                         <ion-icon name="checkmark-circle" class="text-secondary"></ion-icon>
-                        <p class="text-sm md:text-base text-primary">{!! $ProductHotel->name !!}</p>
+                        <p class="text-sm md:text-base text-primary">{!! $ProductHotel->hotel->name !!}</p>
                         </div>
                         @empty
 

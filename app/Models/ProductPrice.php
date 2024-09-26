@@ -7,22 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ProductHotel extends Model
+class ProductPrice extends Model
 {
     use HasFactory, SoftDeletes;
 
-     protected $fillable = [
-        'hotel_id',
-        'product_id',
+    protected $fillable = [
+        'price_type',
+        'price_tier',
     ];
-
-    public function hotel():BelongsTo
-    {
-        return $this->belongsTo(hotel::class, 'hotel_id');
-    }
 
     public function product():BelongsTo
     {
-        return $this->belongsTo(product::class, 'product_id');
+        return $this->belongsTo(Product::class, 'product_id');
     }
 }

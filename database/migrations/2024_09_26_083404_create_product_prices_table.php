@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('priodes', function (Blueprint $table) {
+        Schema::create('product_prices', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->date('date')->nullable();
-            $table->string('slug')->unique();
+            $table->string('price_type')->nullable();
+            $table->float('price_tier')->default(0);
+            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('priodes');
+        Schema::dropIfExists('product_prices');
     }
 };

@@ -8,13 +8,15 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
-class Priode extends Model
+class Hotel extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'name',
-        'date',
+        'icon',
+        'photo',
+        'rating',
         'slug',
     ];
 
@@ -23,9 +25,8 @@ class Priode extends Model
         $this->attributes['slug'] = Str::slug($value);
     }
 
-    public function products():HasMany
+    public function ProductHotels():HasMany
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(ProductHotel::class, 'hotel_id');
     }
-
 }
