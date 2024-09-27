@@ -134,56 +134,40 @@
                     Popular
                 </p> --}}
             <div class="w-full bg-primary flex flex-col h-full">
-                <div class="max-w-full md:max-w-[290px]">
+                <div class="max-w-full md:max-w-[290px] pb-4">
                     <div class="flex flex-col gap-y-2 text-white">
-                    {{-- <div class="text-base font-bold text-center uppercase pt-3">
+                    <div class="text-base font-bold text-center uppercase pt-3">
                         {!! $product->name!!}
-                    </div> --}}
-                    {{-- <div class="flex flex-row gap-x-1 text-secondary items-center justify-center text-xl">
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                    </div> --}}
+                    </div>
                     <!-- priode -->
-                    <div class="flex flex-col px-4 py-5">
-                        {{-- <div class="flex items-center gap-4">
-                            <ion-icon name="calendar-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
-                            <h3 class="text-sm md:text-base font-bold">Priode</h3>
-                        </div> --}}
+                    <div class="flex flex-col p-4">
                         {{-- <div>
                             <div class="flex flex-row items-center gap-1">
                                 <ion-icon name="checkmark-circle" class="text-secondary"></ion-icon>
                                 <p class="text-sm md:text-base">{{ $product->start_priode->format('d-M-Y') }}</p>
                             </div>
                         </div> --}}
-                        <div class="flex flex-row align-center justify-between">
+                        <div class="flex flex-row align-center items-center justify-between">
                             <div class="flex flex-col gap-y-2">
-                                <div class="text-base font-bold uppercase">
-                                    {!! $product->name!!}
-                                </div>
                                 <div class="flex flex-row gap-x-2">
                                     <div class="bg-secondary px-2 py-1 rounded-md block">
                                         <p class="text-sm md:text-xs">{!! $product->duration !!} Hari</p>
                                     </div>
-                                    <div class="bg-secondary px-2 py-1 rounded-md block">
-                                        <p class="text-sm md:text-xs">{!! $product->duration !!} Hari</p>
-                                    </div>
-                                    <div class="bg-secondary px-2 py-1 rounded-md block">
-                                        <p class="text-sm md:text-xs">{!! $product->duration !!} Hari</p>
-                                    </div>
                                 </div>
                             </div>
-                            <div>
-                               ada
+                            <div class="flex items-end justify-end">
+                                <img class="w-[50%]" src="{!! Storage::url( $product->category->icon) !!}" alt="" srcset="">
                             </div>
                         </div>
                     </div>
                     <!-- hotel -->
-                    <div class="flex flex-col gap-y-2 border px-4 py-5">
-                        <div class="flex items-center gap-4">
-                            {{-- <ion-icon name="bed-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon> --}}
-                            <p class="text-sm md:text-xs absolute top-[285px] right-5 px-[14px] py-1 rounded-lg bg-primary border">Hotel</p>
+                    <div class="flex flex-col gap-y-2 p-4 border">
+                        {{-- <div class="flex items-center gap-4">
+                            <p class="text-sm md:text-xs px-[14px] py-1 rounded-lg bg-primary border">Hotel</p>
+                        </div> --}}
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-base md:text-lg font-bold text-secondary">Hotel</h3>
+                            <ion-icon name="bed-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
                         </div>
                         @forelse ($product->ProductHoteles as $ProductHotel)
                             <div class="flex flex-row gap-2 items-center align-center justify-between">
@@ -213,34 +197,37 @@
                                     @endif
                                 </div>
                             </div>
-
                             @empty
                                 <p class="text-sm md:text-base text-primary"> Data Belum Tersedia </p>
                             @endforelse
                     </div>
                     <!-- maskapai -->
-                    <div class="flex flex-row gap-y-6 gap-x-4 px-4 py-2 items-center align-center justify-between">
+                    <div class="grid grid-cols-2 p-4 items-center">
                         {{-- <div class="flex items-center gap-4">
                             <ion-icon name="airplane-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
                             <h3 class="text-sm md:text-base font-bold">Maskapai</h3>
                         </div> --}}
-                        @forelse ($product->ProductAirlines as $ProductAirline)
-                        {{-- <div class="flex flex-row"> --}}
-                            <img class="w-[40%] bg-white rounded-xl" src="{!! Storage::url( $ProductAirline->airline->icon ) !!}" alt="">
-                        {{-- </div> --}}
-                        @empty
-                            <p class="text-sm md:text-base text-primary">
-                                Data Belum Tersedia
-                            </p>
-                        @endforelse
-                        <div>
-                            <p class="text-sm md:text-xs">Harga Mulai</p>
-                            <h3 class="text-xl md:text-2xl font-bold text-secondary">
-                                {!! $product->price_start_from !!} Juta
-                            </h3>
+                        <div class="">
+                            <div class="flex flex-col gap-2">
+                                @forelse ($product->ProductAirlines as $ProductAirline)
+                                <img class="w-[80%] bg-white rounded-xl" src="{!! Storage::url( $ProductAirline->airline->icon ) !!}" alt="">
+                                @empty
+                                <p class="text-sm md:text-base text-primary">
+                                    Data Belum Tersedia
+                                </p>
+                                @endforelse
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <div class="flex flex-col gap-2 items-end">
+                                <p class="text-sm md:text-xs">Harga Mulai</p>
+                                    <h3 class="text-3xl md:text-2xl font-bold text-secondary">
+                                        {!! $product->price_start_from !!} Juta
+                                    </h3>
+                            </div>
                         </div>
                     </div>
-
                     <div>
                         @if ($product->seat_available == 1)
                         <div class="mt-auto p-4">
@@ -437,16 +424,16 @@
     </div>
     <div class="flex flex-col md:flex-row flex-wrap justify-center gap-8 lg:gap-[120px] items-center">
       <img class="w-full md:max-w-[536px]"
-        src="./assets/images/service/cropped-1200px-Garuda_Indonesia_Boeing_737-800_PK-GMM_HKG_2012-7-18-780x405.png"
+        src="{!!  asset('/assets/frontend/images/cropped-1200px-Garuda_Indonesia_Boeing_737-800_PK-GMM_HKG_2012-7-18-780x405.png') !!}"
         alt="">
       <div class="max-w-[420px] w-full">
         <header>
-          <h3 class="text-xl md:text-2xl font-bold text-primary mb-1">Extra Layanan</h3>
-          <p class="text-sm md:text-base text-primary mb-1">Anda adalah prioritas kami!</p>
+          <h3 class="text-xl md:text-2xl font-bold text-primary mb-1">Poin Plus.</h3>
+          <p class="text-sm md:text-base text-primary mb-1">Rasakan pengalaman ibadah umroh yang aman dan nyaman bersama Alia Wisata.</p>
         </header>
         <!-- Service Item -->
-        <div class="flex items-center gap-6 py-3">
-          <img class="w-[60px]" src="./assets/images/service/customer-service.png" alt="">
+        <div class="flex items-center gap-6 py-3 bg-gradient-to-tr from-emerald-500 rounded-lg p-2 mb-2">
+          <img class="w-[60px]" src="{!! asset('/assets/frontend/images/man.png') !!}" alt="">
           <div>
             <h3 class="text-xl md:text-2xl font-bold text-primary mb-1">Support</h3>
             <p class="text-sm md:text-base text-primary mb-1">Guna memberikan pelayanan terbaik, Alia Wisata bekerja
@@ -457,8 +444,8 @@
               baik maskapai penerbangan, hotel, maupun pemerintah</p>
           </div>
         </div>
-        <div class="flex items-center gap-6 py-3">
-          <img class="w-[60px]" src="./assets/images/service/achievement.png" alt="">
+        <div class="flex items-center gap-6 py-3 bg-gradient-to-tr from-emerald-500 rounded-lg p-2 mb-2">
+          <img class="w-[60px]" src="{!! asset('/assets/frontend/images/tawaf.png') !!}" alt="">
           <div>
             <h3 class="text-xl md:text-2xl font-bold text-primary mb-1">Quality</h3>
             <p class="text-sm md:text-base text-primary mb-1">Produk jasa Alia Wisata dirancang dan dikemas oleh
@@ -470,8 +457,8 @@
               kualitas dan layanannya</p>
           </div>
         </div>
-        <div class="flex items-center gap-6 py-3">
-          <img class="w-[60px]" src="./assets/images/service/response.png" alt="">
+        <div class="flex items-center gap-6 py-3 bg-gradient-to-tr from-emerald-500 rounded-lg p-2 mb-2">
+          <img class="w-[60px]" src="{!! asset('/assets/frontend/images/umrah.png') !!}" alt="">
           <div>
             <h3 class="text-xl md:text-2xl font-bold text-primary mb-1">Responsive</h3>
             <p class="text-sm md:text-base text-primary mb-1">Alia Wisata sebagai travel umrah haji berkomitmen pada

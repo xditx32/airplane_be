@@ -1,12 +1,13 @@
 
-  <nav class="fixed top-0 z-20 w-full bg-white left-0 right-0 mx-auto rounded-md">
+  <nav class="relative w-full bg-white left-0 right-0 mx-auto rounded-md">
+  {{-- <nav class="fixed top-0 z-20 w-full bg-white left-0 right-0 mx-auto rounded-md"> --}}
     <div class="container relative max-w-screen-xl">
       <div class="flex flex-col justify-between w-full lg:flex-row lg:items-center">
         <!-- Logo & Toggler Button here -->
         <div class="flex items-center justify-between">
           <!-- LOGO -->
           <a href="./index.html">
-            <img class="w-1/2" src="./assets/images/logo-alia-wisata.png" alt="tickety-assets" />
+            <img class="w-1/2" src="{!! asset('./assets/frontend/images/logo-alia-wisata.png') !!}" alt="tickety-assets" />
           </a>
           <!-- RESPONSIVE NAVBAR BUTTON TOGGLER -->
           <div class="block lg:hidden">

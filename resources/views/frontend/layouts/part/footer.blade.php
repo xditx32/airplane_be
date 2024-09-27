@@ -3,7 +3,7 @@
       <div class="grid lg:grid-cols-12 md:grid-cols-4 grid-cols-1 gap-7">
         <div class="lg:col-span-4 col-span-12">
           <div class="flex flex-wrap flex-col gap-y-4">
-            <img class="lg:h-20 w-1/2" src="./assets/images/logo-alia-wisata.png" alt="">
+            <img class="lg:h-20 w-1/2" src="{!! asset('./assets/frontend/images/logo-alia-wisata.png') !!}" alt="">
             <p class="text-sm md:text-base max-w-[640px] text-primary">
               Alia Wisata, Travel Umroh & Haji terpercaya di Indonesia dengan izin resmi Kementerian Agama. Ibadah
               terasa mudah karena
@@ -71,7 +71,7 @@
         <p class="mb-0">
           ©
           <script> document.write(new Date().getFullYear());</script>
-          Alia Wisata. All rights reserved. Made with ❤️ in Indonesia.
+          Alia Wisata❤️. All rights reserved.
         </p>
       </div>
     </div>
