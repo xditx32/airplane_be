@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
  <!-- Section Hero -->
   <div id="slider">
     @forelse ($sliders as $slider)
@@ -127,17 +126,23 @@
             @if ($product->category_id == 1)
                 <!-- Card Product Group -->
             <div class="grid lg:grid-cols-12 md:grid-cols-4 grid-cols-1 gap-[20px] mb-[40px]">
-                <div class="group lg:col-span-3 md:col-span-2 col-span-12 rounded-2xl w-full overflow-hidden relative min-h-[630px] bg-primary">
+                <div class="group lg:col-span-3 md:col-span-2 col-span-12 rounded-2xl w-full overflow-hidden relative min-h-[700px] bg-primary">
                 <img src="{!! Storage::url( $product->photo ) !!}" class="w-full h-full max-h-[180px]"
             alt="tickety-assets">
-                {{-- <p class="px-[14px] py-2 rounded-xl bg-butter-yellow text-dark-indigo font-semibold text-sm absolute top-5 right-5">
-                    Popular
-                </p> --}}
+                <p class="px-[14px] py-2 rounded-xl bg-primary text-white font-semibold text-sm absolute top-5 right-5">
+                    Promo
+                </p>
             <div class="w-full bg-primary flex flex-col h-full">
-                <div class="max-w-full md:max-w-[290px] pb-4">
+                <div class="max-w-full pb-4">
                     <div class="flex flex-col gap-y-2 text-white">
-                    <div class="text-base font-bold text-center uppercase pt-3">
+                    <div class="text-lg md:text-2xl font-bold text-center uppercase pt-2">
+                        {!! $product->title !!}
+                    </div>
+                    <div class="text-base md:text-sm font-bold text-center uppercase">
                         {!! $product->name!!}
+                    </div>
+                    <div class="text-base md:text-sm font-bold text-center">
+                        ({!! $product->start_priode->format('d-m-Y')!!} s.d. {!! $product->end_priode->format('d-m-Y')!!})
                     </div>
                     <!-- priode -->
                     <div class="flex flex-col p-4">
@@ -149,19 +154,23 @@
                         </div> --}}
                         <div class="flex flex-row align-center items-center justify-between">
                             <div class="flex flex-col gap-y-2">
-                                <div class="flex flex-row gap-x-2">
+                                <div class="flex flex-wrap gap-2">
+                                    @forelse ($product->ProductTags as $ProductTag)
                                     <div class="bg-secondary px-2 py-1 rounded-md block">
-                                        <p class="text-sm md:text-xs">{!! $product->duration !!} Hari</p>
+                                        <p class="text-sm md:text-xs">#{!! $ProductTag->name !!}</p>
                                     </div>
+                                    @empty
+
+                                    @endforelse
                                 </div>
                             </div>
-                            <div class="flex items-end justify-end">
+                            {{-- <div class="flex items-end justify-end">
                                 <img class="w-[50%]" src="{!! Storage::url( $product->category->icon) !!}" alt="" srcset="">
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <!-- hotel -->
-                    <div class="flex flex-col gap-y-2 p-4 border">
+                    <div class="flex flex-col gap-y-4 p-4 border">
                         {{-- <div class="flex items-center gap-4">
                             <p class="text-sm md:text-xs px-[14px] py-1 rounded-lg bg-primary border">Hotel</p>
                         </div> --}}
@@ -202,11 +211,29 @@
                             @endforelse
                     </div>
                     <!-- maskapai -->
-                    <div class="grid grid-cols-2 p-4 items-center">
-                        {{-- <div class="flex items-center gap-4">
+                    <div class="flex flex-row justify-between items-center align-center p-4">
+                        <div class="flex flex-row w-full max-w-24 order-1">
+                                @forelse ($product->ProductAirlines as $ProductAirline)
+                                <img class="w-full bg-white rounded-xl" src="{!! Storage::url( $ProductAirline->airline->icon ) !!}" alt="">
+                                @empty
+                                <p class="text-sm md:text-base text-primary">
+                                    Data Belum Tersedia
+                                </p>
+                                @endforelse
+                        </div>
+                        <div class="flex flex-col gap-2 order-2">
+                            <p class="text-sm md:text-xs">Harga Mulai</p>
+                                <h3 class="text-3xl md:text-2xl font-bold text-secondary">
+                                    {!! $product->price_start_from !!} Juta
+                                </h3>
+                        </div>
+
+                    </div>
+                    {{-- <div class="grid grid-cols-2 p-4 items-center">
+                        <div class="flex items-center gap-4">
                             <ion-icon name="airplane-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
                             <h3 class="text-sm md:text-base font-bold">Maskapai</h3>
-                        </div> --}}
+                        </div>
                         <div class="">
                             <div class="flex flex-col gap-2">
                                 @forelse ($product->ProductAirlines as $ProductAirline)
@@ -227,25 +254,34 @@
                                     </h3>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div>
                         @if ($product->seat_available == 1)
                         <div class="mt-auto p-4">
                             <a href="{{ route('product.details', [$category->slug, $product->slug]) }}" class="block btn-orange">
+                                <div class="flex flex-row gap-2 items-center justify-center align-center">
+                                    <ion-icon name="alert-circle-outline" class="text-white">></ion-icon>
                                 Terbatas
+                                </div>
                             </a>
                         </div>
                         @elseif($product->seat_available >= 1)
                         <div class="mt-auto p-4">
                             <a href="{{ route('product.details', [$category->slug, $product->slug]) }}" class="block btn-secondary">
-                                {!! $product->seat_available !!}
-                                Tersisa
+                                <div class="flex flex-row gap-2 items-center justify-center align-center">
+                                    <ion-icon name="checkmark-circle" class="text-white"></ion-icon>
+                                    {!! $product->seat_available !!}
+                                    Tersisa
+                                </div>
                             </a>
                         </div>
                         @else
                         <div class="mt-auto p-4">
                             <a href="#" class="block btn-red">
+                                <div class="flex flex-row gap-2 items-center justify-center align-center">
+                                    <ion-icon name="close-circle-outline" class="text-white"></ion-icon>
                                 Full Booked
+                                  </div>
                             </a>
                         </div>
                         @endif

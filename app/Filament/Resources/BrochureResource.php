@@ -77,4 +77,19 @@ class BrochureResource extends Resource
             'edit' => Pages\EditBrochure::route('/{record}/edit'),
         ];
     }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Brosur');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+      return __('Brosur');
+    }
 }

@@ -16,8 +16,13 @@ class Product extends Model
 
     protected $fillable = [
         'name',
+        'title',
         'photo',
+        'description',
+        'brochure',
         'is_open',
+        'is_promo',
+        'is_currency',
         'price_start_from',
         'duration',
         'detail',
@@ -30,6 +35,7 @@ class Product extends Model
 
     protected $casts = [
         'start_priode' => 'datetime',
+        'end_priode' => 'datetime',
     ];
 
     public function setNameAttribute($value) {
@@ -48,6 +54,11 @@ class Product extends Model
     }
 
     public function ProductBenefits():HasMany
+    {
+        return $this->hasMany(ProductBenefit::class, 'product_id');
+    }
+
+    public function ProductTags():HasMany
     {
         return $this->hasMany(ProductBenefit::class, 'product_id');
     }

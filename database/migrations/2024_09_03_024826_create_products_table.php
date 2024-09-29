@@ -14,16 +14,19 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->string('headline')->nullable();
+            $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->longText('detail')->nullable();
             $table->string('photo')->nullable();
+            $table->string('brochure')->nullable();
             $table->boolean('is_open');
+            $table->boolean('is_promo');
             $table->unsignedBigInteger('duration')->default(0);
             $table->unsignedBigInteger('seat_available')->default(0);
             $table->float('price_start_from')->default(0);
             $table->date('start_priode')->nullable();
             $table->date('end_priode')->nullable();
+            $table->string('is_currency')->nullable();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->string('slug')->unique();
             $table->softDeletes();

@@ -80,4 +80,19 @@ class PartnerResource extends Resource
             'edit' => Pages\EditPartner::route('/{record}/edit'),
         ];
     }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Mitra');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+      return __('Mitra');
+    }
 }

@@ -21,6 +21,10 @@ class HotelResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = 'Paket Produk';
+
+    protected static ?int $navigationSort = 1;
+
     public static function form(Form $form): Form
     {
         return $form
@@ -62,7 +66,18 @@ class HotelResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name')
+                    ->searchable(),
+
+                TextColumn::make('rating'),
+
+                ImageColumn::make('icon'),
+
+                ImageColumn::make('photo'),
+
+                TextColumn::make('created_at')
+                    ->dateTime('d-M-Y H:i:s')
+                    ->label('Created Airline'),
             ])
             ->filters([
                 //
@@ -91,5 +106,20 @@ class HotelResource extends Resource
             'create' => Pages\CreateHotel::route('/create'),
             'edit' => Pages\EditHotel::route('/{record}/edit'),
         ];
+    }
+
+     public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Hotel');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+      return __('Hotel');
     }
 }

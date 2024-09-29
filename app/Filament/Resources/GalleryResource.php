@@ -88,4 +88,19 @@ class GalleryResource extends Resource
             'edit' => Pages\EditGallery::route('/{record}/edit'),
         ];
     }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Galeri');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+      return __('Galeri');
+    }
 }

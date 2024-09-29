@@ -21,7 +21,7 @@ class CategoryResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationGroup = 'Product';
+    protected static ?string $navigationGroup = 'Paket Produk';
 
     protected static ?int $navigationSort = 3;
 
@@ -116,11 +116,11 @@ class CategoryResource extends Resource
 
     public static function getModelLabel(): string
     {
-        return __('Categori');
+        return __('Categori Paket');
     }
 
     public static function getPluralModelLabel(): string
     {
-      return __('Categori');
+      return __('Categori Paket');
     }
 }

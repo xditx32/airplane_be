@@ -24,7 +24,7 @@ class ProductResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rocket-launch';
 
-    protected static ?string $navigationGroup = 'Product';
+    protected static ?string $navigationGroup = 'Paket Produk';
 
     protected static ?int $navigationSort = 4;
 
@@ -36,8 +36,8 @@ class ProductResource extends Resource
                 ->description('')
                 ->schema([
                     TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
+                        ->required()
+                        ->maxLength(255),
 
                     Select::make('category_id')
                         ->relationship('category', 'name')
@@ -45,15 +45,41 @@ class ProductResource extends Resource
                         ->preload()
                         ->required(),
 
+                    TextInput::make('title')
+                        ->required()
+                        ->maxLength(255),
+
+                    Repeater::make('ProductTags')
+                        ->relationship('ProductTags')
+                        ->schema([
+                                TextInput::make('name')
+                                ->required()
+                            ]
+                    ),
+
+                    TextArea::make('description')
+                        ->required()
+                        ->columnSpanFull(),
+
                     FileUpload::make('photo')
                         ->required()
                         ->image()
                         ->disk('public')
                         ->optimize('webp')
                         ->preserveFilenames()
-                        ->directory('assets/frontend/images/product/thumbnail')
+                        ->directory('assets/frontend/images/product/photo')
                         ->maxSize(512)
                         ->label('Gambar'),
+
+                    FileUpload::make('brochure')
+                        ->required()
+                        ->image()
+                        ->disk('public')
+                        ->optimize('webp')
+                        ->preserveFilenames()
+                        ->directory('assets/frontend/images/product/brochure')
+                        ->maxSize(512)
+                        ->label('Brosur'),
 
                     RichEditor::make('detail')
                         ->toolbarButtons([
@@ -153,13 +179,25 @@ class ProductResource extends Resource
                     ),
                 ])->columns(2),
 
-
-
                 // TextInput::make('price')
                 //     ->required()
                 //     ->numeric()
                 //     ->prefix('IDR')
                 //     ->maxValue(42949672.95),
+
+                Select::make('is_currency')
+                    ->options([
+                        'RP' => 'Rp',
+                        'USD' => 'USD',
+                    ])
+                    ->required(),
+
+                Select::make('is_promo')
+                    ->options([
+                        true => 'Yes',
+                        false => 'No',
+                    ])
+                    ->required(),
 
                 Select::make('is_open')
                     ->options([
@@ -237,5 +275,15 @@ class ProductResource extends Resource
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Paket');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+      return __('Paket');
     }
 }

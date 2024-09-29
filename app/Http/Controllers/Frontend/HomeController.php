@@ -10,6 +10,7 @@ class HomeController extends Controller
 {
     //
     public function index(){
+
         $sliders = Slider::get();
         $partners = Partner::get();
         $airlines = Airline::get();
