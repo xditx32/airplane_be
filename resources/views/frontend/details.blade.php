@@ -22,13 +22,13 @@
           Program {!! $product->category->name !!}
         </h3>
         <h2
-          class="md:max-w-lg lg:max-w-lg xl:max-w-2xl text-2xl md:text-3xl font-black md:leading-normal text-white">
+          class="md:max-w-lg lg:max-w-lg xl:max-w-2xl text-2xl md:text-3xl font-black md:leading-normal text-white pb-2">
           {!! $product->name !!}
         </h2>
-        <h3 class="">
+        <h3 class="pb-1">
             Umroh Premium Akhir Tahun {!! $product->duration !!} Hari
         </h3>
-        <p class="md:max-w-lg lg:max-w-lg xl:max-w-4xl">Paket Umroh yang ditawarkan oleh Rabbanitour adalah salah satu pilihan yang sangat menarik bagi mereka yang bercita-cita untuk melaksanakan ibadah Umroh ke Tanah Suci.</p>
+        <p class="md:max-w-lg lg:max-w-lg xl:max-w-4xl">Paket Umroh yang ditawarkan oleh Alia Wisata adalah salah satu pilihan yang sangat menarik bagi mereka yang bercita-cita untuk melaksanakan ibadah Umroh ke Tanah Suci.</p>
         <!-- <div
           class="max-w-xs md:max-w-md lg:max-w-2xl mx-auto text-white text-base md:text-lg md:leading-normal tracking-wide">
           <p class="text-base md:text-lg">“Ibadah umrah ke ibadah umrah berikutnya adalah penggugur (dosa) di antara
@@ -46,19 +46,22 @@
     <div class="grid lg:grid-cols-6 md:grid-cols-2 grid-cols-1 gap-7 mt-0 md:-mt-28">
             <!-- Sider-Left -->
             <div class="lg:col-span-4 bg-secondary gap-4 p-7 rounded-lg">
-                <article id="Content-wrapper" class="pb-10">
-                    {!! $product->detail !!}
-                </article>
-                <div id="slider-banner-product">
+                <div class="pb-4">
+                    <p>{!! $product->description !!}</p>
+                </div>
+                <div id="slider-banner-product" class="pb-4">
                         @forelse ($product->ProductPhotos as $ProductPhoto)
                             <a href="http://">
-                                <img class="w-[500px] h-[400px] rounded-lg mr-[30px]" src="{!! Storage::url($ProductPhoto->photo) !!}"
+                                <img class="w-full rounded-lg mr-[30px]" src="{!! Storage::url($ProductPhoto->photo) !!}"
                                 alt="">
                             @empty
                                 <p>sas</p>
                         @endforelse
                     </a>
                 </div>
+                <article id="Content-wrapper" class="pb-10">
+                    {!! $product->detail !!}
+                </article>
             </div>
 
             <!-- Sider-Right -->
@@ -134,7 +137,7 @@
                         </div>
                     </div>
                     <!-- maskapai -->
-                    <div class="flex flex-col gap-y-6 border border-primary rounded-lg p-2">
+                    <div class="flex flex-col gap-y-4 border border-primary rounded-lg p-2">
                         <div class="flex items-center justify-between">
                             <h3 class="text-base md:text-lg font-bold text-primary">Maskapai</h3>
                             <ion-icon name="airplane-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
@@ -146,7 +149,9 @@
                                     <ion-icon name="checkmark-circle" class="text-secondary"></ion-icon>
                                     <p class="text-base md:text-base text-primary">{!! $ProductAirline->airline->name !!}</p>
                                 </div>
-                                <img class="w-[25%] border border-primary rounded-lg" src="{!! Storage::url($ProductAirline->airline->icon) !!}" alt="">
+                                <div class="max-w-24">
+                                    <img class="w-full border border-primary rounded-lg" src="{!! Storage::url($ProductAirline->airline->icon) !!}" alt="">
+                                </div>
                             </div>
                             @empty
 
@@ -154,7 +159,7 @@
                         </div>
                     </div>
                     <!-- benefit -->
-                    <div class="flex flex-col gap-y-6 border border-primary rounded-lg p-2">
+                    <div class="flex flex-col gap-y-2 border border-primary rounded-lg p-2">
                         <div class="flex items-center justify-between">
                             <h3 class="text-base md:text-lg font-bold text-primary">Benefit</h3>
                             <ion-icon name="trophy-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
@@ -192,7 +197,7 @@
       cellAlign: 'left',
       imagesLoaded: true,
       contain: true,
-      prevNextButtons: true,
+      prevNextButtons: false,
       autoPlay: true,
       wrapAround: true,
       draggable: true,

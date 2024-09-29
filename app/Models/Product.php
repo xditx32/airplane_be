@@ -60,7 +60,7 @@ class Product extends Model
 
     public function ProductTags():HasMany
     {
-        return $this->hasMany(ProductBenefit::class, 'product_id');
+        return $this->hasMany(ProductTag::class, 'product_id');
     }
 
     public function ProductPrices():HasMany

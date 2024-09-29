@@ -132,6 +132,9 @@
                 <p class="px-[14px] py-2 rounded-xl bg-primary text-white font-semibold text-sm absolute top-5 right-5">
                     Promo
                 </p>
+                <div class="px-[14px] py-2 absolute top-[140px] right-5">
+                    <ion-icon name="help-circle-outline" class="text-3xl animate-bounce"></ion-icon>
+                </div>
             <div class="w-full bg-primary flex flex-col h-full">
                 <div class="max-w-full pb-4">
                     <div class="flex flex-col gap-y-2 text-white">
@@ -317,18 +320,23 @@
     @forelse ($categories as $category)
     <div class="grid lg:grid-cols-12 md:grid-cols-4 grid-cols-1 gap-[20px] mb-[40px]">
         @foreach (@$category->products as $product)
-      <div
-        class="group lg:col-span-3 md:col-span-2 col-span-12 w-full overflow-hidden relative min-h-[300px] rounded-xl">
-        <div class="absolute inset-0">
-          <img class="h-full w-full object-cover object-right md:object-center"
-            src="{!! Storage::url($product->photo) !!}">
-          <div class="absolute inset-0 bg-black opacity-60"></div>
-        </div>
-        <div class="relative z-10 flex flex-col gap-y-2 justify-center items-center h-full">
-          <h3 class="text-xl md:text-2xl font-bold">{!! $product->name !!}</h3>
-          <h4 class="text-lg md:text-xl">mulai dari</h4>
-          <h3 class="text-xl md:text-2xl font-bold">@money($product->price)</h3>
-        </div>
+        <div
+        class="group lg:col-span-3 md:col-span-2 col-span-12 w-full overflow-hidden relative p-28 rounded-full">
+        <a href="{!! $product->category->slug  !!}">
+              <div class="absolute inset-0">
+            {{-- <div
+              class="group lg:col-span-3 md:col-span-2 col-span-12 w-full overflow-hidden relative min-h-[300px] rounded-full">
+              <div class="absolute inset-0"> --}}
+                <img class="h-full w-full object-cover object-right md:object-center"
+                  src="{!! Storage::url($product->photo) !!}">
+                <div class="absolute inset-0 bg-black opacity-60"></div>
+              </div>
+              <div class="relative z-10 flex flex-col gap-y-2 justify-center items-center h-full">
+                <h3 class="text-xl md:text-2xl font-bold">{!! $product->category->name !!}</h3>
+                {{-- <h4 class="text-lg md:text-xl">mulai dari</h4>
+                <h3 class="text-xl md:text-2xl font-bold">@money($product->price)</h3> --}}
+            </a>
+              </div>
       </div>
     @endforeach
     </div>
