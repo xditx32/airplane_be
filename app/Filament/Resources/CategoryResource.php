@@ -29,7 +29,6 @@ class CategoryResource extends Resource
     {
         return $form
             ->schema([
-                //
                 TextInput::make('name')
                     ->required()
                     ->helpertext('Gunakan name data dengan tepat.')

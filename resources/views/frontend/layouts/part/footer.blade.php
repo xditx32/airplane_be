@@ -3,7 +3,9 @@
       <div class="grid lg:grid-cols-12 md:grid-cols-4 grid-cols-1 gap-7">
         <div class="lg:col-span-4 col-span-12">
           <div class="flex flex-wrap flex-col gap-y-4">
-            <img class="lg:h-20 w-1/2" src="{!! asset('./assets/frontend/images/logo-alia-wisata.png') !!}" alt="">
+            <a href="{!! route('home') !!}">
+                <img class="lg:h-20 w-1/2" src="{!! asset('./assets/frontend/images/logo-alia-wisata.png') !!}" alt="">
+            </a>
             <p class="text-sm md:text-base max-w-[640px] text-primary">
               Alia Wisata, Travel Umroh & Haji terpercaya di Indonesia dengan izin resmi Kementerian Agama. Ibadah
               terasa mudah karena
@@ -17,7 +19,7 @@
           <ul class="list-none space-y-2">
             <li class="flex flex-row gap-4 items-center">
               <ion-icon class="text-secondary text-xl" name="mail-outline"></ion-icon>
-              <a class="text-sm md:text-base text-primary" href="http://">info@aliawisata.com</a>
+              <a class="text-sm md:text-base text-primary" href="mailto=">info@aliawisata.com</a>
             </li>
             <li class="flex flex-row gap-4 items-center">
               <ion-icon class="text-secondary text-xl" name="call-outline"></ion-icon>
@@ -25,7 +27,7 @@
             </li>
             <li class="flex flex-row gap-4 items-center">
               <ion-icon class="text-secondary text-xl" name="logo-whatsapp"></ion-icon>
-              <a class="text-sm md:text-base text-primary" href="http://">0816-145-8888</a>
+              <a class="text-sm md:text-base text-primary" href="//wa.me/628161458888">0816-145-8888</a>
             </li>
             <li class="flex flex-row gap-4 items-center">
               <ion-icon class="text-secondary text-[110px] lg:text-[130px]" name="navigate-outline"></ion-icon>
@@ -45,7 +47,7 @@
           <ul class="list-none space-y-2">
             <li class="flex flex-row gap-4 items-center">
               <ion-icon class="text-secondary text-xl" name="logo-instagram"></ion-icon>
-              <a class="text-lg md:text-xl text-primary font-bold" href="http://">@aliawisatatravel</a>
+              <a class="text-lg md:text-xl text-primary font-bold" href="//instagram.com/@aliawisatatravel">@aliawisatatravel</a>
             </li>
           </ul>
           <h5 class="tracking-wide text-lg md:text-xl font-bold py-4 text-primary">

@@ -12,5 +12,6 @@ class Promo extends Model
 
     protected $fillable = [
         'photo',
+        'is_active',
     ];
 }

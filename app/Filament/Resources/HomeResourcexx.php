@@ -24,7 +24,6 @@ class HomeResource extends Resource
     {
         return $form
             ->schema([
-                //
                 TextInput::make('title')
                     ->required()
                     ->maxLength(255),

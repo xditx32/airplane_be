@@ -6,7 +6,7 @@
         <!-- Logo & Toggler Button here -->
         <div class="flex items-center justify-between">
           <!-- LOGO -->
-          <a href="./index.html">
+          <a href="{!! route('home') !!}">
             <img class="w-1/2" src="{!! asset('./assets/frontend/images/logo-alia-wisata.png') !!}" alt="tickety-assets" />
           </a>
           <!-- RESPONSIVE NAVBAR BUTTON TOGGLER -->

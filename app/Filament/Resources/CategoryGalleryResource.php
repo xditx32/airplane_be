@@ -31,7 +31,6 @@ class CategoryGalleryResource extends Resource
     {
         return $form
             ->schema([
-                //
                 TextInput::make('name')
                     ->helpertext('Gunakan name data dengan tepat.')
                     ->required()

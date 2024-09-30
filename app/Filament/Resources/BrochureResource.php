@@ -30,7 +30,6 @@ class BrochureResource extends Resource
                     ->helpertext('Gunakan name data dengan tepat.')
                     ->required()
                     ->maxLength(255),
-
                 FileUpload::make('photo')
                     ->image(),
                 Select::make('is_active')

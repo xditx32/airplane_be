@@ -38,17 +38,14 @@ class ProductResource extends Resource
                     TextInput::make('name')
                         ->required()
                         ->maxLength(255),
-
                     Select::make('category_id')
                         ->relationship('category', 'name')
                         ->searchable()
                         ->preload()
                         ->required(),
-
                     TextInput::make('title')
                         ->required()
                         ->maxLength(255),
-
                     Repeater::make('ProductTags')
                         ->relationship('ProductTags')
                         ->schema([
@@ -56,11 +53,9 @@ class ProductResource extends Resource
                                 ->required()
                             ]
                     ),
-
                     TextArea::make('description')
                         ->required()
                         ->columnSpanFull(),
-
                     FileUpload::make('photo')
                         ->required()
                         ->image()
@@ -70,7 +65,6 @@ class ProductResource extends Resource
                         ->directory('assets/frontend/images/product/photo')
                         ->maxSize(512)
                         ->label('Gambar'),
-
                     FileUpload::make('brochure')
                         ->required()
                         ->image()
@@ -80,7 +74,6 @@ class ProductResource extends Resource
                         ->directory('assets/frontend/images/product/brochure')
                         ->maxSize(512)
                         ->label('Brosur'),
-
                     RichEditor::make('detail')
                         ->toolbarButtons([
                             'attachFiles',
@@ -100,10 +93,7 @@ class ProductResource extends Resource
                         ])
                         ->required()
                         ->columnSpanFull(),
-
                 ])->columns(2),
-
-
                 Repeater::make('ProductPhotos')
                     ->relationship('ProductPhotos')
                     ->schema([
@@ -117,7 +107,6 @@ class ProductResource extends Resource
                         ->maxSize(512)
                         ]
                 )->label('Gambar Produk'),
-
                 Repeater::make('ProductBenefits')
                     ->relationship('ProductBenefits')
                     ->schema([
@@ -125,7 +114,6 @@ class ProductResource extends Resource
                             ->required()
                         ]
                 ),
-
                 Repeater::make('ProductHoteles')
                     ->relationship()
                     ->schema([
@@ -134,7 +122,6 @@ class ProductResource extends Resource
                     ->required()
                     ]
                 )->label('Hotel'),
-
                 Repeater::make('ProductAirlines')
                     ->relationship()
                     ->schema([
@@ -143,31 +130,25 @@ class ProductResource extends Resource
                     ->required()
                     ]
                 )->label('Maskapai'),
-
                 Section::make("")
                 ->schema([
                     DatePicker::make('start_priode')
                         ->required(),
-
                     DatePicker::make('end_priode')
                         ->required(),
-
                     TextInput::make('duration')
                         ->required()
                         ->numeric()
                         ->prefix('Days'),
-
                     TextInput::make('seat_available')
                         ->required()
                         ->numeric()
                         ->prefix('Set'),
-
                     TextInput::make('price_start_from')
                         ->required()
                         ->numeric()
                         ->prefix('')
                         ->label('Harga mulai dari'),
-
                     Repeater::make('ProductPrices')
                         ->relationship('ProductPrices')
                         ->schema([
@@ -178,34 +159,29 @@ class ProductResource extends Resource
                         ]
                     ),
                 ])->columns(2),
-
                 // TextInput::make('price')
                 //     ->required()
                 //     ->numeric()
                 //     ->prefix('IDR')
                 //     ->maxValue(42949672.95),
-
                 Select::make('is_currency')
                     ->options([
                         'RP' => 'Rp',
                         'USD' => 'USD',
                     ])
                     ->required(),
-
                 Select::make('is_promo')
                     ->options([
                         true => 'Yes',
                         false => 'No',
                     ])
                     ->required(),
-
                 Select::make('is_open')
                     ->options([
                         true => 'Open',
                         false => 'Not Open',
                     ])
                     ->required(),
-
             ]);
     }
 
@@ -213,19 +189,13 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
-                //
-
                 TextColumn::make('name')
                     ->searchable(),
-
                 ImageColumn::make('thumbnail'),
-
                 TextColumn::make('category.name'),
-
                 TextColumn::make('price_start_from')
                     // ->money('IDR')
                     ->sortable(),
-
                 IconColumn::make('is_open')
                     ->boolean()
                     ->falseColor('danger')
@@ -234,11 +204,9 @@ class ProductResource extends Resource
                     ->trueIcon('heroicon-o-check-circle')
                     ->label('Visibility')
                     ->sortable(),
-
                 TextColumn::make('created_at')
                     ->dateTime('d-M-Y H:i:s')
                     ->label('Created Product'),
-
             ])
             ->filters([
                 //

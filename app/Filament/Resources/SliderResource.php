@@ -41,7 +41,7 @@ class SliderResource extends Resource
                     ->required()
                     ->maxLength(255),
 
-                Textarea::make('description')
+                Textarea::make('detail')
                     ->required()
                     ->rows(10)
                     ->cols(20),
@@ -52,11 +52,14 @@ class SliderResource extends Resource
                     ->preload()
                     ->required(),
 
-                FileUpload::make('photo_desktop')
-                    ->image(),
-
-                FileUpload::make('photo_mobile')
-                    ->image(),
+                FileUpload::make('photo')
+                    ->required()
+                    ->image()
+                    ->disk('public')
+                    ->optimize('webp')
+                    ->preserveFilenames()
+                    ->directory('assets/frontend/images/slider')
+                    ->maxSize(512),
 
                 TextInput::make('button_title')
                     ->required()

@@ -1,38 +1,42 @@
 @extends('frontend.layouts.frontend')
 
+@section('meta_title', 'Alia Wisata Travel Umroh Terbaik & Terpercaya')
+
+@section('meta_description', 'Berdiri sejak 2000, sebagai travel umroh haji Alia Wisata terus memberikan pelayanan terbaik kepada Jamaahnya. Alia juga melayani Ticketing, Tours, Hotel dan lain-lain')
+
 @section('cssCustom')
 
 @endsection
 
 @section('content')
  <!-- Section Hero -->
-  <div id="slider">
+<div id="slider">
     @forelse ($sliders as $slider)
     <div class="h-screen w-full overflow-hidden">
-      <div class="absolute inset-0">
+        <div class="absolute inset-0">
         <img alt="title" class="h-full w-full object-cover object-right md:object-center"
-          src="{!! Storage::url($slider->photo_desktop) !!}">
+            src="{!! Storage::url($slider->photo) !!}">
         <div class="absolute inset-0 bg-black opacity-60"></div>
-      </div>
-      <div class="relative z-10 flex flex-col justify-center items-center h-full text-center">
-        <h2 class="md:max-w-lg lg:max-w-lg xl:max-w-2xl mx-auto text-xl md:text-2xl md:leading-normal text-white">
-           {!! $slider->sub_title !!}</h2>
-        <h1
-          class="md:max-w-lg lg:max-w-lg xl:max-w-2xl mx-auto text-4xl md:text-5xl font-black md:leading-normal text-white">
-          {!! $slider->title !!}</h1>
-        <div
-          class="max-w-xs md:max-w-md lg:max-w-2xl mx-auto text-white text-base md:text-lg md:leading-normal tracking-wide">
-          <p class="text-base md:text-lg"> {!! $slider->description !!}</p>
         </div>
-      </div>
+        <div class="relative z-10 flex flex-col justify-center items-center h-full text-center">
+        <h2 class="md:max-w-lg lg:max-w-lg xl:max-w-2xl mx-auto text-xl md:text-2xl md:leading-normal text-white">
+            {!! $slider->sub_title !!}</h2>
+        <h1
+            class="md:max-w-lg lg:max-w-lg xl:max-w-2xl mx-auto text-4xl md:text-5xl font-black md:leading-normal text-white">
+            {!! $slider->title !!}</h1>
+        <div
+            class="max-w-xs md:max-w-md lg:max-w-2xl mx-auto text-white text-base md:text-lg md:leading-normal tracking-wide">
+            <p class="text-base md:text-lg"> {!! $slider->description !!}</p>
+        </div>
+        </div>
     </div>
     @empty
         <p class="text-sm md:text-base text-primary"> Data Belum Tersedia </p>
     @endforelse
-  </div>
+</div>
 
   <!-- Section Promo -->
-  <section class="container relative max-w-screen-xl py-10 bg-white rounded-md">
+<section class="container relative max-w-screen-xl py-10 bg-white rounded-md">
     <div class="flex flex-col justify-between w-full gap-0 mb-[50px]">
         <h2 class="text-2xl md:text-3xl font-bold text-secondary">Klaim Voucher</h2>
         <p class="text-base md:text-lg text-primary">Dapatkan promo potongan harga menarik untuk perjalanan ibadh umroh sahabat semua.</p>
@@ -44,7 +48,7 @@
             <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
         @endforelse
     </div>
-  </section>
+</section>
 
   <!-- Section About -->
   <section class="container relative max-w-screen-xl py-10 bg-primary">
@@ -121,20 +125,23 @@
         <p class="text-base md:text-lg text-secondary">Kami memiliki paket-paket umroh yang dapat anda
             Tangal keberangkatan terdekat program umroh Alia Wisata.</p>
     </div>
+
+    <!-- Card Product Group -->
     @forelse ($categories as $category)
+    <div class="grid lg:grid-cols-12 md:grid-cols-4 grid-cols-1 gap-[20px] mb-[40px]">
+    @if ($category->id == 1)
         @foreach (@$category->products as $product)
-            @if ($product->category_id == 1)
-                <!-- Card Product Group -->
-            <div class="grid lg:grid-cols-12 md:grid-cols-4 grid-cols-1 gap-[20px] mb-[40px]">
-                <div class="group lg:col-span-3 md:col-span-2 col-span-12 rounded-2xl w-full overflow-hidden relative min-h-[700px] bg-primary">
-                <img src="{!! Storage::url( $product->photo ) !!}" class="w-full h-full max-h-[180px]"
-            alt="tickety-assets">
+        <div class="group lg:col-span-3 md:col-span-2 col-span-12 rounded-2xl w-full overflow-hidden relative min-h-[590px] bg-primary">
+                <img src="{!! Storage::url( $product->photo ) !!}" class="w-full h-full max-h-[180px]" alt="tickety-assets">
                 <p class="px-[14px] py-2 rounded-xl bg-primary text-white font-semibold text-sm absolute top-5 right-5">
                     Promo
                 </p>
-                <div class="px-[14px] py-2 absolute top-[140px] right-5">
-                    <ion-icon name="help-circle-outline" class="text-3xl animate-bounce"></ion-icon>
-                </div>
+                {{-- <div class="px-[14px] py-2 absolute top-[140px] right-5">
+                    <a id="category" href="" title="Brosur">
+                        <ion-icon name="help-circle-outline" class="text-3xl animate-bounce" src="{!!  Storage::url($product->brochure) !!}">
+                        </ion-icon>
+                    </a>
+                </div> --}}
             <div class="w-full bg-primary flex flex-col h-full">
                 <div class="max-w-full pb-4">
                     <div class="flex flex-col gap-y-2 text-white">
@@ -144,11 +151,11 @@
                     <div class="text-base md:text-sm font-bold text-center uppercase">
                         {!! $product->name!!}
                     </div>
-                    <div class="text-base md:text-sm font-bold text-center">
+                    <div class="text-base md:text-sm font-bold text-center bg-white rounded-xl text-primary mx-4 py-2">
                         ({!! $product->start_priode->format('d-m-Y')!!} s.d. {!! $product->end_priode->format('d-m-Y')!!})
                     </div>
                     <!-- priode -->
-                    <div class="flex flex-col p-4">
+                    <div class="flex flex-col px-4 py-1">
                         {{-- <div>
                             <div class="flex flex-row items-center gap-1">
                                 <ion-icon name="checkmark-circle" class="text-secondary"></ion-icon>
@@ -173,7 +180,7 @@
                         </div>
                     </div>
                     <!-- hotel -->
-                    <div class="flex flex-col gap-y-4 p-4 border">
+                    <div class="flex flex-col gap-y-4 px-4 py-2 border">
                         {{-- <div class="flex items-center gap-4">
                             <p class="text-sm md:text-xs px-[14px] py-1 rounded-lg bg-primary border">Hotel</p>
                         </div> --}}
@@ -214,7 +221,7 @@
                             @endforelse
                     </div>
                     <!-- maskapai -->
-                    <div class="flex flex-row justify-between items-center align-center p-4">
+                    <div class="flex flex-row justify-between items-center align-center px-4 py-2">
                         <div class="flex flex-row w-full max-w-24 order-1">
                                 @forelse ($product->ProductAirlines as $ProductAirline)
                                 <img class="w-full bg-white rounded-xl" src="{!! Storage::url( $ProductAirline->airline->icon ) !!}" alt="">
@@ -260,7 +267,7 @@
                     </div> --}}
                     <div>
                         @if ($product->seat_available == 1)
-                        <div class="mt-auto p-4">
+                        <div class="mt-auto px-4 py-1">
                             <a href="{{ route('product.details', [$category->slug, $product->slug]) }}" class="block btn-orange">
                                 <div class="flex flex-row gap-2 items-center justify-center align-center">
                                     <ion-icon name="alert-circle-outline" class="text-white">></ion-icon>
@@ -269,7 +276,7 @@
                             </a>
                         </div>
                         @elseif($product->seat_available >= 1)
-                        <div class="mt-auto p-4">
+                        <div class="mt-auto px-4 py-1">
                             <a href="{{ route('product.details', [$category->slug, $product->slug]) }}" class="block btn-secondary">
                                 <div class="flex flex-row gap-2 items-center justify-center align-center">
                                     <ion-icon name="checkmark-circle" class="text-white"></ion-icon>
@@ -279,7 +286,7 @@
                             </a>
                         </div>
                         @else
-                        <div class="mt-auto p-4">
+                        <div class="mt-auto px-4 py-1">
                             <a href="#" class="block btn-red">
                                 <div class="flex flex-row gap-2 items-center justify-center align-center">
                                     <ion-icon name="close-circle-outline" class="text-white"></ion-icon>
@@ -292,57 +299,50 @@
                 </div>
             </div>
         </div>
-        </div>
-        </div>
-            <!-- End Card Product Group -->
-            <div class="flex flex-col justify-between items-center">
-                <a class="block btn-primary" href="{!! route('category', $category->slug) !!}">Paket Umroh Unggulan Lainnya</a>
-            </div>
-        @endif
-        @endforeach
-        @empty
-        <p class="text-sm md:text-base text-primary text-center"> Data Belum Tersedia </p>
-    @endforelse
-  </section>
+    </div>
+    @endforeach
+</div>
+    <div class="flex flex-col justify-between items-center">
+        <a class="block btn-primary" href="{!! route('category', $category->slug) !!}">Paket Umroh Unggulan Lainnya</a>
+    </div>
+@endif
+@empty
+    <p class="text-sm md:text-base text-primary text-center"> Data Belum Tersedia </p>
+@endforelse
+<!-- End Card Product Group -->
+</section>
 
 <img src="{!! asset('/assets/frontend/images/wavy-line-1.svg') !!}" class="absolute -z-10 md:top-[120rem] w-full" alt="tickety-assets">
 
   <!-- Section Package Umrah -->
   <section class="container relative max-w-screen-xl py-10">
     <div class="flex flex-col justify-between items-center w-full gap-1 mb-[50px]">
-      <h2 class="text-2xl md:text-3xl font-bold text-white">Paket Umroh</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-white">Paket Categori</h2>
       <p class="text-base md:text-lg text-white text-center">Kami memiliki paket-paket umroh yang dapat anda
         pilih dari paket
         reguler dengan biaya yang lebih hemat hingga paket VIP
         untuk mendapatkan pelayanan terbaik. Semoga kita dimudahkan untuk beribadah umroh di Tanah Suci.</p>
     </div>
 
-    @forelse ($categories as $category)
-    <div class="grid lg:grid-cols-12 md:grid-cols-4 grid-cols-1 gap-[20px] mb-[40px]">
-        @foreach (@$category->products as $product)
-        <div
-        class="group lg:col-span-3 md:col-span-2 col-span-12 w-full overflow-hidden relative p-28 rounded-full">
-        <a href="{!! $product->category->slug  !!}">
-              <div class="absolute inset-0">
-            {{-- <div
-              class="group lg:col-span-3 md:col-span-2 col-span-12 w-full overflow-hidden relative min-h-[300px] rounded-full">
-              <div class="absolute inset-0"> --}}
-                <img class="h-full w-full object-cover object-right md:object-center"
-                  src="{!! Storage::url($product->photo) !!}">
-                <div class="absolute inset-0 bg-black opacity-60"></div>
-              </div>
+    <div class="flex flex-wrap gap-4">
+        @forelse ($categories as $category)
+        <a href="{!! $category->slug !!}">
+            <div class="overflow-hidden relative rounded-full w-40 h-40">
+                <div class="absolute inset-0">
+                    <img class="h-full w-full object-cover object-right md:object-center"
+                    src="{!! Storage::url( $category->photo) !!}">
+                    <div class="absolute inset-0 bg-black opacity-60"></div>
+                </div>
               <div class="relative z-10 flex flex-col gap-y-2 justify-center items-center h-full">
-                <h3 class="text-xl md:text-2xl font-bold">{!! $product->category->name !!}</h3>
-                {{-- <h4 class="text-lg md:text-xl">mulai dari</h4>
-                <h3 class="text-xl md:text-2xl font-bold">@money($product->price)</h3> --}}
-            </a>
+                <h3 class="text-xl md:text-2xl font-bold">{!!  $category->name !!}</h3>
               </div>
-      </div>
-    @endforeach
+            </div>
+        </a>
+        @empty
+        <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
+        @endforelse
+
     </div>
-    @empty
-    <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
-    @endforelse
   </section>
 
   <!-- Section Select New Package Umrah -->
@@ -754,12 +754,11 @@
       })
     })
 
-
     var flktyPromo = new Flickity('#promoCarousel', {
         cellAlign: 'left',
         imagesLoaded: true,
         contain: true,
-        prevNextButtons: true,
+        prevNextButtons: false,
         autoPlay: 5000,
         wrapAround: true,
         draggable: true,
@@ -768,9 +767,9 @@
         groupCells: false,
         pauseAutoPlayOnHover: false,
     });
-    // flktyPromo.on('pointerUp', (event, pointer) => {
-    //     flktyPromo.player.play();
-    // });
+    flktyPromo.on('pointerUp', (event, pointer) => {
+        flktyPromo.player.play();
+    });
 
     var flktyMitra = new Flickity('#mitraCarousel', {
         cellAlign: 'left',
@@ -793,7 +792,7 @@
       cellAlign: 'left',
       imagesLoaded: true,
       contain: true,
-      prevNextButtons: true,
+      prevNextButtons: false,
       autoPlay: true,
       wrapAround: true,
       draggable: true,
@@ -806,7 +805,7 @@
       cellAlign: 'left',
       imagesLoaded: true,
       contain: true,
-      prevNextButtons: true,
+      prevNextButtons: false,
       autoPlay: true,
       wrapAround: true,
       draggable: true,
@@ -819,7 +818,7 @@
       cellAlign: 'left',
       imagesLoaded: true,
       contain: true,
-      prevNextButtons: true,
+      prevNextButtons: false,
       autoPlay: 5000,
       wrapAround: true,
       draggable: true,
@@ -829,20 +828,13 @@
     });
 
 
-
-    // lightGallery(document.getElementById('#lightgallery'), {
-    //   plugins: [lgZoom, lgThumbnail],
-    //   //licenseKey: 'your_license_key',
-    //   speed: 500,
-    //   // ... other settings
-    // });
-
-    // const container = document.getElementById("#lightgallery");
-    // lightGallery(container, {
-    //   speed: 500,
-    //   plugins: []
-    // });
-
+    lightGallery(document.getElementById("category"), {
+      thumbnail: true,
+      // animateThumb: false,
+      // zoomFromOriginal: false,
+      // allowMediaOverlap: true,
+      // toggleThumb: true,
+    });
 
     lightGallery(document.getElementById("lightgallery"), {
       thumbnail: true,

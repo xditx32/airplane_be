@@ -29,12 +29,10 @@ class AirlineResource extends Resource
     {
         return $form
             ->schema([
-                //
                 TextInput::make('name')
                     ->helpertext('Gunakan name data dengan tepat.')
                     ->required()
                     ->maxLength(255),
-
                 FileUpload::make('icon')
                     ->required()
                     ->image()
@@ -44,7 +42,6 @@ class AirlineResource extends Resource
                     ->directory('assets/frontend/images/airline/icon')
                     ->maxSize(512)
                     ->label('Icon Maskapai'),
-
                 FileUpload::make('photo')
                     ->image()
                     ->required()
@@ -63,11 +60,8 @@ class AirlineResource extends Resource
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),
-
                 ImageColumn::make('icon'),
-
                 ImageColumn::make('photo'),
-
                 TextColumn::make('created_at')
                     ->dateTime('d-M-Y H:i:s')
                     ->label('Created Airline'),

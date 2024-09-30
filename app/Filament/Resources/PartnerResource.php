@@ -25,16 +25,18 @@ class PartnerResource extends Resource
     {
         return $form
             ->schema([
-                //
                 TextInput::make('title')
                     ->helpertext('Gunakan name data dengan tepat.')
                     ->required()
                     ->maxLength(255),
-
                 FileUpload::make('icon')
+                    ->required()
                     ->image()
-                    ->required(),
-
+                    ->disk('public')
+                    ->optimize('webp')
+                    ->preserveFilenames()
+                    ->directory('assets/frontend/images/partner')
+                    ->maxSize(512)
             ]);
     }
 

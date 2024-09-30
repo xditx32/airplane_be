@@ -27,7 +27,6 @@ class PromoResource extends Resource
     {
         return $form
             ->schema([
-                //
                 FileUpload::make('photo')
                     ->required()
                     ->image()
@@ -37,6 +36,13 @@ class PromoResource extends Resource
                     ->directory('assets/frontend/images/promo')
                     ->maxSize(512)
                     ->label('Gambar Promo'),
+                Select::make('is_active')
+                    ->options([
+                        true => 'Active',
+                        false => 'Not Active',
+                    ])
+                    ->label('Status')
+                    ->required(),
             ]);
     }
 
@@ -44,9 +50,16 @@ class PromoResource extends Resource
     {
         return $table
             ->columns([
-                //
                 ImageColumn::make('photo')
-                ->label('Gambar Promo'),
+                    ->label('Gambar Promo'),
+                IconColumn::make('is_active')
+                    ->boolean()
+                    ->falseColor('danger')
+                    ->trueColor('success')
+                    ->falseIcon('heroicon-o-x-circle')
+                    ->trueIcon('heroicon-o-check-circle')
+                    ->label('Active')
+                    ->sortable(),
             ])
             ->filters([
                 //

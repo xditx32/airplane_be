@@ -1,5 +1,9 @@
 @extends('frontend.layouts.frontend')
 
+@section('meta_title', $product->name)
+
+@section('meta_description', 'Berdiri sejak 2000, sebagai travel umroh haji Alia Wisata terus memberikan pelayanan terbaik kepada Jamaahnya. Alia juga melayani Ticketing, Tours, Hotel dan lain-lain')
+
 @section('cssCustom')
 
 @endsection
@@ -65,125 +69,128 @@
             </div>
 
             <!-- Sider-Right -->
-            <div class="lg:col-span-2 bg-white gap-4 p-5 rounded-lg relative md:sticky top-0 max-h-[650px]">
-                <h3 class="text-base md:text-lg font-bold text-secondary text-right pb-2">
-                Harga Mulai!
-                </h3>
-                <div class="border border-primary rounded-lg">
-                    @forelse ($product->ProductPrices as $ProductPrice)
-                    <div class="border-b rounded-lg">
-                        <div class="flex flex-col">
-                            <div class="flex flex-row justify-between p-2">
-                                <div class="text-primary">
+            <div class="lg:col-span-2 gap-4 relative">
+                <div class="bg-white min-h-[450px] p-5 rounded-lg md:sticky top-0">
+                    <h3 class="text-base md:text-lg font-bold text-secondary text-right pb-2">
+                    Harga Mulai!
+                    </h3>
+                    <div class="border border-primary rounded-lg">
+                        @forelse ($product->ProductPrices as $ProductPrice)
+                        <div class="border-b rounded-lg">
+                            <div class="flex flex-col">
+                                <div class="flex flex-row justify-between p-2">
+                                    <div class="text-primary">
+                                        <div class="flex flex-row items-center gap-2">
+                                            <ion-icon name="people-outline" class="text-xl bg-secondary block rounded-2xl p-1 text-white"></ion-icon>
+                                                <h3 class="text-base md:text-lg font-base">
+                                                {!! $ProductPrice->price_type !!}
+                                                </h3>
+                                        </div>
+                                    </div>
+                                    <h3 class="text-base md:text-lg font-bold text-secondary">
+                                        {!! $ProductPrice->price_tier !!} Juta
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        @empty
+
+                        @endforelse
+                    </div>
+
+                    <div class="flex flex-col gap-y-4 pt-4">
+                        <!-- hotel -->
+                        <div class="flex flex-col gap-y-2 border border-primary rounded-lg p-2">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-base md:text-lg font-bold text-primary">Hotel</h3>
+                                <ion-icon name="bed-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
+                            </div>
+                            <div>
+                                @forelse ($product->ProductHoteles as $ProductHotel)
+                                <div class="flex flex-row justify-between items-center">
                                     <div class="flex flex-row items-center gap-2">
-                                        <ion-icon name="people-outline" class="text-xl bg-secondary block rounded-2xl p-1 text-white"></ion-icon>
-                                            <h3 class="text-base md:text-lg font-base">
-                                            {!! $ProductPrice->price_type !!}
-                                            </h3>
+                                        <ion-icon name="checkmark-circle" class="text-secondary"></ion-icon>
+                                        <p class="text-base md:text-base text-primary">{!! $ProductHotel->hotel->name !!}</p>
+                                    </div>
+                                    <div class="flex flex-row text-primary">
+                                        @if ($ProductHotel->hotel->rating == 1)
+                                            <ion-icon name="star"></ion-icon>
+                                        @elseif($ProductHotel->hotel->rating == 2)
+                                            <ion-icon name="star"></ion-icon>
+                                            <ion-icon name="star"></ion-icon>
+                                        @elseif($ProductHotel->hotel->rating == 3)
+                                            <ion-icon name="star"></ion-icon>
+                                            <ion-icon name="star"></ion-icon>
+                                            <ion-icon name="star"></ion-icon>
+                                        @elseif($ProductHotel->hotel->rating == 4)
+                                            <ion-icon name="star"></ion-icon>
+                                            <ion-icon name="star"></ion-icon>
+                                            <ion-icon name="star"></ion-icon>
+                                            <ion-icon name="star"></ion-icon>
+                                        @elseif($ProductHotel->hotel->rating == 5)
+                                            <ion-icon name="star"></ion-icon>
+                                            <ion-icon name="star"></ion-icon>
+                                            <ion-icon name="star"></ion-icon>
+                                            <ion-icon name="star"></ion-icon>
+                                            <ion-icon name="star"></ion-icon>
+                                        @endif
                                     </div>
                                 </div>
-                                <h3 class="text-base md:text-lg font-bold text-secondary">
-                                    {!! $ProductPrice->price_tier !!} Juta
-                                </h3>
+                                @empty
+
+                                @endforelse
                             </div>
                         </div>
-                    </div>
-                    @empty
+                        <!-- maskapai -->
+                        <div class="flex flex-col gap-y-4 border border-primary rounded-lg p-2">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-base md:text-lg font-bold text-primary">Maskapai</h3>
+                                <ion-icon name="airplane-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
+                            </div>
+                            <div>
+                                @forelse ($product->ProductAirlines as $ProductAirline)
+                                <div class="flex flex-row justify-between items-center">
+                                    <div class="flex flex-row items-center gap-2">
+                                        <ion-icon name="checkmark-circle" class="text-secondary"></ion-icon>
+                                        <p class="text-base md:text-base text-primary">{!! $ProductAirline->airline->name !!}</p>
+                                    </div>
+                                    <div class="max-w-24">
+                                        <img class="w-full border border-primary rounded-lg" src="{!! Storage::url($ProductAirline->airline->icon) !!}" alt="">
+                                    </div>
+                                </div>
+                                @empty
 
-                    @endforelse
-                </div>
-
-                <div class="flex flex-col gap-y-4 pt-4">
-                    <!-- hotel -->
-                    <div class="flex flex-col gap-y-2 border border-primary rounded-lg p-2">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-base md:text-lg font-bold text-primary">Hotel</h3>
-                            <ion-icon name="bed-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
+                                @endforelse
+                            </div>
                         </div>
-                        <div>
-                            @forelse ($product->ProductHoteles as $ProductHotel)
-                            <div class="flex flex-row justify-between items-center">
-                                <div class="flex flex-row items-center gap-2">
+                        <!-- benefit -->
+                        <div class="flex flex-col gap-y-2 border border-primary rounded-lg p-2">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-base md:text-lg font-bold text-primary">Benefit</h3>
+                                <ion-icon name="trophy-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
+                            </div>
+                            <div>
+                                @forelse ($product->ProductBenefits as $ProductBenefit)
+                                <div class="flex flex-row items-center gap-4">
                                     <ion-icon name="checkmark-circle" class="text-secondary"></ion-icon>
-                                    <p class="text-base md:text-base text-primary">{!! $ProductHotel->hotel->name !!}</p>
+                                    <h4 class="text-base md:text-lg text-primary">{!! $ProductBenefit->name !!}</h4>
                                 </div>
-                                <div class="flex flex-row text-primary">
-                                    @if ($ProductHotel->hotel->rating == 1)
-                                        <ion-icon name="star"></ion-icon>
-                                    @elseif($ProductHotel->hotel->rating == 2)
-                                        <ion-icon name="star"></ion-icon>
-                                        <ion-icon name="star"></ion-icon>
-                                    @elseif($ProductHotel->hotel->rating == 3)
-                                        <ion-icon name="star"></ion-icon>
-                                        <ion-icon name="star"></ion-icon>
-                                        <ion-icon name="star"></ion-icon>
-                                    @elseif($ProductHotel->hotel->rating == 4)
-                                        <ion-icon name="star"></ion-icon>
-                                        <ion-icon name="star"></ion-icon>
-                                        <ion-icon name="star"></ion-icon>
-                                        <ion-icon name="star"></ion-icon>
-                                    @elseif($ProductHotel->hotel->rating == 5)
-                                        <ion-icon name="star"></ion-icon>
-                                        <ion-icon name="star"></ion-icon>
-                                        <ion-icon name="star"></ion-icon>
-                                        <ion-icon name="star"></ion-icon>
-                                        <ion-icon name="star"></ion-icon>
-                                    @endif
-                                </div>
-                            </div>
-                            @empty
+                                @empty
 
-                            @endforelse
+                                @endforelse
+                            </div>
                         </div>
                     </div>
-                    <!-- maskapai -->
-                    <div class="flex flex-col gap-y-4 border border-primary rounded-lg p-2">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-base md:text-lg font-bold text-primary">Maskapai</h3>
-                            <ion-icon name="airplane-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
-                        </div>
-                        <div>
-                            @forelse ($product->ProductAirlines as $ProductAirline)
-                            <div class="flex flex-row justify-between items-center">
-                                <div class="flex flex-row items-center gap-2">
-                                    <ion-icon name="checkmark-circle" class="text-secondary"></ion-icon>
-                                    <p class="text-base md:text-base text-primary">{!! $ProductAirline->airline->name !!}</p>
-                                </div>
-                                <div class="max-w-24">
-                                    <img class="w-full border border-primary rounded-lg" src="{!! Storage::url($ProductAirline->airline->icon) !!}" alt="">
-                                </div>
-                            </div>
-                            @empty
 
-                            @endforelse
-                        </div>
+                    <div class="pt-10">
+                            <a href="//wa.me/628161458888?text=Assalammualaikum+Alia Wisata,%0ASaya+berminat+Paket+{!! $product->category->name !!}+{!! $product->name !!}%3F" class="block btn-secondary flex flex-row items-center align-center justify-center">
+                            <ion-icon name="logo-whatsapp" class="text-2xl"></ion-icon>
+                                Contact Whastapp
+                            </a>
                     </div>
-                    <!-- benefit -->
-                    <div class="flex flex-col gap-y-2 border border-primary rounded-lg p-2">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-base md:text-lg font-bold text-primary">Benefit</h3>
-                            <ion-icon name="trophy-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
-                        </div>
-                        <div>
-                            @forelse ($product->ProductBenefits as $ProductBenefit)
-                            <div class="flex flex-row items-center gap-4">
-                                <ion-icon name="checkmark-circle" class="text-secondary"></ion-icon>
-                                <h4 class="text-base md:text-lg text-primary">{!! $ProductBenefit->name !!}</h4>
-                            </div>
-                            @empty
-
-                            @endforelse
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-auto pt-14">
-                    <a href="wa.me/" class="block btn-secondary">
-                    Contact Whastapp
-                    </a>
                 </div>
             </div>
-        </div>
+           </div>
         </div>
     </div>
 
