@@ -18,11 +18,11 @@ class ProductHotel extends Model
 
     public function hotel():BelongsTo
     {
-        return $this->belongsTo(hotel::class, 'hotel_id');
+        return $this->belongsTo(Hotel::class, 'hotel_id');
     }
 
     public function product():BelongsTo
     {
-        return $this->belongsTo(product::class, 'product_id');
+        return $this->belongsTo(Product::class, 'product_id');
     }
 }

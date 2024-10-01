@@ -18,11 +18,11 @@ class ProductAirline extends Model
 
     public function airline():BelongsTo
     {
-        return $this->belongsTo(airline::class, 'airline_id');
+        return $this->belongsTo(Airline::class, 'airline_id');
     }
 
     public function product():BelongsTo
     {
-        return $this->belongsTo(product::class, 'product_id');
+        return $this->belongsTo(Product::class, 'product_id');
     }
 }
