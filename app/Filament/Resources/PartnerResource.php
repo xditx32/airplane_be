@@ -25,7 +25,7 @@ class PartnerResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title')
+                TextInput::make('name')
                     ->helpertext('Gunakan name data dengan tepat.')
                     ->required()
                     ->maxLength(255),
@@ -45,7 +45,7 @@ class PartnerResource extends Resource
         return $table
             ->columns([
                 //
-                TextColumn::make('title')
+                TextColumn::make('name')
                     ->searchable(),
 
                 ImageColumn::make('icon'),

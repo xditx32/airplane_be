@@ -49,7 +49,7 @@
   <section class="container relative max-w-screen-xl py-10 bg-primary">
     <div class="grid lg:grid-cols-6 md:grid-cols-2 grid-cols-1 gap-7 mt-0 md:-mt-28">
             <!-- Sider-Left -->
-            <div class="lg:col-span-4 bg-secondary gap-4 p-7 rounded-lg">
+            <div class="order-2 md:order-1 lg:col-span-4 bg-secondary gap-4 p-7 rounded-lg">
                 <div class="pb-4">
                     <p>{!! $product->description !!}</p>
                 </div>
@@ -69,7 +69,7 @@
             </div>
 
             <!-- Sider-Right -->
-            <div class="lg:col-span-2 gap-4 relative">
+            <div class="order-1 md:order-2 lg:col-span-2 gap-4 relative">
                 <div class="bg-white min-h-[450px] p-5 rounded-lg md:sticky top-0">
                     <h3 class="text-base md:text-lg font-bold text-secondary text-right pb-2">
                     Harga Mulai!

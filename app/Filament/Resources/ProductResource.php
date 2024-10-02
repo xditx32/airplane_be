@@ -172,14 +172,14 @@ class ProductResource extends Resource
                     ->required(),
                 Select::make('is_promo')
                     ->options([
-                        true => 'Yes',
-                        false => 'No',
+                        TRUE => 'Yes',
+                        FALSE => 'No',
                     ])
                     ->required(),
                 Select::make('is_open')
                     ->options([
-                        true => 'Open',
-                        false => 'Not Open',
+                        TRUE => 'Open',
+                        FALSE => 'Not Open',
                     ])
                     ->required(),
             ]);

@@ -11,14 +11,16 @@ class HomeController extends Controller
     //
     public function index(){
 
+        $active = TRUE;
+
         $sliders = Slider::get();
         $partners = Partner::get();
         $airlines = Airline::get();
         $galleries = Gallery::get();
         $categories = Category::get();
         $brochures = Brochure::get();
-        $promos = Promo::get();
-        $products = Product::where('is_open', 'true')->get();
+        $promos = Promo::where('is_active', $active)->get();
+        $products = Product::where('is_open', $active)->get();
 
         return view('frontend.home', compact('airlines', 'promos', 'brochures', 'partners','sliders', 'galleries', 'categories', 'categories', 'products', 'products'));
     }

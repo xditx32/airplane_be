@@ -38,8 +38,8 @@ class PromoResource extends Resource
                     ->label('Gambar Promo'),
                 Select::make('is_active')
                     ->options([
-                        true => 'Active',
-                        false => 'Not Active',
+                        TRUE => 'Active',
+                        FALSE => 'Not Active',
                     ])
                     ->label('Status')
                     ->required(),

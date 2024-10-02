@@ -16,8 +16,7 @@
     <meta name="email" content="info@aliawisata.com">
     <meta name="website" content="{!! url('/') !!}" />
     <meta name="robots" content="max-image-preview:large" />
-    <meta name="keywords"
-        content="" />
+    <meta name="keywords" content="" />
     <meta name="copyright" content="© Copyright 2024 Aliawisata. All Rights Reserved." />
     {{-- opengrap --}}
     <meta property="og:title" content="@yield('meta_title')" />
@@ -31,32 +30,32 @@
     {{-- base_url --}}
     <base href="{!! url('/') !!}">
 
+@include('frontend.layouts.part.css')
 
- @include('frontend.layouts.part.css')
-
-  <!-- cssCustom -->
-  @yield('cssCustom')
+<!-- cssCustom -->
+@yield('cssCustom')
 
 </head>
 
 <body class="scroll-smooth">
-  <!-- Heade -->
+
+<!-- Heade -->
 @include('frontend.layouts.part.header')
 
-  <!-- Content -->
+<!-- Content -->
 @yield('content')
 
-  <!-- Footer -->
+<!-- Footer -->
 @include('frontend.layouts.part.footer')
 
-  <!-- JavaScript -->
+<!-- JavaScript -->
 @include('frontend.layouts.part.js')
 
-  <!-- Modal -->
+<!-- Modal -->
 {{-- @include('frontend.layouts.part.modal') --}}
 
-  <!-- jsCustom -->
-  @yield('jsCustom')
+<!-- jsCustom -->
+@yield('jsCustom')
 
 </body>
 
