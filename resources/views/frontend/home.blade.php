@@ -884,6 +884,20 @@ const swiper_promo = new Swiper("#swiper_promo", {
     //     el: ".swiper-pagination",
     //     clickable: true,
     // },
+    breakpoints: {
+        640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        1024: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        },
 });
 
 const swiper_product = new Swiper('#swiper_product', {
