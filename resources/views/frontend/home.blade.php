@@ -877,7 +877,7 @@ const swiper_banner = new Swiper("#swiper_banner", {
 });
 const swiper_promo = new Swiper("#swiper_promo", {
     direction: 'horizontal',
-    slidesPerView: 2,
+    slidesPerView: 1,
     spaceBetween: 20,
     loop: true,
     // pagination: {
@@ -890,7 +890,7 @@ const swiper_promo = new Swiper("#swiper_promo", {
             spaceBetween: 20,
         },
         768: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 20,
         },
         1024: {
