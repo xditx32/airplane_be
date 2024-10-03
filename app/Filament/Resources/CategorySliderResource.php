@@ -33,10 +33,17 @@ class CategorySliderResource extends Resource
                 TextInput::make('name')
                     ->helpertext('Gunakan name data dengan tepat.')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->label('Nama Kategori Slider'),
 
                 FileUpload::make('icon')
-                    ->image(),
+                    ->image()
+                    ->disk('public')
+                    ->optimize('webp')
+                    ->preserveFilenames()
+                    ->directory('assets/frontend/images/slider/icon')
+                    ->maxSize(512)
+                    ->label('Icon Maskapai'),
             ]);
     }
 
@@ -46,13 +53,15 @@ class CategorySliderResource extends Resource
             ->columns([
                 //
                 TextColumn::make('name')
+                    ->label('Nama Kategori Slider')
                     ->searchable(),
 
-                ImageColumn::make('icon'),
+                ImageColumn::make('icon')
+                    ->label('Icon Kategori Slider'),
 
                 TextColumn::make('created_at')
                     ->dateTime('d-M-Y H:i:s')
-                    ->label('Created Category Slider'),
+                    ->label('Kategori Slider dibuat'),
             ])
             ->filters([
                 //
@@ -81,5 +90,20 @@ class CategorySliderResource extends Resource
             'create' => Pages\CreateCategorySlider::route('/create'),
             'edit' => Pages\EditCategorySlider::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Kategori Slider');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+      return __('Kategori Slider');
     }
 }

@@ -35,9 +35,14 @@ class CategoryGalleryResource extends Resource
                     ->helpertext('Gunakan name data dengan tepat.')
                     ->required()
                     ->maxLength(255),
-
                 FileUpload::make('icon')
-                    ->image(),
+                    ->image()
+                    ->disk('public')
+                    ->optimize('webp')
+                    ->preserveFilenames()
+                    ->directory('assets/images/gallery/category')
+                    ->maxSize(512)
+                    ->label('Icon Kategori'),
             ]);
     }
 
@@ -45,15 +50,14 @@ class CategoryGalleryResource extends Resource
     {
         return $table
             ->columns([
-                //
                 TextColumn::make('name')
+                    ->label('Nama Kategori Galleri')
                     ->searchable(),
-
-                ImageColumn::make('icon'),
-
+                ImageColumn::make('icon')
+                    ->label('Icon Kategori'),
                 TextColumn::make('created_at')
                     ->dateTime('d-M-Y H:i:s')
-                    ->label('Created Category Gallery'),
+                    ->label('Kategori Galeri dibuat'),
             ])
             ->filters([
                 //
@@ -82,5 +86,20 @@ class CategoryGalleryResource extends Resource
             'create' => Pages\CreateCategoryGallery::route('/create'),
             'edit' => Pages\EditCategoryGallery::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Kategori Galeri');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+      return __('Kategori Galeri');
     }
 }

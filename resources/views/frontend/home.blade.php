@@ -44,290 +44,273 @@
     </div>
 </div>
 
-<!-- Section Promo -->
-<section class="container relative max-w-screen-xl py-10 bg-white rounded-md">
-<div class="flex flex-col justify-between w-full gap-0 mb-[50px]">
-    <h2 class="text-2xl md:text-3xl font-bold text-secondary">Klaim Voucher</h2>
-    <p class="text-base md:text-lg text-primary">Dapatkan promo potongan harga menarik untuk perjalanan ibadh umroh sahabat semua.</p>
-</div>
-<div id="swiper_promo" class="swiper w-full">
-    <div class="swiper-wrapper">
-    @forelse ($promos as $promo)
-        <div class="swiper-slide">
-            <img class="w-[550px] h-[200px] rounded-2xl" src="{!! Storage::url($promo->photo) !!}" alt="">
-        </div>
-    @empty
-        <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
-    @endforelse
-    </div>
-</div>
-</section>
-
 <!-- Section About -->
-<section class="container relative max-w-screen-xl py-10 bg-primary">
-<div class="flex flex-wrap justify-between items-center w-full gap-8 align-middle">
-    <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-8 items-center">
-    <div class="lg:col-span-2 w-full relative overflow-hidden">
-        <div class="flex flex-col gap-[2px] py-4">
-        <!-- <div class="w-full max-w-[400px] flex flex-col gap-[2px]"> -->
-        {{-- <h3 class="text-xl md:text-2xl">Selamat datang</h3> --}}
-        <h2 class="text-2xl md:text-3xl font-bold py-2">Alia Wisata, Travel Umroh Terbaik dan Terpercaya.</h2>
-        <p class="text-sm md:text-base text-justify">Berdiri sejak tahun 2000, Alia Wisata terus berkembang
-            memberikan pelayanan kepada
-            Jamaah Umroh & Haji Khusus. Alia
-            Wisata juga memberikan layanan pariwisata baik Dalam maupun Luar Negeri, baik di bidang Airlines
-            Ticketing,
-            Tours, Hotel
-            Voucher dan MICE (Meeting, Incentive, Conference & Exhibition).<br><br>
+<section id="about" class="container relative max-w-screen-xl py-10 bg-primary">
+    <div class="flex flex-wrap justify-between items-center w-full gap-8 align-middle">
+        <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-8 items-center">
+        <div class="lg:col-span-2 w-full relative overflow-hidden">
+            <div class="flex flex-col gap-[2px] py-4">
+            <!-- <div class="w-full max-w-[400px] flex flex-col gap-[2px]"> -->
+            {{-- <h3 class="text-xl md:text-2xl">Selamat datang</h3> --}}
+            <h2 class="text-2xl md:text-3xl font-bold py-2">Alia Wisata, Travel Umroh Terbaik dan Terpercaya.</h2>
+            <p class="text-sm md:text-base text-justify">Berdiri sejak tahun 2000, Alia Wisata terus berkembang
+                memberikan pelayanan kepada
+                Jamaah Umroh & Haji Khusus. Alia
+                Wisata juga memberikan layanan pariwisata baik Dalam maupun Luar Negeri, baik di bidang Airlines
+                Ticketing,
+                Tours, Hotel
+                Voucher dan MICE (Meeting, Incentive, Conference & Exhibition).<br><br>
 
-            Alia Wisata memberikan layanan yang profesional dengan infrastruktur yang ada, didukung oleh tenaga ahli
-            yang
-            siap
-            melayani pelanggan dengan didasari kejujuran, dedikasi dan loyalitas tinggi serta profesional dalam
-            memberikan
-            pelayanan.<br><br>
+                Alia Wisata memberikan layanan yang profesional dengan infrastruktur yang ada, didukung oleh tenaga ahli
+                yang
+                siap
+                melayani pelanggan dengan didasari kejujuran, dedikasi dan loyalitas tinggi serta profesional dalam
+                memberikan
+                pelayanan.<br><br>
 
-            Sebagai travel umroh haji terpercaya Alia Wisata terdaftar sebagai penyelenggara perjalanan ibadah umrah
-            (PPIU) dengan
-            SK NOMOR 832 TAHUN 2019 dan dapat di lihat pada web Sisko Patuh Kemenag melalui link berikut ini</p>
+                Sebagai travel umroh haji terpercaya Alia Wisata terdaftar sebagai penyelenggara perjalanan ibadah umrah
+                (PPIU) dengan
+                SK NOMOR 832 TAHUN 2019 dan dapat di lihat pada web Sisko Patuh Kemenag melalui link berikut ini</p>
+            </div>
+            <div class="grid grid-cols-6 gap-4">
+            <div class="bg-white rounded-md">
+                <img src="{!! asset('/assets/frontend/images/logo_lembaga/amphuri-logo.png') !!}" alt="" srcset="">
+            </div>
+            <div class="bg-white rounded-md">
+                <img src="{!! asset('/assets/frontend/images/logo_lembaga/bank-bsi-logo.png') !!}" alt="" srcset="">
+            </div>
+            <div class="bg-white rounded-md">
+                <img src="{!! asset('/assets/frontend/images/logo_lembaga/iata-logo.png') !!}" alt="" srcset="">
+            </div>
+            <div class="bg-white rounded-md">
+                <img src="{!! asset('/assets/frontend/images/logo_lembaga/iqra-logo.png') !!}" alt="" srcset="">
+            </div>
+            <div class="bg-white rounded-md">
+                <img src="{!! asset('/assets/frontend/images/logo_lembaga/kan-logo.png') !!}" alt="" srcset="">
+            </div>
+            <div class="bg-white rounded-md">
+                <img src="{!! asset('/assets/frontend/images/logo_lembaga/logo-bnsp.png') !!}" alt="" srcset="">
+            </div>
+            <div class="bg-white rounded-md">
+                <img src="{!! asset('/assets/frontend/images/logo_lembaga/logo-kemenag.png') !!}" alt="" srcset="">
+            </div>
+            <div class="bg-white rounded-md">
+                <img src="{!! asset('/assets/frontend/images/logo_lembaga/siskopatuh-logo.png') !!}" alt="" srcset="">
+            </div>
+            <div class="bg-white rounded-md">
+                <img src="{!! asset('/assets/frontend/images/logo_lembaga/tims-logo.png') !!}" alt="" srcset="">
+            </div>
+            </div>
         </div>
-        <div class="grid grid-cols-6 gap-4">
-        <div class="bg-white rounded-md">
-            <img src="{!! asset('/assets/frontend/images/logo_lembaga/amphuri-logo.png') !!}" alt="" srcset="">
-        </div>
-        <div class="bg-white rounded-md">
-            <img src="{!! asset('/assets/frontend/images/logo_lembaga/bank-bsi-logo.png') !!}" alt="" srcset="">
-        </div>
-        <div class="bg-white rounded-md">
-            <img src="{!! asset('/assets/frontend/images/logo_lembaga/iata-logo.png') !!}" alt="" srcset="">
-        </div>
-        <div class="bg-white rounded-md">
-            <img src="{!! asset('/assets/frontend/images/logo_lembaga/iqra-logo.png') !!}" alt="" srcset="">
-        </div>
-        <div class="bg-white rounded-md">
-            <img src="{!! asset('/assets/frontend/images/logo_lembaga/kan-logo.png') !!}" alt="" srcset="">
-        </div>
-        <div class="bg-white rounded-md">
-            <img src="{!! asset('/assets/frontend/images/logo_lembaga/logo-bnsp.png') !!}" alt="" srcset="">
-        </div>
-        <div class="bg-white rounded-md">
-            <img src="{!! asset('/assets/frontend/images/logo_lembaga/logo-kemenag.png') !!}" alt="" srcset="">
-        </div>
-        <div class="bg-white rounded-md">
-            <img src="{!! asset('/assets/frontend/images/logo_lembaga/siskopatuh-logo.png') !!}" alt="" srcset="">
-        </div>
-        <div class="bg-white rounded-md">
-            <img src="{!! asset('/assets/frontend/images/logo_lembaga/tims-logo.png') !!}" alt="" srcset="">
+        <div class="lg:col-span-2 w-full relative overflow-hidden">
+            <iframe class="w-full aspect-video rounded-[20px] bg-[#D9D9D9]"
+            src="https://www.youtube.com/embed/glkiTD8Lqpg" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
         </div>
         </div>
     </div>
-    <div class="lg:col-span-2 w-full relative overflow-hidden">
-        <iframe class="w-full aspect-video rounded-[20px] bg-[#D9D9D9]"
-        src="https://www.youtube.com/embed/glkiTD8Lqpg" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </div>
-    </div>
-</div>
 </section>
 
 <!-- Section Select Best Package Umrah -->
-<section class="container relative max-w-screen-xl py-10 bg-white rounded-md">
-<div class="flex flex-col justify-between w-full gap-0 mb-[50px]">
-    <h2 class="text-2xl md:text-3xl font-bold text-primary">Program Best Seller.</h2>
-    <p class="text-base md:text-lg text-secondary">Kami memiliki paket-paket umroh yang dapat anda
-        Tangal keberangkatan terdekat program umroh Alia Wisata.</p>
-</div>
+<section id="packet" class="container relative max-w-screen-xl py-10 bg-white rounded-md">
+    <div class="flex flex-col justify-between w-full gap-0 mb-[50px]">
+        <h2 class="text-2xl md:text-3xl font-bold text-primary">Program Best Seller.</h2>
+        <p class="text-base md:text-lg text-secondary">Kami memiliki paket-paket umroh yang dapat anda
+            Tangal keberangkatan terdekat program umroh Alia Wisata.</p>
+    </div>
 
-@forelse ($categories as $category)
-@if ($category->id == 1)
-    <div id="swiper_product" class="swiper w-full pb-10">
-        <div class="swiper-wrapper">
+    @forelse ($categories as $category)
+    @if ($category->id == 1)
+        <div id="swiper_product" class="swiper w-full pb-10">
+            <div class="swiper-wrapper">
 
-        @foreach (@$category->products as $product)
+            @foreach (@$category->products as $product)
 
-        <div class="swiper-slide w-[300px] h-[250px] rounded-2xl overflow-hidden relative min-h-[760px] bg-primary">
-                <img src="{!! Storage::url( $product->photo ) !!}" class="w-full h-full max-h-[180px]" alt="tickety-assets">
-                    <p class="px-[14px] py-2 rounded-xl bg-primary text-white font-semibold text-sm absolute top-5 right-5">
-                        Promo
-                    </p>
-                    {{-- <div class="px-[14px] py-2 absolute top-[140px] right-5">
-                        <a id="category" href="" title="Brosur">
-                            <ion-icon name="help-circle-outline" class="text-3xl animate-bounce" src="{!!  Storage::url($product->brochure) !!}">
-                            </ion-icon>
-                        </a>
-                    </div> --}}
-                    <div class="w-full bg-primary flex flex-col h-full">
-                    <div class="max-w-full pb-4">
-                        <div class="flex flex-col gap-y-2 text-white">
-                        <div class="text-lg md:text-2xl font-bold text-center uppercase pt-2">
-                            {!! $product->title !!}
-                        </div>
-                        {{-- <div class="text-base md:text-sm font-bold text-center uppercase">
-                            {!! $product->name!!}
+            <div class="swiper-slide w-[300px] h-[250px] rounded-2xl overflow-hidden relative min-h-[760px] bg-primary">
+                        {{-- <a data-src="{!! Storage::url( $product->photo ) !!}"> --}}
+                            <img src="{!! Storage::url( $product->photo ) !!}" class="w-full h-full max-h-[180px]" alt="{!! $product->name!!}">
+                        {{-- </a> --}}
+                        <p class="px-[14px] py-2 rounded-xl bg-primary text-white font-semibold text-sm absolute top-5 right-5">
+                            Promo
+                        </p>
+                        {{-- <div class="px-[14px] py-2 absolute top-[140px] right-5">
+                            <a id="category" href="" title="Brosur">
+                                <ion-icon name="help-circle-outline" class="text-3xl animate-bounce" src="{!!  Storage::url($product->brochure) !!}">
+                                </ion-icon>
+                            </a>
                         </div> --}}
-                        <div class="text-base md:text-sm font-bold text-center bg-white rounded-xl text-primary mx-4 py-2">
-                            ({!! $product->start_priode->format('d-m-Y')!!} s.d. {!! $product->end_priode->format('d-m-Y')!!})
-                        </div>
-                        <!-- priode -->
-                        <div class="flex flex-col px-4 py-1">
-                            {{-- <div>
-                                <div class="flex flex-row items-center gap-1">
-                                    <ion-icon name="checkmark-circle" class="text-secondary"></ion-icon>
-                                    <p class="text-sm md:text-base">{{ $product->start_priode->format('d-M-Y') }}</p>
-                                </div>
+                        <div class="w-full bg-primary flex flex-col h-full">
+                        <div class="max-w-full pb-4">
+                            <div class="flex flex-col gap-y-2 text-white">
+                            <div class="text-lg md:text-2xl font-bold text-center uppercase pt-2">
+                                {!! $product->title !!}
+                            </div>
+                            {{-- <div class="text-base md:text-sm font-bold text-center uppercase">
+                                {!! $product->name!!}
                             </div> --}}
-                            <div class="flex flex-row align-center items-center justify-between">
-                                <div class="flex flex-col gap-y-2">
-                                    <div class="flex flex-wrap gap-2">
-                                        @forelse ($product->ProductTags as $ProductTag)
-                                        <div class="bg-secondary px-2 py-1 rounded-md block">
-                                            <p class="text-sm md:text-xs">#{!! $ProductTag->name !!}</p>
-                                        </div>
-                                        @empty
-
-                                        @endforelse
+                            <div class="text-base md:text-sm font-bold text-center bg-white rounded-xl text-primary mx-4 py-2">
+                                ({!! $product->start_priode->format('d-m-Y')!!} s.d. {!! $product->end_priode->format('d-m-Y')!!})
+                            </div>
+                            <!-- priode -->
+                            <div class="flex flex-col px-4 py-1">
+                                {{-- <div>
+                                    <div class="flex flex-row items-center gap-1">
+                                        <ion-icon name="checkmark-circle" class="text-secondary"></ion-icon>
+                                        <p class="text-sm md:text-base">{{ $product->start_priode->format('d-M-Y') }}</p>
                                     </div>
-                                </div>
-                                {{-- <div class="flex items-end justify-end">
-                                    <img class="w-[50%]" src="{!! Storage::url( $product->category->icon) !!}" alt="" srcset="">
                                 </div> --}}
-                            </div>
-                        </div>
-                        <!-- hotel -->
-                        <div class="flex flex-col gap-y-4 px-4 py-2 border">
-                            {{-- <div class="flex items-center gap-4">
-                                <p class="text-sm md:text-xs px-[14px] py-1 rounded-lg bg-primary border">Hotel</p>
-                            </div> --}}
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-base md:text-lg font-bold text-secondary">Hotel</h3>
-                                <ion-icon name="bed-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
-                            </div>
-                            @forelse ($product->ProductHoteles as $ProductHotel)
-                                <div class="flex flex-row gap-2 items-center align-center justify-between">
-                                    {{-- <ion-icon name="checkmark-circle" class="text-secondary"></ion-icon> --}}
-                                    <p class="text-sm md:text-sm"> {!! $ProductHotel->hotel->name !!} </p>
-                                    <div class="flex flex-row">
-                                        @if ($ProductHotel->hotel->rating == 1)
-                                            <ion-icon name="star"></ion-icon>
-                                        @elseif($ProductHotel->hotel->rating == 2)
-                                            <ion-icon name="star"></ion-icon>
-                                            <ion-icon name="star"></ion-icon>
-                                        @elseif($ProductHotel->hotel->rating == 3)
-                                            <ion-icon name="star"></ion-icon>
-                                            <ion-icon name="star"></ion-icon>
-                                            <ion-icon name="star"></ion-icon>
-                                        @elseif($ProductHotel->hotel->rating == 4)
-                                            <ion-icon name="star"></ion-icon>
-                                            <ion-icon name="star"></ion-icon>
-                                            <ion-icon name="star"></ion-icon>
-                                            <ion-icon name="star"></ion-icon>
-                                        @elseif($ProductHotel->hotel->rating == 5)
-                                            <ion-icon name="star"></ion-icon>
-                                            <ion-icon name="star"></ion-icon>
-                                            <ion-icon name="star"></ion-icon>
-                                            <ion-icon name="star"></ion-icon>
-                                            <ion-icon name="star"></ion-icon>
-                                        @endif
+                                <div class="flex flex-row align-center items-center justify-between">
+                                    <div class="flex flex-col gap-y-2">
+                                        <div class="flex flex-wrap gap-2">
+                                            @forelse ($product->ProductTags as $ProductTag)
+                                            <div class="bg-secondary px-2 py-1 rounded-md block">
+                                                <p class="text-sm md:text-xs">#{!! $ProductTag->name !!}</p>
+                                            </div>
+                                            @empty
+
+                                            @endforelse
+                                        </div>
                                     </div>
-                                </div>
-                                @empty
-                                    <p class="text-sm md:text-base text-primary"> Data Belum Tersedia </p>
-                                @endforelse
-                        </div>
-                        <!-- maskapai -->
-                        <div class="flex flex-row justify-between items-center align-center px-4 py-2">
-                            <div class="flex flex-row w-full max-w-24 order-1">
-                                    @forelse ($product->ProductAirlines as $ProductAirline)
-                                    <img class="w-full bg-white rounded-xl" src="{!! Storage::url( $ProductAirline->airline->icon ) !!}" alt="">
-                                    @empty
-                                    <p class="text-sm md:text-base text-primary">
-                                        Data Belum Tersedia
-                                    </p>
-                                    @endforelse
-                            </div>
-                            <div class="flex flex-col gap-2 order-2">
-                                <p class="text-sm md:text-xs">Harga Mulai</p>
-                                    <h3 class="text-3xl md:text-2xl font-bold text-secondary">
-                                        {!! $product->price_start_from !!} Juta
-                                    </h3>
-                            </div>
-
-                        </div>
-                        {{-- <div class="grid grid-cols-2 p-4 items-center">
-                            <div class="flex items-center gap-4">
-                                <ion-icon name="airplane-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
-                                <h3 class="text-sm md:text-base font-bold">Maskapai</h3>
-                            </div>
-                            <div class="">
-                                <div class="flex flex-col gap-2">
-                                    @forelse ($product->ProductAirlines as $ProductAirline)
-                                    <img class="w-[80%] bg-white rounded-xl" src="{!! Storage::url( $ProductAirline->airline->icon ) !!}" alt="">
-                                    @empty
-                                    <p class="text-sm md:text-base text-primary">
-                                        Data Belum Tersedia
-                                    </p>
-                                    @endforelse
+                                    {{-- <div class="flex items-end justify-end">
+                                        <img class="w-[50%]" src="{!! Storage::url( $product->category->icon) !!}" alt="" srcset="">
+                                    </div> --}}
                                 </div>
                             </div>
-
-                            <div class="">
-                                <div class="flex flex-col gap-2 items-end">
+                            <!-- hotel -->
+                            <div class="flex flex-col gap-y-4 px-4 py-2 border">
+                                {{-- <div class="flex items-center gap-4">
+                                    <p class="text-sm md:text-xs px-[14px] py-1 rounded-lg bg-primary border">Hotel</p>
+                                </div> --}}
+                                <div class="flex items-center justify-between">
+                                    <h3 class="text-base md:text-lg font-bold text-secondary">Hotel</h3>
+                                    <ion-icon name="bed-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
+                                </div>
+                                @forelse ($product->ProductHoteles as $ProductHotel)
+                                    <div class="flex flex-row gap-2 items-center align-center justify-between">
+                                        {{-- <ion-icon name="checkmark-circle" class="text-secondary"></ion-icon> --}}
+                                        <p class="text-sm md:text-sm"> {!! $ProductHotel->hotel->name !!} </p>
+                                        <div class="flex flex-row">
+                                            @if ($ProductHotel->hotel->rating == 1)
+                                                <ion-icon name="star"></ion-icon>
+                                            @elseif($ProductHotel->hotel->rating == 2)
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                            @elseif($ProductHotel->hotel->rating == 3)
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                            @elseif($ProductHotel->hotel->rating == 4)
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                            @elseif($ProductHotel->hotel->rating == 5)
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    @empty
+                                        <p class="text-sm md:text-base text-primary"> Data Belum Tersedia </p>
+                                    @endforelse
+                            </div>
+                            <!-- maskapai -->
+                            <div class="flex flex-row justify-between items-center align-center px-4 py-2">
+                                <div class="flex flex-row w-full max-w-24 order-1">
+                                        @forelse ($product->ProductAirlines as $ProductAirline)
+                                        <img class="w-full bg-white rounded-xl" src="{!! Storage::url( $ProductAirline->airline->icon ) !!}" alt="">
+                                        @empty
+                                        <p class="text-sm md:text-base text-primary">
+                                            Data Belum Tersedia
+                                        </p>
+                                        @endforelse
+                                </div>
+                                <div class="flex flex-col gap-2 order-2">
                                     <p class="text-sm md:text-xs">Harga Mulai</p>
                                         <h3 class="text-3xl md:text-2xl font-bold text-secondary">
                                             {!! $product->price_start_from !!} Juta
                                         </h3>
                                 </div>
+
                             </div>
-                        </div> --}}
-                        <div>
-                            @if ($product->seat_available == 1)
-                            <div class="mt-auto px-4 py-1">
-                                <a href="{{ route('product.details', [$category->slug, $product->slug]) }}" class="block btn-orange">
-                                    <div class="flex flex-row gap-2 items-center justify-center align-center">
-                                        <ion-icon name="alert-circle-outline" class="text-white">></ion-icon>
-                                    Terbatas
+                            {{-- <div class="grid grid-cols-2 p-4 items-center">
+                                <div class="flex items-center gap-4">
+                                    <ion-icon name="airplane-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
+                                    <h3 class="text-sm md:text-base font-bold">Maskapai</h3>
+                                </div>
+                                <div class="">
+                                    <div class="flex flex-col gap-2">
+                                        @forelse ($product->ProductAirlines as $ProductAirline)
+                                        <img class="w-[80%] bg-white rounded-xl" src="{!! Storage::url( $ProductAirline->airline->icon ) !!}" alt="">
+                                        @empty
+                                        <p class="text-sm md:text-base text-primary">
+                                            Data Belum Tersedia
+                                        </p>
+                                        @endforelse
                                     </div>
-                                </a>
-                            </div>
-                            @elseif($product->seat_available >= 1)
-                            <div class="mt-auto px-4 py-1">
-                                <a href="{{ route('product.details', [$category->slug, $product->slug]) }}" class="block btn-secondary">
-                                    <div class="flex flex-row gap-2 items-center justify-center align-center">
-                                        <ion-icon name="checkmark-circle" class="text-white"></ion-icon>
-                                        {!! $product->seat_available !!}
-                                        Tersisa
+                                </div>
+
+                                <div class="">
+                                    <div class="flex flex-col gap-2 items-end">
+                                        <p class="text-sm md:text-xs">Harga Mulai</p>
+                                            <h3 class="text-3xl md:text-2xl font-bold text-secondary">
+                                                {!! $product->price_start_from !!} Juta
+                                            </h3>
                                     </div>
-                                </a>
-                            </div>
-                            @else
-                            <div class="mt-auto px-4 py-1">
-                                <a href="#" class="block btn-red">
-                                    <div class="flex flex-row gap-2 items-center justify-center align-center">
-                                        <ion-icon name="close-circle-outline" class="text-white"></ion-icon>
-                                    Full Booked
+                                </div>
+                            </div> --}}
+                            <div>
+                                @if ($product->seat_available == 1)
+                                <div class="mt-auto px-4 py-1">
+                                    <a href="{{ route('product.details', [$category->slug, $product->slug]) }}" class="block btn-orange">
+                                        <div class="flex flex-row gap-2 items-center justify-center align-center">
+                                            <ion-icon name="alert-circle-outline" class="text-white">></ion-icon>
+                                        Terbatas
                                         </div>
-                                </a>
+                                    </a>
+                                </div>
+                                @elseif($product->seat_available >= 1)
+                                <div class="mt-auto px-4 py-1">
+                                    <a href="{{ route('product.details', [$category->slug, $product->slug]) }}" class="block btn-secondary">
+                                        <div class="flex flex-row gap-2 items-center justify-center align-center">
+                                            <ion-icon name="checkmark-circle" class="text-white"></ion-icon>
+                                            {!! $product->seat_available !!}
+                                            Tersisa
+                                        </div>
+                                    </a>
+                                </div>
+                                @else
+                                <div class="mt-auto px-4 py-1">
+                                    <a href="#" class="block btn-red">
+                                        <div class="flex flex-row gap-2 items-center justify-center align-center">
+                                            <ion-icon name="close-circle-outline" class="text-white"></ion-icon>
+                                        Full Booked
+                                            </div>
+                                    </a>
+                                </div>
+                                @endif
                             </div>
-                            @endif
                         </div>
                     </div>
                 </div>
             </div>
+
+            @endforeach
+
+            </div>
         </div>
-
-        @endforeach
-
+        <div class="flex flex-col justify-between items-center">
+            <a class="block btn-primary" href="{!! route('category', $category->slug) !!}">Paket Umroh Unggulan Lainnya</a>
         </div>
-    </div>
-    <div class="flex flex-col justify-between items-center">
-        <a class="block btn-primary" href="{!! route('category', $category->slug) !!}">Paket Umroh Unggulan Lainnya</a>
-    </div>
-@endif
+    @endif
 
-@empty
-    <p class="text-sm md:text-base text-primary text-center"> Data Belum Tersedia </p>
-@endforelse
+    @empty
+        <p class="text-sm md:text-base text-primary text-center"> Data Belum Tersedia </p>
+    @endforelse
 
 </section>
 
@@ -345,7 +328,7 @@
 
     <div class="flex flex-nowrap gap-4">
         @forelse ($categories as $category)
-        <a href="{!! $category->slug !!}">
+        <a href="{!! route('category', $category->slug) !!}">
             <div class="overflow-hidden relative rounded-full w-40 h-40 border-4 rounded-full">
                 <div class="absolute inset-0">
                     <img class="h-full w-full object-cover object-right md:object-center"
@@ -366,485 +349,476 @@
 
 <!-- Section Select New Package Umrah -->
 <section class="container relative max-w-screen-xl py-10 bg-white rounded-md">
-<div class="flex flex-col justify-between items-center w-full gap-0 mb-[50px]">
-    <!-- <h3 class="text-xl md:text-2xl text-primary">Umroh Musim 1445 H</h3> -->
-    <h2 class="text-2xl md:text-3xl font-bold text-secondary">Paket Umroh Terbaru</h2>
-</div>
+    <div class="flex flex-col justify-between items-center w-full gap-0 mb-[50px]">
+        <!-- <h3 class="text-xl md:text-2xl text-primary">Umroh Musim 1445 H</h3> -->
+        <h2 class="text-2xl md:text-3xl font-bold text-secondary">Paket Umroh Terbaru</h2>
+    </div>
 
-@forelse ($categories as $category)
-@if ($category->id == 1)
-    <div id="swiper_product" class="swiper w-full pb-10">
-        <div class="swiper-wrapper">
+    @forelse ($categories as $category)
+    @if ($category->id == 1)
+        <div id="swiper_product" class="swiper w-full pb-10">
+            <div class="swiper-wrapper">
 
-        @foreach (@$category->products as $product)
+            @foreach (@$category->products as $product)
 
-        <div class="swiper-slide w-[300px] h-[250px] rounded-2xl overflow-hidden relative min-h-[760px] bg-primary">
-                <img src="{!! Storage::url( $product->photo ) !!}" class="w-full h-full max-h-[180px]" alt="tickety-assets">
-                    <p class="px-[14px] py-2 rounded-xl bg-primary text-white font-semibold text-sm absolute top-5 right-5">
-                        Promo
-                    </p>
-                    {{-- <div class="px-[14px] py-2 absolute top-[140px] right-5">
-                        <a id="category" href="" title="Brosur">
-                            <ion-icon name="help-circle-outline" class="text-3xl animate-bounce" src="{!!  Storage::url($product->brochure) !!}">
-                            </ion-icon>
-                        </a>
-                    </div> --}}
-                    <div class="w-full bg-primary flex flex-col h-full">
-                    <div class="max-w-full pb-4">
-                        <div class="flex flex-col gap-y-2 text-white">
-                        <div class="text-lg md:text-2xl font-bold text-center uppercase pt-2">
-                            {!! $product->title !!}
-                        </div>
-                        {{-- <div class="text-base md:text-sm font-bold text-center uppercase">
-                            {!! $product->name!!}
+            <div class="swiper-slide w-[300px] h-[250px] rounded-2xl overflow-hidden relative min-h-[760px] bg-primary">
+                    <img src="{!! Storage::url( $product->photo ) !!}" class="w-full h-full max-h-[180px]" alt="tickety-assets">
+                        <p class="px-[14px] py-2 rounded-xl bg-primary text-white font-semibold text-sm absolute top-5 right-5">
+                            Promo
+                        </p>
+                        {{-- <div class="px-[14px] py-2 absolute top-[140px] right-5">
+                            <a id="category" href="" title="Brosur">
+                                <ion-icon name="help-circle-outline" class="text-3xl animate-bounce" src="{!!  Storage::url($product->brochure) !!}">
+                                </ion-icon>
+                            </a>
                         </div> --}}
-                        <div class="text-base md:text-sm font-bold text-center bg-white rounded-xl text-primary mx-4 py-2">
-                            ({!! $product->start_priode->format('d-m-Y')!!} s.d. {!! $product->end_priode->format('d-m-Y')!!})
-                        </div>
-                        <!-- priode -->
-                        <div class="flex flex-col px-4 py-1">
-                            {{-- <div>
-                                <div class="flex flex-row items-center gap-1">
-                                    <ion-icon name="checkmark-circle" class="text-secondary"></ion-icon>
-                                    <p class="text-sm md:text-base">{{ $product->start_priode->format('d-M-Y') }}</p>
-                                </div>
+                        <div class="w-full bg-primary flex flex-col h-full">
+                        <div class="max-w-full pb-4">
+                            <div class="flex flex-col gap-y-2 text-white">
+                            <div class="text-lg md:text-2xl font-bold text-center uppercase pt-2">
+                                {!! $product->title !!}
+                            </div>
+                            {{-- <div class="text-base md:text-sm font-bold text-center uppercase">
+                                {!! $product->name!!}
                             </div> --}}
-                            <div class="flex flex-row align-center items-center justify-between">
-                                <div class="flex flex-col gap-y-2">
-                                    <div class="flex flex-wrap gap-2">
-                                        @forelse ($product->ProductTags as $ProductTag)
-                                        <div class="bg-secondary px-2 py-1 rounded-md block">
-                                            <p class="text-sm md:text-xs">#{!! $ProductTag->name !!}</p>
-                                        </div>
-                                        @empty
-
-                                        @endforelse
+                            <div class="text-base md:text-sm font-bold text-center bg-white rounded-xl text-primary mx-4 py-2">
+                                ({!! $product->start_priode->format('d-m-Y')!!} s.d. {!! $product->end_priode->format('d-m-Y')!!})
+                            </div>
+                            <!-- priode -->
+                            <div class="flex flex-col px-4 py-1">
+                                {{-- <div>
+                                    <div class="flex flex-row items-center gap-1">
+                                        <ion-icon name="checkmark-circle" class="text-secondary"></ion-icon>
+                                        <p class="text-sm md:text-base">{{ $product->start_priode->format('d-M-Y') }}</p>
                                     </div>
-                                </div>
-                                {{-- <div class="flex items-end justify-end">
-                                    <img class="w-[50%]" src="{!! Storage::url( $product->category->icon) !!}" alt="" srcset="">
                                 </div> --}}
-                            </div>
-                        </div>
-                        <!-- hotel -->
-                        <div class="flex flex-col gap-y-4 px-4 py-2 border">
-                            {{-- <div class="flex items-center gap-4">
-                                <p class="text-sm md:text-xs px-[14px] py-1 rounded-lg bg-primary border">Hotel</p>
-                            </div> --}}
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-base md:text-lg font-bold text-secondary">Hotel</h3>
-                                <ion-icon name="bed-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
-                            </div>
-                            @forelse ($product->ProductHoteles as $ProductHotel)
-                                <div class="flex flex-row gap-2 items-center align-center justify-between">
-                                    {{-- <ion-icon name="checkmark-circle" class="text-secondary"></ion-icon> --}}
-                                    <p class="text-sm md:text-sm"> {!! $ProductHotel->hotel->name !!} </p>
-                                    <div class="flex flex-row">
-                                        @if ($ProductHotel->hotel->rating == 1)
-                                            <ion-icon name="star"></ion-icon>
-                                        @elseif($ProductHotel->hotel->rating == 2)
-                                            <ion-icon name="star"></ion-icon>
-                                            <ion-icon name="star"></ion-icon>
-                                        @elseif($ProductHotel->hotel->rating == 3)
-                                            <ion-icon name="star"></ion-icon>
-                                            <ion-icon name="star"></ion-icon>
-                                            <ion-icon name="star"></ion-icon>
-                                        @elseif($ProductHotel->hotel->rating == 4)
-                                            <ion-icon name="star"></ion-icon>
-                                            <ion-icon name="star"></ion-icon>
-                                            <ion-icon name="star"></ion-icon>
-                                            <ion-icon name="star"></ion-icon>
-                                        @elseif($ProductHotel->hotel->rating == 5)
-                                            <ion-icon name="star"></ion-icon>
-                                            <ion-icon name="star"></ion-icon>
-                                            <ion-icon name="star"></ion-icon>
-                                            <ion-icon name="star"></ion-icon>
-                                            <ion-icon name="star"></ion-icon>
-                                        @endif
+                                <div class="flex flex-row align-center items-center justify-between">
+                                    <div class="flex flex-col gap-y-2">
+                                        <div class="flex flex-wrap gap-2">
+                                            @forelse ($product->ProductTags as $ProductTag)
+                                            <div class="bg-secondary px-2 py-1 rounded-md block">
+                                                <p class="text-sm md:text-xs">#{!! $ProductTag->name !!}</p>
+                                            </div>
+                                            @empty
+
+                                            @endforelse
+                                        </div>
                                     </div>
-                                </div>
-                                @empty
-                                    <p class="text-sm md:text-base text-primary"> Data Belum Tersedia </p>
-                                @endforelse
-                        </div>
-                        <!-- maskapai -->
-                        <div class="flex flex-row justify-between items-center align-center px-4 py-2">
-                            <div class="flex flex-row w-full max-w-24 order-1">
-                                    @forelse ($product->ProductAirlines as $ProductAirline)
-                                    <img class="w-full bg-white rounded-xl" src="{!! Storage::url( $ProductAirline->airline->icon ) !!}" alt="">
-                                    @empty
-                                    <p class="text-sm md:text-base text-primary">
-                                        Data Belum Tersedia
-                                    </p>
-                                    @endforelse
-                            </div>
-                            <div class="flex flex-col gap-2 order-2">
-                                <p class="text-sm md:text-xs">Harga Mulai</p>
-                                    <h3 class="text-3xl md:text-2xl font-bold text-secondary">
-                                        {!! $product->price_start_from !!} Juta
-                                    </h3>
-                            </div>
-
-                        </div>
-                        {{-- <div class="grid grid-cols-2 p-4 items-center">
-                            <div class="flex items-center gap-4">
-                                <ion-icon name="airplane-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
-                                <h3 class="text-sm md:text-base font-bold">Maskapai</h3>
-                            </div>
-                            <div class="">
-                                <div class="flex flex-col gap-2">
-                                    @forelse ($product->ProductAirlines as $ProductAirline)
-                                    <img class="w-[80%] bg-white rounded-xl" src="{!! Storage::url( $ProductAirline->airline->icon ) !!}" alt="">
-                                    @empty
-                                    <p class="text-sm md:text-base text-primary">
-                                        Data Belum Tersedia
-                                    </p>
-                                    @endforelse
+                                    {{-- <div class="flex items-end justify-end">
+                                        <img class="w-[50%]" src="{!! Storage::url( $product->category->icon) !!}" alt="" srcset="">
+                                    </div> --}}
                                 </div>
                             </div>
-
-                            <div class="">
-                                <div class="flex flex-col gap-2 items-end">
+                            <!-- hotel -->
+                            <div class="flex flex-col gap-y-4 px-4 py-2 border">
+                                {{-- <div class="flex items-center gap-4">
+                                    <p class="text-sm md:text-xs px-[14px] py-1 rounded-lg bg-primary border">Hotel</p>
+                                </div> --}}
+                                <div class="flex items-center justify-between">
+                                    <h3 class="text-base md:text-lg font-bold text-secondary">Hotel</h3>
+                                    <ion-icon name="bed-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
+                                </div>
+                                @forelse ($product->ProductHoteles as $ProductHotel)
+                                    <div class="flex flex-row gap-2 items-center align-center justify-between">
+                                        {{-- <ion-icon name="checkmark-circle" class="text-secondary"></ion-icon> --}}
+                                        <p class="text-sm md:text-sm"> {!! $ProductHotel->hotel->name !!} </p>
+                                        <div class="flex flex-row">
+                                            @if ($ProductHotel->hotel->rating == 1)
+                                                <ion-icon name="star"></ion-icon>
+                                            @elseif($ProductHotel->hotel->rating == 2)
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                            @elseif($ProductHotel->hotel->rating == 3)
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                            @elseif($ProductHotel->hotel->rating == 4)
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                            @elseif($ProductHotel->hotel->rating == 5)
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                                <ion-icon name="star"></ion-icon>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    @empty
+                                        <p class="text-sm md:text-base text-primary"> Data Belum Tersedia </p>
+                                    @endforelse
+                            </div>
+                            <!-- maskapai -->
+                            <div class="flex flex-row justify-between items-center align-center px-4 py-2">
+                                <div class="flex flex-row w-full max-w-24 order-1">
+                                        @forelse ($product->ProductAirlines as $ProductAirline)
+                                        <img class="w-full bg-white rounded-xl" src="{!! Storage::url( $ProductAirline->airline->icon ) !!}" alt="">
+                                        @empty
+                                        <p class="text-sm md:text-base text-primary">
+                                            Data Belum Tersedia
+                                        </p>
+                                        @endforelse
+                                </div>
+                                <div class="flex flex-col gap-2 order-2">
                                     <p class="text-sm md:text-xs">Harga Mulai</p>
                                         <h3 class="text-3xl md:text-2xl font-bold text-secondary">
                                             {!! $product->price_start_from !!} Juta
                                         </h3>
                                 </div>
+
                             </div>
-                        </div> --}}
-                        <div>
-                            @if ($product->seat_available == 1)
-                            <div class="mt-auto px-4 py-1">
-                                <a href="{{ route('product.details', [$category->slug, $product->slug]) }}" class="block btn-orange">
-                                    <div class="flex flex-row gap-2 items-center justify-center align-center">
-                                        <ion-icon name="alert-circle-outline" class="text-white">></ion-icon>
-                                    Terbatas
+                            {{-- <div class="grid grid-cols-2 p-4 items-center">
+                                <div class="flex items-center gap-4">
+                                    <ion-icon name="airplane-outline" class="text-2xl bg-secondary block rounded-2xl p-1"></ion-icon>
+                                    <h3 class="text-sm md:text-base font-bold">Maskapai</h3>
+                                </div>
+                                <div class="">
+                                    <div class="flex flex-col gap-2">
+                                        @forelse ($product->ProductAirlines as $ProductAirline)
+                                        <img class="w-[80%] bg-white rounded-xl" src="{!! Storage::url( $ProductAirline->airline->icon ) !!}" alt="">
+                                        @empty
+                                        <p class="text-sm md:text-base text-primary">
+                                            Data Belum Tersedia
+                                        </p>
+                                        @endforelse
                                     </div>
-                                </a>
-                            </div>
-                            @elseif($product->seat_available >= 1)
-                            <div class="mt-auto px-4 py-1">
-                                <a href="{{ route('product.details', [$category->slug, $product->slug]) }}" class="block btn-secondary">
-                                    <div class="flex flex-row gap-2 items-center justify-center align-center">
-                                        <ion-icon name="checkmark-circle" class="text-white"></ion-icon>
-                                        {!! $product->seat_available !!}
-                                        Tersisa
+                                </div>
+
+                                <div class="">
+                                    <div class="flex flex-col gap-2 items-end">
+                                        <p class="text-sm md:text-xs">Harga Mulai</p>
+                                            <h3 class="text-3xl md:text-2xl font-bold text-secondary">
+                                                {!! $product->price_start_from !!} Juta
+                                            </h3>
                                     </div>
-                                </a>
-                            </div>
-                            @else
-                            <div class="mt-auto px-4 py-1">
-                                <a href="#" class="block btn-red">
-                                    <div class="flex flex-row gap-2 items-center justify-center align-center">
-                                        <ion-icon name="close-circle-outline" class="text-white"></ion-icon>
-                                    Full Booked
+                                </div>
+                            </div> --}}
+                            <div>
+                                @if ($product->seat_available == 1)
+                                <div class="mt-auto px-4 py-1">
+                                    <a href="{{ route('product.details', [$category->slug, $product->slug]) }}" class="block btn-orange">
+                                        <div class="flex flex-row gap-2 items-center justify-center align-center">
+                                            <ion-icon name="alert-circle-outline" class="text-white">></ion-icon>
+                                        Terbatas
                                         </div>
-                                </a>
+                                    </a>
+                                </div>
+                                @elseif($product->seat_available >= 1)
+                                <div class="mt-auto px-4 py-1">
+                                    <a href="{{ route('product.details', [$category->slug, $product->slug]) }}" class="block btn-secondary">
+                                        <div class="flex flex-row gap-2 items-center justify-center align-center">
+                                            <ion-icon name="checkmark-circle" class="text-white"></ion-icon>
+                                            {!! $product->seat_available !!}
+                                            Tersisa
+                                        </div>
+                                    </a>
+                                </div>
+                                @else
+                                <div class="mt-auto px-4 py-1">
+                                    <a href="#" class="block btn-red">
+                                        <div class="flex flex-row gap-2 items-center justify-center align-center">
+                                            <ion-icon name="close-circle-outline" class="text-white"></ion-icon>
+                                        Full Booked
+                                            </div>
+                                    </a>
+                                </div>
+                                @endif
                             </div>
-                            @endif
                         </div>
                     </div>
                 </div>
             </div>
+
+            @endforeach
+
+            </div>
         </div>
-
-        @endforeach
-
+        <div class="flex flex-col justify-between items-center">
+            <a class="block btn-primary" href="{!! route('category', $category->slug) !!}">Paket Umroh Terbaru Lainnya</a>
         </div>
-    </div>
-    <div class="flex flex-col justify-between items-center">
-        <a class="block btn-primary" href="{!! route('category', $category->slug) !!}">Paket Umroh Terbaru Lainnya</a>
-    </div>
-@endif
+    @endif
 
-@empty
-    <p class="text-sm md:text-base text-primary text-center"> Data Belum Tersedia </p>
-@endforelse
-
-</section>
-
-<!-- Section Our Brosur -->
-<section class="container relative max-w-screen-xl py-10">
-<div class="flex flex-col justify-between items-center w-full gap-1 mb-[50px]">
-    <!-- <h3 class="text-xl md:text-2xl font-semibold text-white">Brosur Terbaru Update</h3> -->
-    <h2 class="text-2xl md:text-3xl font-bold text-secondary">Brosur Terbaru Update</h2>
-</div>
-<div id="brochurCarousel">
-    @forelse ($brochures as $brochure)
-    <a href="http://">
-        <img class="w-fit h-[600px] rounded-lg mr-[30px]" src="{!! Storage::url($brochure->photo) !!}" alt="{!! $brochure->name !!}">
-    </a>
     @empty
-    <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
+        <p class="text-sm md:text-base text-primary text-center"> Data Belum Tersedia </p>
     @endforelse
-</div>
+
 </section>
 
-<!-- Section Our Services -->
-<section class="container relative max-w-screen-xl py-10 bg-white rounded-md">
-<div class="flex flex-col justify-between items-center w-full gap-1 mb-[50px]">
-    <h3 class="text-xl md:text-2xl font-semibold text-white">Layanan Kami</h3>
-    <h2 class="text-2xl md:text-3xl font-bold text-primary">Kenapa Harus Kami</h2>
-</div>
-<div class="flex flex-col md:flex-row flex-wrap justify-center gap-8 lg:gap-[120px] items-center">
-    <img class="w-full md:max-w-[536px]"
-    src="{!!  asset('/assets/frontend/images/cropped-1200px-Garuda_Indonesia_Boeing_737-800_PK-GMM_HKG_2012-7-18-780x405.png') !!}"
-    alt="">
-    <div class="max-w-[420px] w-full">
-    <header>
-        <h3 class="text-xl md:text-2xl font-bold text-primary mb-1">Poin Plus.</h3>
-        <p class="text-sm md:text-base text-primary mb-1">Rasakan pengalaman ibadah umroh yang aman dan nyaman bersama Alia Wisata.</p>
-    </header>
-    <!-- Service Item -->
-    <div class="flex items-center gap-6 py-3 bg-gradient-to-tr from-emerald-500 rounded-lg p-2 mb-2">
-        <img class="w-[60px]" src="{!! asset('/assets/frontend/images/man.png') !!}" alt="">
-        <div>
-        <h3 class="text-xl md:text-2xl font-bold text-primary mb-1">Support</h3>
-        <p class="text-sm md:text-base text-primary mb-1">Guna memberikan pelayanan terbaik, Alia Wisata bekerja
-            sama
-            dengan mitra usaha
-            terpercaya melalui
-            jaringan luas kami,
-            baik maskapai penerbangan, hotel, maupun pemerintah</p>
-        </div>
+<!-- Section Brosur -->
+<section class="container relative max-w-screen-xl py-10">
+    <div class="flex flex-col justify-between items-center w-full gap-1 mb-[50px]">
+        <!-- <h3 class="text-xl md:text-2xl font-semibold text-white">Brosur Terbaru Update</h3> -->
+        <h2 class="text-2xl md:text-3xl font-bold text-secondary">Brosur Terbaru Update</h2>
     </div>
-    <div class="flex items-center gap-6 py-3 bg-gradient-to-tr from-emerald-500 rounded-lg p-2 mb-2">
-        <img class="w-[60px]" src="{!! asset('/assets/frontend/images/tawaf.png') !!}" alt="">
-        <div>
-        <h3 class="text-xl md:text-2xl font-bold text-primary mb-1">Quality</h3>
-        <p class="text-sm md:text-base text-primary mb-1">Produk jasa Alia Wisata dirancang dan dikemas oleh
-            tenaga
-            kerja
-            yang profesional dan
-            berpengalaman,
-            sehingga terjaga
-            kualitas dan layanannya</p>
-        </div>
+    <div id="swiper_brochure" class="swiper w-full">
+    <div class="swiper-wrapper" id="swiper_brochure_lg-swipper">
+        @forelse ($brochures as $brochure)
+        {{-- <div class="swiper-slide"> --}}
+            <a data-src="{!! Storage::url($brochure->photo) !!}" class="swiper-slide">
+                <img class="w-full rounded-lg" src="{!! Storage::url($brochure->photo) !!}" alt="{!! $brochure->name !!}">
+            </a>
+        {{-- </div> --}}
+        @empty
+        <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
+        @endforelse
     </div>
-    <div class="flex items-center gap-6 py-3 bg-gradient-to-tr from-emerald-500 rounded-lg p-2 mb-2">
-        <img class="w-[60px]" src="{!! asset('/assets/frontend/images/umrah.png') !!}" alt="">
-        <div>
-        <h3 class="text-xl md:text-2xl font-bold text-primary mb-1">Responsive</h3>
-        <p class="text-sm md:text-base text-primary mb-1">Alia Wisata sebagai travel umrah haji berkomitmen pada
-            standar
-            kerja tinggi, untuk
-            memberikan pelayanan
-            terbaik dan
-            amanah kepada setiap pelanggan maupun mitra usahanya</p>
-        </div>
     </div>
+</section>
 
+<!-- Section Services -->
+<section class="container relative max-w-screen-xl py-10 bg-white rounded-md">
+    <div class="flex flex-col justify-between items-center w-full gap-1 mb-[50px]">
+        <h3 class="text-xl md:text-2xl font-semibold text-white">Layanan Kami</h3>
+        <h2 class="text-2xl md:text-3xl font-bold text-primary">Kenapa Harus Kami</h2>
     </div>
-</div>
+    <div class="flex flex-col md:flex-row flex-wrap justify-center gap-8 lg:gap-[120px] items-center">
+        <img class="w-full md:max-w-[536px]"
+        src="{!!  asset('/assets/frontend/images/cropped-1200px-Garuda_Indonesia_Boeing_737-800_PK-GMM_HKG_2012-7-18-780x405.png') !!}"
+        alt="">
+        <div class="max-w-[420px] w-full">
+        <header>
+            <h3 class="text-xl md:text-2xl font-bold text-primary mb-1">Poin Plus.</h3>
+            <p class="text-sm md:text-base text-primary mb-1">Rasakan pengalaman ibadah umroh yang aman dan nyaman bersama Alia Wisata.</p>
+        </header>
+        <!-- Service Item -->
+        <div class="flex items-center gap-6 py-3 bg-gradient-to-tr from-emerald-500 rounded-lg p-2 mb-2">
+            <img class="w-[60px]" src="{!! asset('/assets/frontend/images/man.png') !!}" alt="">
+            <div>
+            <h3 class="text-xl md:text-2xl font-bold text-primary mb-1">Support</h3>
+            <p class="text-sm md:text-base text-primary mb-1">Guna memberikan pelayanan terbaik, Alia Wisata bekerja
+                sama
+                dengan mitra usaha
+                terpercaya melalui
+                jaringan luas kami,
+                baik maskapai penerbangan, hotel, maupun pemerintah</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-6 py-3 bg-gradient-to-tr from-emerald-500 rounded-lg p-2 mb-2">
+            <img class="w-[60px]" src="{!! asset('/assets/frontend/images/tawaf.png') !!}" alt="">
+            <div>
+            <h3 class="text-xl md:text-2xl font-bold text-primary mb-1">Quality</h3>
+            <p class="text-sm md:text-base text-primary mb-1">Produk jasa Alia Wisata dirancang dan dikemas oleh
+                tenaga
+                kerja
+                yang profesional dan
+                berpengalaman,
+                sehingga terjaga
+                kualitas dan layanannya</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-6 py-3 bg-gradient-to-tr from-emerald-500 rounded-lg p-2 mb-2">
+            <img class="w-[60px]" src="{!! asset('/assets/frontend/images/umrah.png') !!}" alt="">
+            <div>
+            <h3 class="text-xl md:text-2xl font-bold text-primary mb-1">Responsive</h3>
+            <p class="text-sm md:text-base text-primary mb-1">Alia Wisata sebagai travel umrah haji berkomitmen pada
+                standar
+                kerja tinggi, untuk
+                memberikan pelayanan
+                terbaik dan
+                amanah kepada setiap pelanggan maupun mitra usahanya</p>
+            </div>
+        </div>
+
+        </div>
+    </div>
 
 
 </section>
 
 <!-- Section Galery -->
-<section class="container relative max-w-screen-xl py-10">
-<div class="flex flex-col justify-between w-full gap-1 mb-[50px]">
-    <h2 class="text-2xl md:text-3xl font-bold text-white">Galei Foto.</h2>
-    <p class="text-base md:text-lg text-white">Kami memiliki paket-paket umroh yang dapat anda
-    Dibawah ini adalah dokumentasi foto-foto keberangkantan umroh Alia Wisata bersama dengan para jamaah.
-    </p>
-</div>
-<div>
-    @forelse ($galleries as $galleri)
-    <div id="lightgallery" class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <a href="{!! Storage::url($galleri->photo) !!}" data-lg-size="1600-2400">
-            <img class="h-[300px] max-w-full rounded-lg" alt="{!! $galleri->CategoryGallery->name !!}" src="{!! Storage::url($galleri->photo) !!}" />
-        </a>
+<section id="gallery" class="container relative max-w-screen-xl py-10">
+    <div class="flex flex-col justify-between w-full gap-1 mb-[50px]">
+        <h2 class="text-2xl md:text-3xl font-bold text-white">Galeri Foto.</h2>
+        <p class="text-base md:text-lg text-white">Kami memiliki paket-paket umroh yang dapat anda
+        Dibawah ini adalah dokumentasi foto-foto keberangkantan umroh Alia Wisata bersama dengan para jamaah.
+        </p>
     </div>
-    @empty
-        <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
-    @endforelse
-</div>
+    <div id="swiper_gallery" class="swiper w-full">
+        <div class="swiper-wrapper" id="swiper_gallery_lg-swipper">
+        @forelse ($galleries as $galleri)
+            {{-- <div class="swiper-slide"> --}}
+                <a data-src="{!! Storage::url($galleri->photo) !!}" class="swiper-slide">
+                    <img class="w-full rounded-lg" alt="{!! $galleri->CategoryGallery->name !!}" src="{!! Storage::url($galleri->photo) !!}" />
+                </a>
+            {{-- </div> --}}
+            @empty
+                <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
+            @endforelse
+        </div>
+    </div>
 </section>
 
 <!-- Section Testimonial -->
 <section class="container relative max-w-screen-xl py-10">
-<div class="flex flex-col justify-between w-full gap-1 mb-[50px]">
-    <h2 class="text-2xl md:text-3xl font-bold text-white">Testimoni Jamaah.</h2>
-    <p class="text-base md:text-lg text-white">Dapatkan promo potongan harga menarik untuk perjalanan ibadh umroh sahabat semua.</p>
-</div>
-<div id="testimonial">
-    <div class="grid lg:grid-cols-12 md:grid-cols-4 grid-cols-1 gap-4">
-    <div class="lg:col-span-4 col-span-12">
-        <div class="flex flex-col gap-4 bg-white p-5 rounded-lg">
-        <div class="flex flex-row gap-4 items-center text-primary">
-            <img class="h-12" src="./assets/images/testimonial/tria_member.png" alt="">
-            <div class="flex flex-col">
-            <h4 class="text-base md:text-lg font-bold">Tri Prastia</h4>
-            <p>Jamaah</p>
-            </div>
-        </div>
-        <p class="text-sm md:text-base text-primary">alhamdilullah perjalan umroh berjalan lancar dan dipandung
-            dengan baik oleh Alia
-            Wisata, semoga bisa kembali lagi
-            umroh bersama Alia Wisata
-        </p>
-        <div class="flex flex-row gap-x-1 text-secondary items-center justify-center text-xl">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-        </div>
-        </div>
-    </div>
-    <div class="lg:col-span-4 col-span-12">
-        <div class="flex flex-col gap-4 bg-white p-5 rounded-lg">
-        <div class="flex flex-row gap-4 items-center text-primary">
-            <img class="h-12" src="./assets/images/testimonial/tria_member.png" alt="">
-            <div class="flex flex-col">
-            <h4 class="text-base md:text-lg font-bold">Yuni Asri</h4>
-            <p>Jamaah</p>
-            </div>
-        </div>
-        <p class="text-sm md:text-base text-primary">Puji Syukur kepada Allah akhirnya saya bisa melaksanakan ibadah
-            umroh, dan
-            terimakasih buat Alia Wisata yang telah
-            memberikan pelayanan terbaik hingga pulang ke tanah air
-        </p>
-        <div class="flex flex-row gap-x-1 text-secondary items-center justify-center text-xl">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-        </div>
-        </div>
-    </div>
-    <div class="lg:col-span-4 col-span-12">
-        <div class="flex flex-col gap-4 bg-white p-5 rounded-lg">
-        <div class="flex flex-row gap-4 items-center text-primary">
-            <img class="h-12" src="./assets/images/testimonial/tria_member.png" alt="">
-            <div class="flex flex-col">
-            <h4 class="text-base md:text-lg font-bold">Indah</h4>
-            <p>Jamaah</p>
-            </div>
-        </div>
-        <p class="text-sm md:text-base text-primary">Pelayanan bagus, keberangkatan tepat waktu, hotelnya keren,
-            makanannya juga keren, insyaalah jika umroh lagi akan
-            bersama Alia Wisata lagi
-        </p>
-        <div class="flex flex-row gap-x-1 text-secondary items-center justify-center text-xl">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-        </div>
-        </div>
+    <div class="flex flex-col justify-between w-full gap-1 mb-[50px]">
+        <h2 class="text-2xl md:text-3xl font-bold text-white">Testimoni Jamaah.</h2>
+        <p class="text-base md:text-lg text-white">Dapatkan promo potongan harga menarik untuk perjalanan ibadh umroh sahabat semua.</p>
     </div>
 
-    </div>
-    <div class="grid lg:grid-cols-12 md:grid-cols-4 grid-cols-1 gap-4">
-    <div class="lg:col-span-4 col-span-12">
-        <div class="flex flex-col gap-4 bg-white p-5 rounded-lg">
-        <div class="flex flex-row gap-4 items-center text-primary">
-            <img class="h-12" src="./assets/images/testimonial/tria_member.png" alt="">
-            <div class="flex flex-col">
-            <h4 class="text-base md:text-lg font-bold">Tri Prastia</h4>
-            <p>Jamaah</p>
-            </div>
-        </div>
-        <p class="text-sm md:text-base text-primary">alhamdilullah perjalan umroh berjalan lancar dan dipandung
-            dengan baik oleh Alia
-            Wisata, semoga bisa kembali lagi
-            umroh bersama Alia Wisata
-        </p>
-        <div class="flex flex-row gap-x-1 text-secondary items-center justify-center text-xl">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-        </div>
-        </div>
-    </div>
-    <div class="lg:col-span-4 col-span-12">
-        <div class="flex flex-col gap-4 bg-white p-5 rounded-lg">
-        <div class="flex flex-row gap-4 items-center text-primary">
-            <img class="h-12" src="./assets/images/testimonial/tria_member.png" alt="">
-            <div class="flex flex-col">
-            <h4 class="text-base md:text-lg font-bold">Yuni Asri</h4>
-            <p>Jamaah</p>
-            </div>
-        </div>
-        <p class="text-sm md:text-base text-primary">Puji Syukur kepada Allah akhirnya saya bisa melaksanakan ibadah
-            umroh, dan
-            terimakasih buat Alia Wisata yang telah
-            memberikan pelayanan terbaik hingga pulang ke tanah air
-        </p>
-        <div class="flex flex-row gap-x-1 text-secondary items-center justify-center text-xl">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-        </div>
-        </div>
-    </div>
-    <div class="lg:col-span-4 col-span-12">
-        <div class="flex flex-col gap-4 bg-white p-5 rounded-lg">
-        <div class="flex flex-row gap-4 items-center text-primary">
-            <img class="h-12" src="./assets/images/testimonial/tria_member.png" alt="">
-            <div class="flex flex-col">
-            <h4 class="text-base md:text-lg font-bold">Indah</h4>
-            <p>Jamaah</p>
-            </div>
-        </div>
-        <p class="text-sm md:text-base text-primary">Pelayanan bagus, keberangkatan tepat waktu, hotelnya keren,
-            makanannya juga keren, insyaalah jika umroh lagi akan
-            bersama Alia Wisata lagi
-        </p>
-        <div class="flex flex-row gap-x-1 text-secondary items-center justify-center text-xl">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-        </div>
-        </div>
-    </div>
+    <div id="swiper_testimonial" class="swiper w-full">
+        <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="lg:col-span-4 col-span-12">
+                        <div class="flex flex-col gap-4 bg-white p-5 rounded-lg">
+                        <div class="flex flex-row gap-4 items-center text-primary">
+                            <img class="h-12" src="./assets/images/testimonial/tria_member.png" alt="">
+                            <div class="flex flex-col">
+                            <h4 class="text-base md:text-lg font-bold">Tri Prastia</h4>
+                            <p>Jamaah</p>
+                            </div>
+                        </div>
+                        <p class="text-sm md:text-base text-primary">alhamdilullah perjalan umroh berjalan lancar dan dipandung
+                            dengan baik oleh Alia
+                            Wisata, semoga bisa kembali lagi
+                            umroh bersama Alia Wisata
+                        </p>
+                        <div class="flex flex-row gap-x-1 text-secondary items-center justify-center text-xl">
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="lg:col-span-4 col-span-12">
+                        <div class="flex flex-col gap-4 bg-white p-5 rounded-lg">
+                        <div class="flex flex-row gap-4 items-center text-primary">
+                            <img class="h-12" src="./assets/images/testimonial/tria_member.png" alt="">
+                            <div class="flex flex-col">
+                            <h4 class="text-base md:text-lg font-bold">Yuni Asri</h4>
+                            <p>Jamaah</p>
+                            </div>
+                        </div>
+                        <p class="text-sm md:text-base text-primary">Puji Syukur kepada Allah akhirnya saya bisa melaksanakan ibadah
+                            umroh, dan
+                            terimakasih buat Alia Wisata yang telah
+                            memberikan pelayanan terbaik hingga pulang ke tanah air
+                        </p>
+                        <div class="flex flex-row gap-x-1 text-secondary items-center justify-center text-xl">
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="lg:col-span-4 col-span-12">
+                        <div class="flex flex-col gap-4 bg-white p-5 rounded-lg">
+                        <div class="flex flex-row gap-4 items-center text-primary">
+                            <img class="h-12" src="./assets/images/testimonial/tria_member.png" alt="">
+                            <div class="flex flex-col">
+                            <h4 class="text-base md:text-lg font-bold">Yuni Asri</h4>
+                            <p>Jamaah</p>
+                            </div>
+                        </div>
+                        <p class="text-sm md:text-base text-primary">Puji Syukur kepada Allah akhirnya saya bisa melaksanakan ibadah
+                            umroh, dan
+                            terimakasih buat Alia Wisata yang telah
+                            memberikan pelayanan terbaik hingga pulang ke tanah air
+                        </p>
+                        <div class="flex flex-row gap-x-1 text-secondary items-center justify-center text-xl">
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="lg:col-span-4 col-span-12">
+                        <div class="flex flex-col gap-4 bg-white p-5 rounded-lg">
+                        <div class="flex flex-row gap-4 items-center text-primary">
+                            <img class="h-12" src="./assets/images/testimonial/tria_member.png" alt="">
+                            <div class="flex flex-col">
+                            <h4 class="text-base md:text-lg font-bold">Yuni Asri</h4>
+                            <p>Jamaah</p>
+                            </div>
+                        </div>
+                        <p class="text-sm md:text-base text-primary">Puji Syukur kepada Allah akhirnya saya bisa melaksanakan ibadah
+                            umroh, dan
+                            terimakasih buat Alia Wisata yang telah
+                            memberikan pelayanan terbaik hingga pulang ke tanah air
+                        </p>
+                        <div class="flex flex-row gap-x-1 text-secondary items-center justify-center text-xl">
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                        </div>
+                        </div>
+                    </div>
+                </div>
 
+        </div>
     </div>
-
-</div>
 </section>
 
-<!-- Section Mitra -->
+{{-- <!-- Section Promo -->
+<section class="container relative max-w-screen-xl py-10 bg-white rounded-md">
+    <div class="flex flex-col justify-between w-full gap-0 mb-[50px]">
+        <h2 class="text-2xl md:text-3xl font-bold text-secondary">Klaim Voucher</h2>
+        <p class="text-base md:text-lg text-primary">Dapatkan promo potongan harga menarik untuk perjalanan ibadah umroh sahabat semua.</p>
+    </div>
+    <div id="swiper_promo" class="swiper w-full">
+        <div class="swiper-wrapper">
+        @forelse ($promos as $promo)
+            <div class="swiper-slide">
+                <img class="w-[550px] h-[200px] rounded-2xl" src="{!! Storage::url($promo->photo) !!}" alt="">
+            </div>
+        @empty
+            <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
+        @endforelse
+        </div>
+    </div>
+</section> --}}
+<!-- Section News -->
+<section class="container relative max-w-screen-xl py-10 bg-white rounded-md">
+    <div class="flex flex-col justify-between w-full gap-0 mb-[50px]">
+        <h2 class="text-2xl md:text-3xl font-bold text-secondary">News.</h2>
+        <p class="text-base md:text-lg text-primary">Dapatkan berita menarik untuk perjalanan ibadah umroh sahabat semua.</p>
+    </div>
+    {{-- <div id="swiper_promo" class="swiper w-full">
+        <div class="swiper-wrapper">
+        @forelse ($promos as $promo)
+            <div class="swiper-slide">
+                <img class="w-[550px] h-[200px] rounded-2xl" src="{!! Storage::url($promo->photo) !!}" alt="">
+            </div>
+        @empty
+            <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
+        @endforelse
+        </div>
+    </div> --}}
+</section>
+
+<!-- Section Maskapai -->
 <section class="container relative max-w-screen-xl py-10">
-<div class="flex flex-col justify-between w-full gap-1 mb-[50px]">
-    <h2 class="text-2xl md:text-3xl font-bold text-white">Partner Maskapai.</h2>
-    <p class="text-base md:text-lg text-white">Dapatkan promo potongan harga menarik untuk perjalanan ibadah umroh sahabat semua.</p>
-</div>
-<div id="mitraCarousel">
-    @forelse ($airlines as $airline)
-        <img class="w-[50%] md:w-[14%] rounded-2xl bg-white mr-[30px]" src="{!! Storage::url($airline->photo) !!}"
-            alt="{!! $airline->title !!}">
-        {{-- <img class="w-[150px] h-[120px] rounded-2xl mr-[30px]" src="{!! Storage::url($airline->icon) !!}"
-            alt="{!! $airline->title !!}"> --}}
-    @empty
-    <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
-    @endforelse
-</div>
-{{-- <div class="mitraCarousel">
-    @forelse ($airlines as $airline)
-<div class="carousel-cell">
-<img class="w-[50%] rounded-2xl bg-white" src="{!! Storage::url($airline->photo) !!}"
-            alt="{!! $airline->title !!}">
-</div>
-    @empty
-    <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
-    @endforelse
-</div> --}}
-
-<!-- Prev Button -->
-<!-- <div class="absolute hidden -translate-y-1/2 top-1/2 right-4 lg:right-[200px] cursor-pointer"
-    id="carouselRightButton">
-    <img src="/public/assets/svgs/ic-right-rounded.svg" alt="tickety-assets">
-</div> -->
-<!-- Next Button -->
-<!-- <div class="absolute -translate-y-1/2 cursor-pointer top-1/2 lg:left-20" id="carouselLeftButton">
-    <img src="/public/assets/svgs/ic-left-rounded.svg" alt="tickety-assets">
-</div> -->
-
+    <div class="flex flex-col justify-between w-full gap-1 mb-[50px]">
+        <h2 class="text-2xl md:text-3xl font-bold text-white">Partner Maskapai.</h2>
+        <p class="text-base md:text-lg text-white">Dapatkan promo potongan harga menarik untuk perjalanan ibadah umroh sahabat semua.</p>
+    </div>
+    <div id="swiper_maskapai" class="swiper w-full">
+    <div class="swiper-wrapper">
+    {{-- <div id="mitraCarousel"> --}}
+        @forelse ($airlines as $airline)
+        <div class="swiper-slide">
+            <img class="rounded-2xl bg-white" src="{!! Storage::url($airline->photo) !!}"
+                alt="{!! $airline->title !!}">
+            {{-- <img class="w-[150px] h-[120px] rounded-2xl mr-[30px]" src="{!! Storage::url($airline->icon) !!}"
+                alt="{!! $airline->title !!}"> --}}
+        </div>
+        @empty
+        <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
+        @endforelse
+    {{-- </div> --}}
+    </div>
+    </div>
 </section>
 
 <!-- Section Map -->
@@ -858,197 +832,5 @@
 @endsection
 
 @section('jsCustom')
-
-<script>
-
-const swiper_banner = new Swiper("#swiper_banner", {
-    direction: 'horizontal',
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-});
-const swiper_promo = new Swiper("#swiper_promo", {
-    direction: 'horizontal',
-    slidesPerView: 1,
-    spaceBetween: 20,
-    loop: true,
-    // pagination: {
-    //     el: ".swiper-pagination",
-    //     clickable: true,
-    // },
-    breakpoints: {
-        640: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-        },
-        768: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-        },
-        1024: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-        },
-        },
-});
-
-const swiper_product = new Swiper('#swiper_product', {
-    // Optional parameters
-    direction: 'horizontal',
-    spaceBetween: 20,
-    slidesPerView: "auto",
-    // slidesOffsetBefore: 20,
-    // slidesOffsetAfter: 20,
-});
-
-
-
-// var flktyPromo = new Flickity('#promoCarousel', {
-//     cellAlign: 'left',
-//     imagesLoaded: true,
-//     contain: true,
-//     prevNextButtons: false,
-//     autoPlay: 5000,
-//     wrapAround: false,
-//     draggable: true,
-//     adaptiveHeight: true,
-//     pageDots: false,
-//     groupCells: false,
-//     pauseAutoPlayOnHover: false,
-// });
-
-// flktyPromo.on('pointerUp', (event, pointer) => {
-//     flktyPromo.player.play();
-// });
-
-var flktyMitra = new Flickity('#mitraCarousel', {
-    cellAlign: 'left',
-    imagesLoaded: true,
-    contain: true,
-    prevNextButtons: false,
-    autoPlay: true,
-    wrapAround: false,
-    draggable: true,
-    adaptiveHeight: true,
-    pageDots: false,
-    groupCells: false,
-    pauseAutoPlayOnHover: false,
-});
-flktyMitra.on('pointerUp', function (event, pointer) {
-    flktyMitra.player.play();
-});
-
-// var flktySlider = new Flickity('#slider', {
-//     cellAlign: 'left',
-//     imagesLoaded: true,
-//     contain: true,
-//     prevNextButtons: false,
-//     autoPlay: true,
-//     wrapAround: false,
-//     draggable: true,
-//     adaptiveHeight: true,
-//     pageDots: false,
-//     groupCells: false,
-// });
-
-var flktyBrochur = new Flickity('#brochurCarousel', {
-    cellAlign: 'left',
-    imagesLoaded: true,
-    contain: true,
-    prevNextButtons: false,
-    autoPlay: true,
-    wrapAround: false,
-    draggable: true,
-    adaptiveHeight: true,
-    pageDots: false,
-    groupCells: false,
-});
-
-var flktyTesti = new Flickity('#testimonial', {
-    cellAlign: 'left',
-    imagesLoaded: true,
-    contain: true,
-    prevNextButtons: false,
-    autoPlay: 5000,
-    wrapAround: false,
-    draggable: true,
-    adaptiveHeight: true,
-    pageDots: false,
-    groupCells: false,
-});
-
-
-lightGallery(document.getElementById("category"), {
-    thumbnail: true,
-    // animateThumb: false,
-    // zoomFromOriginal: false,
-    // allowMediaOverlap: true,
-    // toggleThumb: true,
-});
-
-lightGallery(document.getElementById("lightgallery"), {
-    thumbnail: true,
-    // animateThumb: false,
-    // zoomFromOriginal: false,
-    // allowMediaOverlap: true,
-    // toggleThumb: true,
-});
-
-const player = new Plyr(document.getElementById('player'));
-
-// $carousel = $('#galleryCarousel')
-// let flickityPrevButton = $('#galleryCarousel .flickity-prev-next-button.previous')
-// let flickityNextButton = $('#galleryCarousel .flickity-prev-next-button.next')
-// let rightButton = $('#carouselRightButton')
-// let leftButton = $('#carouselLeftButton')
-// let flktyPrevNextButtons = $(window).width() > 991 ? true : false
-
-// $carousel.flickity({
-//   cellAlign: 'center',
-//   contain: true,
-//   pageDots: false,
-//   imagesLoaded: true,
-//   groupCells: false,
-//   prevNextButtons: false
-// })
-
-// if ($(window).width() > 991) {
-//   $('#galleryCarousel .flickity-viewport').css({
-//     overflow: 'visible'
-//   })
-// }
-
-// $carousel.on('change.flickity', function (event, index) {
-//   let len = $('#galleryCarousel .flickity-slider').children().length
-//   // console.log(len, index)
-
-//   if (index === len - 1) {
-//     leftButton.addClass('hidden')
-//   }
-
-//   if (index > 0) {
-//     rightButton.removeClass('hidden')
-//   } else {
-//     rightButton.addClass('hidden')
-//     leftButton.removeClass('hidden')
-//   }
-// });
-
-// leftButton.on('click', function (e) {
-//   $carousel.flickity('next')
-// })
-
-// rightButton.on('click', function (e) {
-//   $carousel.flickity('previous')
-// })
-</script>
 
 @endsection

@@ -32,9 +32,9 @@ class AirlineResource extends Resource
                 TextInput::make('name')
                     ->helpertext('Gunakan name data dengan tepat.')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->label('Nama Maskapai'),
                 FileUpload::make('icon')
-                    ->required()
                     ->image()
                     ->disk('public')
                     ->optimize('webp')
@@ -59,12 +59,13 @@ class AirlineResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->label('Nama Maskapai')
                     ->searchable(),
                 ImageColumn::make('icon'),
                 ImageColumn::make('photo'),
                 TextColumn::make('created_at')
                     ->dateTime('d-M-Y H:i:s')
-                    ->label('Created Airline'),
+                    ->label('Maskapai dibuat'),
             ])
             ->filters([
                 //

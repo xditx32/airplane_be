@@ -36,11 +36,18 @@ class GalleryResource extends Resource
                     ->relationship('CategoryGallery', 'name')
                     ->searchable()
                     ->preload()
-                    ->required(),
+                    ->required()
+                    ->label('Kategori Galeri'),
 
                 FileUpload::make('photo')
                     ->required()
-                    ->image(),
+                    ->image()
+                    ->disk('public')
+                    ->optimize('webp')
+                    ->preserveFilenames()
+                    ->directory('assets/images/gallery')
+                    ->maxSize(512)
+                    ->label('Gambar Galeri'),
 
             ]);
     }
@@ -52,13 +59,14 @@ class GalleryResource extends Resource
                 //
                 TextColumn::make('CategoryGallery.name')
                     ->searchable()
-                    ->label('Category Gallery'),
+                    ->label('Kategori Galeri'),
 
-                ImageColumn::make('photo'),
+                ImageColumn::make('photo')
+                    ->label('gambar Galeri'),
 
                 TextColumn::make('created_at')
                     ->dateTime('d-M-Y H:i:s')
-                    ->label('Created Gallery'),
+                    ->label('Galeri dibuat'),
             ])
             ->filters([
                 //

@@ -33,27 +33,23 @@ class CategoryResource extends Resource
                     ->required()
                     ->helpertext('Gunakan name data dengan tepat.')
                     ->maxLength(255)
-                    ->label('Nama Categori'),
-
+                    ->label('Nama Kategori'),
                 FileUpload::make('icon')
-                    ->required()
                     ->image()
                     ->disk('public')
                     ->optimize('webp')
                     ->preserveFilenames()
                     ->directory('assets/frontend/images/category/icon')
                     ->maxSize(512)
-                    ->label('Icon Categori'),
-
+                    ->label('Icon Kategori'),
                 FileUpload::make('photo')
-                    ->required()
                     ->image()
                     ->disk('public')
                     ->optimize('webp')
                     ->preserveFilenames()
                     ->directory('assets/frontend/images/category')
                     ->maxSize(512)
-                    ->label('Gambar Categori'),
+                    ->label('Gambar Kategori'),
             ]);
     }
 
@@ -61,22 +57,17 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                //
                 TextColumn::make('name')
-                ->label('Nama Categori')
+                ->label('Nama Kategorii')
                 ->searchable(),
-
                 ImageColumn::make('icon')
-                ->label('Icon Categori'),
-
+                ->label('Icon Kategorii'),
                 ImageColumn::make('photo')
-                ->label('Gambar Categori'),
-
+                ->label('Gambar Kategorii'),
                 TextColumn::make('slug')
                 ->label('URL'),
-
                 TextColumn::make('created_at')->dateTime('d-M-Y H:i:s')
-                ->label('Categori Buat'),
+                ->label('kategori dibuat'),
 
             ])
             ->filters([

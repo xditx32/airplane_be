@@ -58,7 +58,7 @@ class PromoResource extends Resource
                     ->trueColor('success')
                     ->falseIcon('heroicon-o-x-circle')
                     ->trueIcon('heroicon-o-check-circle')
-                    ->label('Active')
+                    ->label('Status Promo')
                     ->sortable(),
             ])
             ->filters([

@@ -1,4 +1,4 @@
-<footer class="bg-white relative mx-auto">
+<footer id="contact" class="bg-white relative mx-auto">
 <div class="container py-5 max-w-screen-xl">
     <div class="grid lg:grid-cols-12 md:grid-cols-4 grid-cols-1 gap-7">
     <div class="lg:col-span-4 col-span-12">

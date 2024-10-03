@@ -202,7 +202,7 @@ class ProductResource extends Resource
                     ->trueColor('success')
                     ->falseIcon('heroicon-o-x-circle')
                     ->trueIcon('heroicon-o-check-circle')
-                    ->label('Visibility')
+                    ->label('Status Produk')
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime('d-M-Y H:i:s')

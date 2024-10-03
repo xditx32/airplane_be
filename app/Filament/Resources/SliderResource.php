@@ -84,13 +84,14 @@ class SliderResource extends Resource
             ->columns([
                 //
                 TextColumn::make('CategorySlider.name')->searchable()
-                    ->label('Category Slider'),
+                    ->label('Kategori Slider'),
 
-                ImageColumn::make('photo_desktop'),
+                ImageColumn::make('photo')
+                    ->label('Gambar Slider'),
 
                 TextColumn::make('created_at')
                     ->dateTime('d-M-Y H:i:s')
-                    ->label('Created Slider'),
+                    ->label('Gambar Slider dibuat'),
             ])
             ->filters([
                 //
@@ -119,5 +120,20 @@ class SliderResource extends Resource
             'create' => Pages\CreateSlider::route('/create'),
             'edit' => Pages\EditSlider::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Slider');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+      return __('Slider');
     }
 }

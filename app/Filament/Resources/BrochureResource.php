@@ -29,15 +29,23 @@ class BrochureResource extends Resource
                  TextInput::make('name')
                     ->helpertext('Gunakan name data dengan tepat.')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->label('Nama Brosur'),
                 FileUpload::make('photo')
-                    ->image(),
+                    ->image()
+                    ->required()
+                    ->disk('public')
+                    ->optimize('webp')
+                    ->preserveFilenames()
+                    ->directory('assets/images/brosur')
+                    ->maxSize(512)
+                    ->label('Gambar Brosur'),
                 Select::make('is_active')
                     ->options([
                         TRUE => 'Active',
                         FALSE => 'Not Active',
                     ])
-                    ->label('Status')
+                    ->label('Status Brosur')
                     ->required(),
             ]);
     }
@@ -46,7 +54,22 @@ class BrochureResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name')
+                    ->label('Nama Brosur')
+                    ->searchable(),
+                ImageColumn::make('photo')
+                    ->label('Gambar Brosur'),
+                IconColumn::make('is_active')
+                    ->boolean()
+                    ->falseColor('danger')
+                    ->trueColor('success')
+                    ->falseIcon('heroicon-o-x-circle')
+                    ->trueIcon('heroicon-o-check-circle')
+                    ->label('Status Brosur')
+                    ->sortable(),
+                TextColumn::make('created_at')
+                    ->dateTime('d-M-Y H:i:s')
+                    ->label('Brosur dibuat'),
             ])
             ->filters([
                 //
