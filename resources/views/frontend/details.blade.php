@@ -56,7 +56,7 @@
                 <div id="slider-banner-product" class="pb-4">
                         @forelse ($product->ProductPhotos as $ProductPhoto)
                             <a href="http://">
-                                <img class="w-full rounded-lg mr-[30px]" src="{!! Storage::url($ProductPhoto->photo) !!}"
+                                <img class="w-full rounded-lg" src="{!! Storage::url($ProductPhoto->photo) !!}"
                                 alt="">
                             @empty
                                 <p>sas</p>
@@ -71,6 +71,7 @@
             <!-- Sider-Right -->
             <div class="order-1 md:order-2 lg:col-span-2 gap-4 relative">
                 <div class="bg-white min-h-[450px] p-5 rounded-lg md:sticky top-0">
+                    <img class="w-full rounded-lg pb-2" src="{!! Storage::url($product->photo) !!}" alt="" srcset="">
                     <h3 class="text-base md:text-lg font-bold text-secondary text-right pb-2">
                     Harga Mulai!
                     </h3>

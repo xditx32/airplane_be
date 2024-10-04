@@ -71,7 +71,31 @@ const swiper_product = new Swiper("#swiper_product", {
     // },
 });
 
-const swiper_masakapai = new Swiper("#swiper_maskapai", {
+const swiper_maskapai = new Swiper("#swiper_maskapai", {
+    direction: "horizontal",
+    spaceBetween: 16,
+    slidesPerView: 3,
+    loop: true,
+    autoplay: true,
+    // slidesOffsetBefore: 20,
+    // slidesOffsetAfter: 20,
+    breakpoints: {
+        640: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+        },
+        768: {
+            slidesPerView: 5,
+            spaceBetween: 20,
+        },
+        1024: {
+            slidesPerView: 6,
+            spaceBetween: 20,
+        },
+    },
+});
+
+const swiper_partner = new Swiper("#swiper_partner", {
     direction: "horizontal",
     spaceBetween: 16,
     slidesPerView: 3,

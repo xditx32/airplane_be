@@ -28,7 +28,7 @@
                 href="{!! route('home') !!}">Beranda</a>
                 <a class="nav-link-item text-sm md:text-base font-bold" href="{!! route('home') !!}/#about">Tentang Kami</a>
                 <a class="nav-link-item text-sm md:text-base font-bold" href="{!! route('home') !!}/#packet">Jadwal Paket</a>
-                <a class="nav-link-item text-sm md:text-base font-bold" href="{!! route('home') !!}/#gallery">Galeri</a>
+                <a class="nav-link-item text-sm md:text-base font-bold" href="{!! route('gallery') !!}">Galeri</a>
                 <a class="nav-link-item text-sm md:text-base font-bold" href="{!! route('home') !!}/#contact">Kontak Kami</a>
             </div>
             <div class="flex flex-col w-full ml-auto lg:w-auto lg:gap-12 lg:items-center lg:flex-row">

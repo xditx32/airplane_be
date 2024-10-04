@@ -38,7 +38,9 @@ class GalleryResource extends Resource
                     ->preload()
                     ->required()
                     ->label('Kategori Galeri'),
-
+                TextInput::make('name')
+                    ->maxLength(255)
+                    ->label('Nama Gallery'),
                 FileUpload::make('photo')
                     ->required()
                     ->image()

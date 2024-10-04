@@ -16,7 +16,7 @@ class CategoryGallery extends Model
         'icon',
     ];
 
-    public function Galley():HasMany
+    public function Gallery():HasMany
     {
         return $this->hasMany(Gallery::class);
     }
