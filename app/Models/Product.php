@@ -22,6 +22,7 @@ class Product extends Model
         'brochure',
         'is_open',
         'is_promo',
+        'display',
         'is_currency',
         'price_start_from',
         'duration',

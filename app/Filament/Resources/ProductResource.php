@@ -66,7 +66,6 @@ class ProductResource extends Resource
                         ->maxSize(512)
                         ->label('Gambar'),
                     FileUpload::make('brochure')
-                        ->required()
                         ->image()
                         ->disk('public')
                         ->optimize('webp')
@@ -174,6 +173,12 @@ class ProductResource extends Resource
                     ->options([
                         TRUE => 'Yes',
                         FALSE => 'No',
+                    ])
+                    ->required(),
+                Select::make('display')
+                    ->options([
+                        'IMAGE' => 'Image',
+                        'IMAGE_TEXT' => 'Image & Text',
                     ])
                     ->required(),
                 Select::make('is_open')
