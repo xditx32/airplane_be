@@ -108,7 +108,7 @@
                     alt="{!! $partner->title !!}"> --}}
             </div>
             @empty
-            <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
+                <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
             @endforelse
         </div>
     </div>
