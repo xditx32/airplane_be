@@ -33,7 +33,7 @@
 </section>
 
 <!-- Section Partner -->
-<section class="container relative max-w-screen-xl py-10 bg-white rounded-md mb-10">
+<section class="container relative max-w-screen-xl py-10 rounded-md mb-10">
     <div class="flex flex-col justify-between w-full gap-1 mb-[50px]">
         <h2 class="text-2xl md:text-3xl font-bold text-primary">Partner.</h2>
         {{-- <p class="text-base md:text-lg text-white">Dapatkan promo potongan harga menarik untuk perjalanan ibadah umroh sahabat semua.</p> --}}

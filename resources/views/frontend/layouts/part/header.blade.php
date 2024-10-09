@@ -26,7 +26,7 @@
                 class="flex flex-col w-full ml-auto lg:w-auto gap-4 lg:gap-[50px] lg:items-center lg:flex-row text-primary">
                 <a class="nav-link-item text-sm md:text-base font-bold"
                 href="{!! route('home') !!}">Beranda</a>
-                <a class="nav-link-item text-sm md:text-base font-bold" href="{!! route('home') !!}/#about">Tentang Kami</a>
+                <a class="nav-link-item text-sm md:text-base font-bold" href="{!! route('about') !!}">Tentang Kami</a>
                 <a class="nav-link-item text-sm md:text-base font-bold" href="{!! route('home') !!}/#packet">Jadwal Paket</a>
                 <a class="nav-link-item text-sm md:text-base font-bold" href="{!! route('gallery') !!}">Galeri</a>
                 <a class="nav-link-item text-sm md:text-base font-bold" href="{!! route('home') !!}/#contact">Kontak Kami</a>

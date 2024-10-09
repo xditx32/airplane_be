@@ -17,12 +17,12 @@ class GalleryController extends Controller
         // $response = Http::post('https://amphuri.org/berita-haji-umrah/',[
         //     'post-title'
         // ]);
-        $response = Http::get('http://alia.rentalmobilteratejakarta.com/');
+        // $response = Http::get('http://alia.rentalmobilteratejakarta.com/');
 
-        $jsonData = $response->collect();
+        // $jsonData = $response->collect();
         // $jsonData = $response->json();
 
-        dd($jsonData);
+        // dd($jsonData);
 
           return view('frontend.gallery', compact('category_galleries', 'galleries',  'partners'));
     }

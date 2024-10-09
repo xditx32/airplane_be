@@ -72,6 +72,14 @@
                 (PPIU) dengan
                 SK NOMOR 832 TAHUN 2019 dan dapat di lihat pada web Sisko Patuh Kemenag melalui link berikut ini</p>
             </div>
+            <div class="mt-auto py-4 w-2/4">
+                <a href="{{ route('about') }}" class="block btn-secondary">
+                    <div class="flex flex-row gap-2 items-center justify-center align-center wid">
+                        Tentang Kami
+                    <ion-icon name="chevron-forward-outline" class="text-white"></ion-icon>
+                    </div>
+                </a>
+            </div>
             <div class="grid grid-cols-6 gap-4">
             <div class="bg-white rounded-md">
                 <img src="{!! asset('/assets/frontend/images/logo_lembaga/amphuri-logo.png') !!}" alt="" srcset="">
@@ -135,9 +143,10 @@
                     </div>
 
                     @elseif($product->display === 'IMAGE_TEXT')
-                    <div class="swiper-slide w-[300px] h-[250px] rounded-2xl overflow-hidden relative min-h-[760px] bg-primary">
+                    <div class="swiper-slide w-[300px] rounded-2xl overflow-hidden relative bg-primary">
+                    {{-- <div class="swiper-slide w-[300px] h-[250px] rounded-2xl overflow-hidden relative min-h-[760px] bg-primary"> --}}
                                 {{-- <a data-src="{!! Storage::url( $product->photo ) !!}"> --}}
-                                    <img src="{!! Storage::url( $product->photo ) !!}" class="w-full h-full max-h-[180px]" alt="{!! $product->name!!}">
+                                    <img src="{!! Storage::url( $product->photo ) !!}" class="w-full h-full" alt="{!! $product->name!!}">
                                 {{-- </a> --}}
                                 <p class="px-[14px] py-2 rounded-xl bg-primary text-white font-semibold text-sm absolute top-5 right-5">
                                     Promo
@@ -276,7 +285,7 @@
                                         <div class="mt-auto px-4 py-1">
                                             <a href="{{ route('product.details', [$category->slug, $product->slug]) }}" class="block btn-orange">
                                                 <div class="flex flex-row gap-2 items-center justify-center align-center">
-                                                    <ion-icon name="alert-circle-outline" class="text-white">></ion-icon>
+                                                    <ion-icon name="alert-circle-outline" class="text-white"></ion-icon>
                                                 Terbatas
                                                 </div>
                                             </a>
@@ -373,8 +382,9 @@
 
             @foreach (@$category->products as $product)
 
-            <div class="swiper-slide w-[300px] h-[250px] rounded-2xl overflow-hidden relative min-h-[760px] bg-primary">
-                    <img src="{!! Storage::url( $product->photo ) !!}" class="w-full h-full max-h-[180px]" alt="tickety-assets">
+            <div class="swiper-slide w-[300px] rounded-2xl overflow-hidden relative bg-primary">
+            {{-- <div class="swiper-slide w-[300px] h-[250px] rounded-2xl overflow-hidden relative min-h-[760px] bg-primary"> --}}
+                    <img src="{!! Storage::url( $product->photo ) !!}" class="w-full h-full" alt="tickety-assets">
                         <p class="px-[14px] py-2 rounded-xl bg-primary text-white font-semibold text-sm absolute top-5 right-5">
                             Promo
                         </p>
@@ -512,7 +522,7 @@
                                 <div class="mt-auto px-4 py-1">
                                     <a href="{{ route('product.details', [$category->slug, $product->slug]) }}" class="block btn-orange">
                                         <div class="flex flex-row gap-2 items-center justify-center align-center">
-                                            <ion-icon name="alert-circle-outline" class="text-white">></ion-icon>
+                                            <ion-icon name="alert-circle-outline" class="text-white"></ion-icon>
                                         Terbatas
                                         </div>
                                     </a>

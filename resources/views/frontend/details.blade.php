@@ -10,39 +10,39 @@
 
 @section('content')
 
-  <!-- Section Hero -->
-  <div>
+<!-- Section Hero -->
+<div>
     <div class="relative h-[450px] w-full overflow-hidden">
-      <div class="absolute inset-0">
+        <div class="absolute inset-0">
         <img alt="title" class="h-full w-full object-cover object-right md:object-center"
-          src="{!! asset(Storage::url($product->photo)) !!}">
+            src="{!! asset(Storage::url($product->photo)) !!}">
         <div class="absolute inset-0 bg-black opacity-70"></div>
-      </div>
-      <div class="container max-w-screen-xl relative z-10 flex flex-col justify-center h-full">
+        </div>
+        <div class="container max-w-screen-xl relative z-10 flex flex-col justify-center h-full">
         <!-- <h2 class="md:max-w-lg lg:max-w-lg xl:max-w-2xl mx-auto text-xl md:text-2xl md:leading-normal text-white">
-          Umroh penuh makna dengan</h2> -->
+            Umroh penuh makna dengan</h2> -->
         <h3
-          class="md:max-w-lg lg:max-w-lg xl:max-w-2xl text-lg md:text-xl font-black md:leading-normal text-white">
-          Program {!! $product->category->name !!}
+            class="md:max-w-lg lg:max-w-lg xl:max-w-2xl text-lg md:text-xl font-black md:leading-normal text-white">
+            Program {!! $product->category->name !!}
         </h3>
         <h2
-          class="md:max-w-lg lg:max-w-lg xl:max-w-2xl text-2xl md:text-3xl font-black md:leading-normal text-white pb-2">
-          {!! $product->name !!}
+            class="md:max-w-lg lg:max-w-lg xl:max-w-2xl text-2xl md:text-3xl font-black md:leading-normal text-white pb-2">
+            {!! $product->name !!}
         </h2>
         <h3 class="pb-1">
             Umroh Premium Akhir Tahun {!! $product->duration !!} Hari
         </h3>
         <p class="md:max-w-lg lg:max-w-lg xl:max-w-4xl">Paket Umroh yang ditawarkan oleh Alia Wisata adalah salah satu pilihan yang sangat menarik bagi mereka yang bercita-cita untuk melaksanakan ibadah Umroh ke Tanah Suci.</p>
         <!-- <div
-          class="max-w-xs md:max-w-md lg:max-w-2xl mx-auto text-white text-base md:text-lg md:leading-normal tracking-wide">
-          <p class="text-base md:text-lg">“Ibadah umrah ke ibadah umrah berikutnya adalah penggugur (dosa) di antara
+            class="max-w-xs md:max-w-md lg:max-w-2xl mx-auto text-white text-base md:text-lg md:leading-normal tracking-wide">
+            <p class="text-base md:text-lg">“Ibadah umrah ke ibadah umrah berikutnya adalah penggugur (dosa) di antara
             keduanya, dan haji yang mabrur
             tiada
             balasan (bagi pelakunya) melainkan surga” (HR al-Bukhari dan Muslim)</p>
         </div> -->
-      </div>
+        </div>
     </div>
-  </div>
+</div>
 
 
   <!-- Section detail produt -->
