@@ -32,7 +32,7 @@
                 <a class="nav-link-item text-sm md:text-base font-bold" href="{!! route('home') !!}/#contact">Kontak Kami</a>
             </div>
             <div class="flex flex-col w-full ml-auto lg:w-auto lg:gap-12 lg:items-center lg:flex-row">
-                <a href="#!" class="btn-primary uppercase">
+                <a href="//wa.me/628161458888?text=Assalammualaikum+Alia Wisata,%0ASaya+ingin+bertanya+tentang+paket%3F" class="btn-primary uppercase">
                 Whatsapp
                 </a>
             </div>

@@ -9,10 +9,10 @@
 @endsection
 
 @section('content')
-<section class="container relative max-w-screen-xl pt-5">
+{{-- <section class="container relative max-w-screen-xl pt-5">
      <a href="{!! route('home') !!}" class="font-bold">Beranda</a> / {!! $category->name !!}
-</section>
-<section id="packet" class="container relative max-w-screen-xl py-10 bg-white rounded-md mb-10">
+</section> --}}
+<section id="packet" class="container relative max-w-screen-xl py-10 bg-white rounded-md my-10">
     <div class="flex flex-col justify-between w-full gap-0 mb-[50px]">
         <h2 class="text-2xl md:text-3xl font-bold text-primary">Kategori Program {!! $category->name !!} Best Seller.</h2>
         <p class="text-base md:text-lg text-secondary">Kami memiliki paket-paket umroh yang dapat anda

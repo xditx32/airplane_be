@@ -272,3 +272,37 @@ const player = new Plyr(document.getElementById("player"));
 // rightButton.on('click', function (e) {
 //   $carousel.flickity('previous')
 // })
+
+// Is Box Hidden?
+var prevScrollpos = window.pageYOffset;
+var isBoxHidden = false;
+var boxTimeout;
+var qos = document.querySelector("#waWidget");
+// Window On Scroll
+window.addEventListener(
+    "scroll",
+    function (e) {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+            // Show
+            $(qos).fadeIn("slow");
+            isBoxHidden = false; // Box is not hidden
+        } else {
+            // Hide
+            $(qos).fadeOut("slow");
+            if (!isBoxHidden) isBoxHidden = true; // Box is hidden
+        }
+        prevScrollpos = currentScrollPos;
+
+        if (isBoxHidden) {
+            clearTimeout(boxTimeout); // Clear Timeout
+            boxTimeout = setTimeout(function () {
+                // Show Music Box Back
+                $(qos).fadeIn("slow");
+            }, 5000);
+        } else {
+            clearTimeout(boxTimeout); // Clear Timeout
+        }
+    },
+    false
+);

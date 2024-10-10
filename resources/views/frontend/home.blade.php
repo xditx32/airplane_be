@@ -136,9 +136,26 @@
             @foreach (@$category->products as $product)
 
                     @if ($product->display === 'IMAGE')
-                    <div class="swiper-slide w-[300px] h-[250px] rounded-2xl overflow-hidden relative bg-primary">
+                    <div class="swiper-slide w-[300px] rounded-2xl overflow-hidden relative bg-primary">
                         <a href="{{ route('product.details', [$category->slug, $product->slug]) }}">
                             <img src="{!! Storage::url( $product->photo ) !!}" class="w-full h-full" alt="{!! $product->name!!}">
+                        <div class="flex flex-row justify-between items-center align-center px-4 py-2">
+                            <div class="flex flex-row w-full max-w-24 order-1">
+                                    @forelse ($product->ProductAirlines as $ProductAirline)
+                                    <img class="w-full bg-white rounded-xl" src="{!! Storage::url( $ProductAirline->airline->icon ) !!}" alt="">
+                                    @empty
+                                    <p class="text-sm md:text-base text-primary">
+                                        Data Belum Tersedia
+                                    </p>
+                                    @endforelse
+                            </div>
+                            <div class="flex flex-col gap-2 order-2">
+                                <p class="text-sm md:text-xs">Harga Mulai</p>
+                                    <h3 class="text-3xl md:text-2xl font-bold text-secondary">
+                                        {!! $product->price_start_from !!} Juta
+                                    </h3>
+                            </div>
+                        </div>
                         </a>
                     </div>
 
@@ -349,8 +366,8 @@
 
     <div class="flex flex-nowrap gap-4">
         @forelse ($categories as $category)
-        <a href="{!! route('category', $category->slug) !!}">
-            <div class="overflow-hidden relative rounded-full w-40 h-40 border-4 rounded-full">
+        {{-- <a href="{!! route('category', $category->slug) !!}">
+            <div class="overflow-hidden relative rounded-full w-40 h-40 border-4">
                 <div class="absolute inset-0">
                     <img class="h-full w-full object-cover object-right md:object-center"
                     src="{!! Storage::url( $category->photo) !!}">
@@ -360,6 +377,20 @@
                 <h3 class="text-xl md:text-2xl font-bold">{!!  $category->name !!}</h3>
                 </div>
             </div>
+        </a> --}}
+        <a href="{!! route('category', $category->slug) !!}">
+            <div class="w-[300px]">
+                <img class="h-full w-full rounded-xl"
+                src="{!! Storage::url( $category->photo) !!}">
+            </div>
+            {{-- <div class="overflow-hidden relative rounded-full w-40 h-40 border-4">
+                <div class="absolute inset-0">
+                    <div class="absolute inset-0 bg-black opacity-60"></div>
+                </div>
+                <div class="relative z-10 flex flex-col gap-y-2 justify-center items-center h-full">
+                <h3 class="text-xl md:text-2xl font-bold">{!!  $category->name !!}</h3>
+                </div>
+            </div> --}}
         </a>
         @empty
         <p class="text-sm md:text-base text-white text-center"> Data Belum Tersedia </p>
@@ -777,11 +808,72 @@
         </div>
     </div>
 </section> --}}
+
 <!-- Section News -->
 <section class="container relative max-w-screen-xl py-10 bg-white rounded-md">
     <div class="flex flex-col justify-between w-full gap-0 mb-[50px]">
         <h2 class="text-2xl md:text-3xl font-bold text-secondary">News.</h2>
         <p class="text-base md:text-lg text-primary">Dapatkan berita menarik untuk perjalanan ibadah umroh sahabat semua.</p>
+    </div>
+
+    <div id="swiper_testimonial" class="swiper w-full">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <a href="https://amphuri.org/kementerian-haji-dan-umrah-dibutuhkan-umat/" target="_blank">
+                    <div class="lg:col-span-4 col-span-12">
+                        <div class="flex flex-col gap-4 bg-primary p-5 rounded-lg">
+                            <div class="flex flex-row gap-4 items-center text-white">
+                                <img class="h-20" src="https://amphuri.org/wp-content/uploads/2024/10/Dr-ulul-albab-1024x573.jpg" alt="">
+                                <div class="flex flex-col">
+                                <h4 class="text-base font-bold">AMPHURI Usul Prabowo Bentuk Kementerian Haji dan Umrah</h4>
+                                {{-- <p>Jamaah</p> --}}
+                                </div>
+                            </div>
+                            <p class="text-sm md:text-base text-white">
+                                {!! substr('AMPHURI.ORG, JAKARTA–Dewan Pengurus Pusat Asosiasi Muslim Penyelenggara Haji dan Umrah Republik Indonesia (DPP AMPHURI) menilai penyelenggaraan haji dan umrah sangatlah kompleks, diperlukan koordinasi dan pengelolaan yang lebih fokus. Karena itu, AMPHURI mendesak Pemerintahan baru di bawah kepemimpinan Prabowo Subianto agar membentuk Kementerian Haji dan Umrah.', 0, 200) !!} {!! strlen('AMPHURI.ORG, JAKARTA–Dewan Pengurus Pusat Asosiasi Muslim Penyelenggara Haji dan Umrah Republik Indonesia (DPP AMPHURI) menilai penyelenggaraan haji dan umrah sangatlah kompleks, diperlukan koordinasi dan pengelolaan yang lebih fokus. Karena itu, AMPHURI mendesak Pemerintahan baru di bawah kepemimpinan Prabowo Subianto agar membentuk Kementerian Haji dan Umrah.') > 50 ? '...' : '' !!}
+
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="https://amphuri.org/amphuri-usul-prabowo-bentuk-kementerian-haji-dan-umrah/" target="_blank">
+                    <div class="lg:col-span-4 col-span-12">
+                        <div class="flex flex-col gap-4 bg-primary p-5 rounded-lg">
+                            <div class="flex flex-row gap-4 items-center text-white">
+                                <img class="h-20" src="https://amphuri.org/wp-content/uploads/2024/10/Sekjen-Zaky-a.jpg" alt="">
+                                <div class="flex flex-col">
+                                <h4 class="text-base font-bold">Kementerian Haji dan Umrah Dibutuhkan Umat</h4>
+                                {{-- <p>Jamaah</p> --}}
+                                </div>
+                            </div>
+                            <p class="text-sm md:text-base text-white">
+                                {!! substr('Kementerian Haji dan Umrah di Indonesia harus direalisasikan. Alasan yang paling mendesak adalah tentang “konteks”, yaitu berkaitan dengan kompleksitas pengelolaan serta jumlah jamaah yang terus bertambah dan tidak mungkin dihentikan. Pengelolaan haji dan umrah sangat kompleks, melibatkan pihak pemerintah, swasta, dan lainnya. Di pihak pemerintah, ada Kementerian Agama yang bertanggung jawab menyusun kebijakan, pelaksanaan teknis, pelayanan, bimbingan, serta pengelolaan sistem informasi terkait haji dan umrah.', 0, 200) !!} {!! strlen('Kementerian Haji dan Umrah di Indonesia harus direalisasikan. Alasan yang paling mendesak adalah tentang “konteks”, yaitu berkaitan dengan kompleksitas pengelolaan serta jumlah jamaah yang terus bertambah dan tidak mungkin dihentikan. Pengelolaan haji dan umrah sangat kompleks, melibatkan pihak pemerintah, swasta, dan lainnya. Di pihak pemerintah, ada Kementerian Agama yang bertanggung jawab menyusun kebijakan, pelaksanaan teknis, pelayanan, bimbingan, serta pengelolaan sistem informasi terkait haji dan umrah.') > 50 ? '...' : '' !!}
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="https://amphuri.org/menag-yaqut-temui-menhaj-tawfiq-bahas-persiapan-haji-2025/" target="_blank">
+                    <div class="lg:col-span-4 col-span-12">
+                        <div class="flex flex-col gap-4 bg-primary p-5 rounded-lg">
+                            <div class="flex flex-row gap-4 items-center text-white">
+                                <img class="h-20" src="https://amphuri.org/wp-content/uploads/2024/09/Menag-Menhaj-2024-1024x550.jpg" alt="">
+                                <div class="flex flex-col">
+                                <h4 class="text-base font-bold">Menag Yaqut Temui Menhaj Tawfiq, Bahas Persiapan Haji 2025</h4>
+                                {{-- <p>Jamaah</p> --}}
+                                </div>
+                            </div>
+                            <p class="text-sm md:text-base text-white">
+                                {!! substr('AMPHURI.ORG, JEDDAH–Menteri Agama Yaqut Cholil Qoumas bertemu dengan Menteri Haji dan Umrah Arab Saudi Tawfiq F Al Rabiah di kantor Kementerian Haji dan Umrah, Jeddah. Dalam pertemuan tersebut, Menag yang didampingi Dirjen Penyelenggaraan Haji dan Umrah Hilman Latief dan Konsul Haji KJRI Jeddah Nasrullah Jasam, sengaja menemui Menhaj Tawfiq untuk membahas persiapan penyelenggaraan ibadah haji 1446 H/2025 M.', 0, 200) !!} {!! strlen('AMPHURI.ORG, JEDDAH–Menteri Agama Yaqut Cholil Qoumas bertemu dengan Menteri Haji dan Umrah Arab Saudi Tawfiq F Al Rabiah di kantor Kementerian Haji dan Umrah, Jeddah. Dalam pertemuan tersebut, Menag yang didampingi Dirjen Penyelenggaraan Haji dan Umrah Hilman Latief dan Konsul Haji KJRI Jeddah Nasrullah Jasam, sengaja menemui Menhaj Tawfiq untuk membahas persiapan penyelenggaraan ibadah haji 1446 H/2025 M.') > 50 ? '...' : '' !!}
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
     {{-- <div id="swiper_promo" class="swiper w-full">
         <div class="swiper-wrapper">
