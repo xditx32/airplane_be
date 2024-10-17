@@ -8,7 +8,7 @@ use App\Models\Category;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Tables\Columns\{TextColumn, ImageColumn, IconColumn};
-use Filament\Forms\Components\{TextInput, FileUpload, Select, Textarea, Repeater};
+use Filament\Forms\Components\{TextInput, FileUpload, Select, Textarea, Repeater, RichEditor};
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -50,6 +50,25 @@ class CategoryResource extends Resource
                     ->directory('assets/frontend/images/category')
                     ->maxSize(512)
                     ->label('Gambar Kategori'),
+                RichEditor::make('description')
+                    ->toolbarButtons([
+                            'attachFiles',
+                            'blockquote',
+                            'bold',
+                            'bulletList',
+                            'codeBlock',
+                            'h2',
+                            'h3',
+                            'italic',
+                            'link',
+                            'orderedList',
+                            'redo',
+                            'strike',
+                            'underline',
+                            'undo',
+                        ])
+                    ->columnSpanFull()
+                    ->label('Deskripsi Kategori'),
             ]);
     }
 
@@ -58,12 +77,12 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
-                ->label('Nama Kategorii')
+                ->label('Nama Kategori')
                 ->searchable(),
                 ImageColumn::make('icon')
                 ->label('Icon Kategorii'),
                 ImageColumn::make('photo')
-                ->label('Gambar Kategorii'),
+                ->label('Gambar Kategori'),
                 TextColumn::make('slug')
                 ->label('URL'),
                 TextColumn::make('created_at')->dateTime('d-M-Y H:i:s')

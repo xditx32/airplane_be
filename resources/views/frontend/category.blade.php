@@ -15,8 +15,6 @@
 <section id="packet" class="container relative max-w-screen-xl py-10 bg-white rounded-md my-10">
     <div class="flex flex-col justify-between w-full gap-0 mb-[50px]">
         <h2 class="text-2xl md:text-3xl font-bold text-primary">Kategori Program {!! $category->name !!} Best Seller.</h2>
-        <p class="text-base md:text-lg text-secondary">Kami memiliki paket-paket umroh yang dapat anda
-            Tangal keberangkatan terdekat program umroh Alia Wisata.</p>
     </div>
 
     <div id="swiper_product" class="swiper w-full pb-10">
@@ -230,6 +228,12 @@
         </div>
     </div>
 
+</section>
+
+<section class="container relative max-w-screen-xl py-10 my-10">
+    <article id="Content-wrapper" class="pb-10">
+        {!! $category->description !!}
+    </article>
 </section>
 
 @endsection

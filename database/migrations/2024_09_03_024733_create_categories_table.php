@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('icon')->nullable();
             $table->string('photo')->nullable();
+            $table->text('description')->nullable();
             $table->string('slug')->unique();
             $table->boolean('is_active');
             $table->softDeletes();

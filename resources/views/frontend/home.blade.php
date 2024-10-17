@@ -352,7 +352,7 @@
 
 </section>
 
-<img src="{!! asset('/assets/frontend/images/wavy-line-1.svg') !!}" class="absolute -z-10 md:top-[120rem] w-full" alt="tickety-assets">
+{{-- <img src="{!! asset('/assets/frontend/images/wavy-line-1.svg') !!}" class="absolute -z-10 md:top-[120rem] w-full" alt="tickety-assets"> --}}
 
 <!-- Section Package Umrah -->
 <section class="container relative max-w-screen-xl py-10">
@@ -369,9 +369,11 @@
         {{-- <a href="{!! route('category', $category->slug) !!}">
             <div class="overflow-hidden relative rounded-full w-40 h-40 border-4">
                 <div class="absolute inset-0">
-                    <img class="h-full w-full object-cover object-right md:object-center"
-                    src="{!! Storage::url( $category->photo) !!}">
-                    <div class="absolute inset-0 bg-black opacity-60"></div>
+                    <div class="flex align-center items-center">
+                        <img class="w-full h-full object-cover object-right md:object-center"
+                        src="{!! Storage::url( $category->icon) !!}">
+                        <div class="absolute inset-0 bg-black opacity-60"></div>
+                    </div>
                 </div>
                 <div class="relative z-10 flex flex-col gap-y-2 justify-center items-center h-full">
                 <h3 class="text-xl md:text-2xl font-bold">{!!  $category->name !!}</h3>
@@ -379,9 +381,13 @@
             </div>
         </a> --}}
         <a href="{!! route('category', $category->slug) !!}">
-            <div class="w-[300px]">
-                <img class="h-full w-full rounded-xl"
-                src="{!! Storage::url( $category->photo) !!}">
+            <div>
+                <div class="w-[140px]">
+                    <img class="w-full h-full rounded-xl" src="{!! Storage::url( $category->icon) !!}">
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-center">{!!  $category->name !!}</h3>
+                </div>
             </div>
             {{-- <div class="overflow-hidden relative rounded-full w-40 h-40 border-4">
                 <div class="absolute inset-0">
