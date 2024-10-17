@@ -364,7 +364,7 @@
         untuk mendapatkan pelayanan terbaik. Semoga kita dimudahkan untuk beribadah umroh di Tanah Suci.</p>
     </div>
 
-    <div class="flex flex-nowrap gap-4">
+    <div class="flex flex-nowrap gap-4 items-center align-center justify-center">
         @forelse ($categories as $category)
         {{-- <a href="{!! route('category', $category->slug) !!}">
             <div class="overflow-hidden relative rounded-full w-40 h-40 border-4">
