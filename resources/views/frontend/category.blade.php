@@ -231,10 +231,26 @@
 </section>
 
 <section class="container relative max-w-screen-xl py-10 my-10">
+    <div class="grid lg:grid-cols-6 md:grid-cols-2 grid-cols-1 gap-5">
+        <div class="lg:col-span-3">
+            <div class="max-h-* md:sticky top-0">
+                <img class="w-full h-full rounded-xl bg-secondary shadow-lg shadow-[#50d71e]" src="{!! Storage::url($category->photo) !!}" alt="" srcset="">
+            </div>
+        </div>
+        <div class="lg:col-span-3">
+            <article id="Content-wrapper" class="pb-10">
+                {!! $category->description !!}
+            </article>
+        </div>
+    </div>
+
+</section>
+
+{{-- <section class="container relative max-w-screen-xl py-10 my-10">
     <article id="Content-wrapper" class="pb-10">
         {!! $category->description !!}
     </article>
-</section>
+</section> --}}
 
 @endsection
 
