@@ -1,6 +1,6 @@
 @extends('frontend.layouts.frontend')
 
-@section('meta_title', $category->name)
+@section('meta_title', 'Alia Wisata Travel Umroh Terbaik & Terpercaya')
 
 @section('meta_description', 'Berdiri sejak 2000, sebagai travel umroh haji Alia Wisata terus memberikan pelayanan terbaik kepada Jamaahnya. Alia juga melayani Ticketing, Tours, Hotel dan lain-lain')
 
@@ -9,19 +9,24 @@
 @endsection
 
 @section('content')
-{{-- <section class="container relative max-w-screen-xl pt-5">
-     <a href="{!! route('home') !!}" class="font-bold">Beranda</a> / {!! $category->name !!}
-</section> --}}
-<section id="packet" class="container relative max-w-screen-xl py-10 bg-white rounded-md my-10">
+
+<section id="packet" class="container relative max-w-screen-xl py-10 my-10 bg-white rounded-md">
     <div class="flex flex-col justify-between w-full gap-0 mb-[50px]">
-        <h2 class="text-2xl md:text-3xl font-bold text-primary">Kategori Program {!! $category->name !!} Best Seller.</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-primary">Jadwal Program.</h2>
+        <p class="text-base md:text-lg text-secondary">Kami memiliki paket-paket umroh yang dapat anda
+            Tangal keberangkatan terdekat program umroh Alia Wisata.</p>
     </div>
 
-    <div id="swiper_product" class="swiper w-full pb-10">
-        <div class="swiper-wrapper">
+    @forelse ($categories as $category)
 
+        <div class="flex justify-center align-center items-center pb-10">
+            <h3 class="text-3xl md:text-2xl font-bold text-primary uppercase"> {!! $category->name !!} </h3>
+        </div>
 
-            @foreach (@$category->products as $product)
+        <div id="swiper_product" class="swiper w-full pb-10">
+            <div class="swiper-wrapper">
+
+            @foreach ($category->products as $product)
 
                     @if ($product->display === 'IMAGE')
                     <div class="swiper-slide w-[300px] rounded-2xl overflow-hidden relative bg-primary">
@@ -227,32 +232,36 @@
 
             @endforeach
 
-        </div>
-    </div>
-
-</section>
-
-<section class="container relative max-w-screen-xl py-10 my-10">
-    <div class="grid lg:grid-cols-6 md:grid-cols-2 grid-cols-1 gap-5">
-        <div class="lg:col-span-3">
-            <div class="max-h-* md:sticky top-0">
-                <img class="w-full h-full rounded-xl bg-secondary shadow-lg shadow-[#50d71e]" src="{!! Storage::url($category->photo) !!}" alt="" srcset="">
             </div>
         </div>
-        <div class="lg:col-span-3">
-            <article id="Content-wrapper" class="pb-10">
-                {!! $category->description !!}
-            </article>
-        </div>
-    </div>
+
+    @empty
+        <p class="text-sm md:text-base text-primary text-center"> Data Belum Tersedia </p>
+    @endforelse
 
 </section>
 
-{{-- <section class="container relative max-w-screen-xl py-10 my-10">
-    <article id="Content-wrapper" class="pb-10">
-        {!! $category->description !!}
-    </article>
-</section> --}}
+<!-- Section Partner -->
+<section class="container relative max-w-screen-xl py-10 rounded-md mb-10">
+    <div class="flex flex-col justify-between w-full gap-1 mb-[50px]">
+        <h2 class="text-2xl md:text-3xl font-bold text-white">Partner.</h2>
+        {{-- <p class="text-base md:text-lg text-white">Dapatkan promo potongan harga menarik untuk perjalanan ibadah umroh sahabat semua.</p> --}}
+    </div>
+    <div id="swiper_partner" class="swiper w-full">
+        <div class="swiper-wrapper">
+            @forelse ($partners as $partner)
+            <div class="swiper-slide">
+                <img class="rounded-2xl bg-white" src="{!! Storage::url($partner->icon) !!}"
+                    alt="{!! $partner->name !!}">
+                {{-- <img class="w-[150px] h-[120px] rounded-2xl mr-[30px]" src="{!! Storage::url($partner->icon) !!}"
+                    alt="{!! $partner->title !!}"> --}}
+            </div>
+            @empty
+            <p class="text-sm md:text-base text-white text-center mx-auto"> Data Belum Tersedia </p>
+            @endforelse
+        </div>
+    </div>
+</section>
 
 @endsection
 

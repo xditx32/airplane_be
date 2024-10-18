@@ -56,6 +56,21 @@ const swiper_product = new Swiper("#swiper_product", {
     direction: "horizontal",
     spaceBetween: 20,
     slidesPerView: "auto",
+    reakpoints: {
+        640: {
+            slidesPerView: "auto",
+            spaceBetween: 20,
+        },
+        768: {
+            slidesPerView: "auto",
+            spaceBetween: 20,
+        },
+        1024: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            centeredSlides: true,
+        },
+    },
     // slidesOffsetBefore: 20,
     // slidesOffsetAfter: 20,
     // on: {

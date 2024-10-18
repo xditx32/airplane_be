@@ -27,7 +27,7 @@
                 <a class="nav-link-item text-sm md:text-base font-bold"
                 href="{!! route('home') !!}">Beranda</a>
                 <a class="nav-link-item text-sm md:text-base font-bold" href="{!! route('about') !!}">Tentang Kami</a>
-                <a class="nav-link-item text-sm md:text-base font-bold" href="{!! route('home') !!}/#packet">Jadwal Paket</a>
+                <a class="nav-link-item text-sm md:text-base font-bold" href="{!! route('time') !!}">Jadwal Paket</a>
                 <a class="nav-link-item text-sm md:text-base font-bold" href="{!! route('gallery') !!}">Galeri</a>
                 <a class="nav-link-item text-sm md:text-base font-bold" href="{!! route('home') !!}/#contact">Kontak Kami</a>
             </div>
