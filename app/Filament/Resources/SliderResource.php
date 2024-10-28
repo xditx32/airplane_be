@@ -59,11 +59,9 @@ class SliderResource extends Resource
                     ->maxSize(512),
 
                 TextInput::make('button_title')
-                    ->required()
                     ->maxLength(255),
 
                 TextInput::make('button_link')
-                    ->required()
                     ->maxLength(255),
 
                 Select::make('is_active')
