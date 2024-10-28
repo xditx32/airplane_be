@@ -181,6 +181,13 @@ class ProductResource extends Resource
                         'IMAGE_TEXT' => 'Image & Text',
                     ])
                     ->required(),
+                Select::make('category_prog')
+                    ->options([
+                        'BEST' => 'Best Paket',
+                        'NEW' => 'New Paket',
+                    ])
+                    ->label('Kategori Paket')
+                    ->required(),
                 Select::make('is_open')
                     ->options([
                         TRUE => 'Open',

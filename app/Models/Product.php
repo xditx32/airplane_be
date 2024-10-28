@@ -31,6 +31,7 @@ class Product extends Model
         'category_id',
         'start_priode',
         'end_priode',
+        'category_prog',
         'slug',
     ];
 

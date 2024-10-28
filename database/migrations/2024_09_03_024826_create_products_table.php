@@ -28,6 +28,7 @@ return new class extends Migration
             $table->date('start_priode')->nullable();
             $table->date('end_priode')->nullable();
             $table->string('is_currency')->nullable();
+            $table->string('category_prog')->nullable();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->string('slug')->unique();
             $table->softDeletes();
