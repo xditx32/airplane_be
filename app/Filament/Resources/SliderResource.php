@@ -34,15 +34,12 @@ class SliderResource extends Resource
                 //
                 TextInput::make('title')
                     ->helpertext('Gunakan name data dengan tepat.')
-                    ->required()
                     ->maxLength(255),
 
                 TextInput::make('sub_title')
-                    ->required()
                     ->maxLength(255),
 
                 Textarea::make('detail')
-                    ->required()
                     ->rows(10)
                     ->cols(20),
 
