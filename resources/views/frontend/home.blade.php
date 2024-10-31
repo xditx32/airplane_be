@@ -14,31 +14,31 @@
     <div class="swiper-wrapper">
     @forelse ($sliders as $slider)
         <div class="swiper-slide">
-            <div class="h-screen md:h-[750px] w-full overflow-hidden">
+            <div class="h-[250px] md:h-[570px] w-full overflow-hidden">
                 <div class="absolute inset-0">
-                <img alt="title" class="h-full w-full object-cover object-right md:object-center"
+                <img alt="title" class="h-full w-full object-cover object-center"
                     src="{!! Storage::url($slider->photo) !!}">
-                <div class="absolute inset-0 bg-black opacity-60"></div>
+                {{-- <div class="absolute inset-0 bg-black opacity-60"></div> --}}
                 </div>
                 <div class="relative z-10 flex flex-col justify-center items-center h-full text-center">
-                <h1
+                {{-- <h1
                     class="md:max-w-lg lg:max-w-lg xl:max-w-2xl mx-auto text-xl md:text-2xl md:leading-normal text-white">
                     {!! $slider->title !!}
-                </h1>
-                <div
+                </h1> --}}
+                {{-- <div
                     class="max-w-md md:max-w-xl lg:max-w-2xl mx-auto text-white md:leading-normal tracking-wide">
                     <p class="text-3xl md:text-4xl font-bold"> {!! $slider->detail !!}</p>
                 </div>
                 <h2 class="md:max-w-lg lg:max-w-lg xl:max-w-2xl mx-auto text-base md:text-lg  md:leading-normal text-white">
                     {!! $slider->sub_title !!}
-                </h2>
+                </h2> --}}
                 </div>
             </div>
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         {{-- <div class="swiper-pagination"></div> --}}
-    @empty
+        @empty
         <p class="text-sm md:text-base text-primary"> Data Belum Tersedia </p>
     @endforelse
     </div>
@@ -72,7 +72,7 @@
                 (PPIU) dengan
                 SK NOMOR 832 TAHUN 2019 dan dapat di lihat pada web Sisko Patuh Kemenag melalui link berikut ini</p>
             </div>
-            <div class="mt-auto py-4 w-2/4">
+            <div class="mt-auto py-6 md:py-5 w-full md:w-2/4">
                 <a href="{{ route('about') }}" class="block btn-secondary">
                     <div class="flex flex-row gap-2 items-center justify-center align-center wid">
                         Tentang Kami

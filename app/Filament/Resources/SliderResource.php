@@ -50,13 +50,14 @@ class SliderResource extends Resource
                     ->required(),
 
                 FileUpload::make('photo')
-                    ->required()
                     ->image()
                     ->disk('public')
-                    ->optimize('webp')
+                    // ->optimize('webp')
                     ->preserveFilenames()
-                    ->directory('assets/frontend/images/slider')
-                    ->maxSize(512),
+                    ->directory('assets/frontend/images/slider'),
+                    // ->maxSize(8000),
+                    // ->maxSize(1024)
+                    // ->compress(0.9),
 
                 TextInput::make('button_title')
                     ->maxLength(255),
