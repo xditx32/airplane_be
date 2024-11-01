@@ -30,9 +30,11 @@
             {!! $product->name !!}
         </h2>
         <h3 class="pb-1">
-            Umroh Premium Akhir Tahun {!! $product->duration !!} Hari
+            {!! $product->sub_title !!}
         </h3>
-        <p class="md:max-w-lg lg:max-w-lg xl:max-w-4xl">Paket Umroh yang ditawarkan oleh Alia Wisata adalah salah satu pilihan yang sangat menarik bagi mereka yang bercita-cita untuk melaksanakan ibadah Umroh ke Tanah Suci.</p>
+        <p class="md:max-w-lg lg:max-w-lg xl:max-w-4xl">
+            {!! $product->sub_description !!}
+        </p>
         <!-- <div
             class="max-w-xs md:max-w-md lg:max-w-2xl mx-auto text-white text-base md:text-lg md:leading-normal tracking-wide">
             <p class="text-base md:text-lg">“Ibadah umrah ke ibadah umrah berikutnya adalah penggugur (dosa) di antara

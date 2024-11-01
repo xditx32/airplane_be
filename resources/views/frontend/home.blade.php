@@ -167,7 +167,7 @@
                                                             Priode •  {!! $product->start_priode->format('d-m-Y') !!}
                                                         </p>
                                                     </div>
-                                                    <div>
+                                                    <div class="max-w-[150px]">
                                                         <p class="text-[10px] text-white pb-1">Harga Mulai</p>
                                                         <p class="text-xl font-semibold text-secondary bg-white rounded-md py-2 px-1">
                                                             {!! $product->price_start_from !!} Juta
@@ -366,12 +366,11 @@
                                                                 </p>
                                                             @endforelse
                                                         </div>
-                                                        <p class="text-sm md:text-xs text-primary">Harga Mulai</p>
                                                         <p class="text-white text-sm mt-[6px]">
                                                             Priode •  {!! $product->start_priode->format('d-m-Y') !!}
                                                         </p>
                                                     </div>
-                                                    <div>
+                                                    <div class="max-w-[150px]">
                                                         <p class="text-[10px] text-white pb-1">Harga Mulai</p>
                                                         <p class="text-xl font-semibold text-secondary bg-white rounded-md py-2 px-1">
                                                             {!! $product->price_start_from !!} Juta
@@ -549,8 +548,8 @@
 
     <div class="flex flex-wrap">
         <div class="w-full px-4 md:w-1/2 lg:w-1/4">
-            <div class="mb-9 rounded-[20px] bg-secondary p-3 shadow-2 hover:shadow-lg md:px-7 xl:px-5">
-                <div class="bg-primary mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl mx-auto">
+           <div class="mb-9 rounded-[20px] bg-secondary p-4 shadow-2 hover:shadow-lg md:px-7 xl:px-5">
+                <div class="bg-primary mb-5 flex h-[70px] w-[70px] items-center justify-center rounded-2xl mx-auto">
                     <img class="w-[60px]" src="{!! asset('/assets/frontend/images/tawaf.png') !!}" alt="">
                 </div>
                 <h4 class="text-white mb-[14px] text-sm md:text-base text-center">
@@ -564,8 +563,8 @@
         </div>
 
         <div class="w-full px-4 md:w-1/2 lg:w-1/4">
-            <div class="mb-9 rounded-[20px] bg-secondary p-3 shadow-2 hover:shadow-lg md:px-7 xl:px-5">
-                <div class="bg-primary mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl mx-auto">
+           <div class="mb-9 rounded-[20px] bg-secondary p-4 shadow-2 hover:shadow-lg md:px-7 xl:px-5">
+                <div class="bg-primary mb-5 flex h-[70px] w-[70px] items-center justify-center rounded-2xl mx-auto">
                     <img class="w-[60px]" src="{!! asset('/assets/frontend/images/passport.png') !!}" alt="">
                 </div>
                 <h4 class="text-white text-primary mb-[14px] text-sm md:text-base text-center">
@@ -579,8 +578,8 @@
         </div>
 
         <div class="w-full px-4 md:w-1/2 lg:w-1/4">
-            <div class="mb-9 rounded-[20px] bg-secondary p-3 shadow-2 hover:shadow-lg md:px-7 xl:px-5">
-                <div class="bg-primary mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl mx-auto">
+           <div class="mb-9 rounded-[20px] bg-secondary p-4 shadow-2 hover:shadow-lg md:px-7 xl:px-5">
+                <div class="bg-primary mb-5 flex h-[70px] w-[70px] items-center justify-center rounded-2xl mx-auto">
                     <img class="w-[60px]" src="{!! asset('/assets/frontend/images/man.png') !!}" alt="">
                 </div>
                 <h4 class="text-white mb-[14px] text-sm md:text-base text-center">
@@ -594,9 +593,9 @@
         </div>
 
         <div class="w-full px-4 md:w-1/2 lg:w-1/4">
-            <div class="mb-9 rounded-[20px] bg-secondary p-3 shadow-2 hover:shadow-lg md:px-7 xl:px-5">
-                <div class="bg-primary mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-2xl mx-auto">
-                    <img class="w-[60px]" src="{!! asset('/assets/frontend/images/umrah.png') !!}" alt="">
+            <div class="mb-9 rounded-[20px] bg-secondary p-4 shadow-2 hover:shadow-lg md:px-7 xl:px-5">
+                <div class="bg-primary mb-5 flex h-[70px] w-[70px] items-center justify-center rounded-2xl mx-auto">
+                    <img class="w-[60px]" src="{!! asset('/assets/frontend/images/5-pasti-umroh.png') !!}" alt="">
                 </div>
                 <h4 class="text-white mb-[14px] text-sm md:text-base text-center">
                     5 pasti : pasti ijin travelnya, pasti tanggal keberangkatannya, pasti hotelnya, pasti maskapainya, pasti visa umrohnya

@@ -46,6 +46,10 @@ class ProductResource extends Resource
                     TextInput::make('title')
                         ->required()
                         ->maxLength(255),
+                    TextInput::make('sub_title')
+                        ->label('Sub Title'),
+                    TextArea::make('sub_description')
+                        ->label('Sub Deskripsi'),
                     Repeater::make('ProductTags')
                         ->relationship('ProductTags')
                         ->schema([
@@ -173,12 +177,6 @@ class ProductResource extends Resource
                     ->options([
                         TRUE => 'Yes',
                         FALSE => 'No',
-                    ])
-                    ->required(),
-                Select::make('display')
-                    ->options([
-                        'IMAGE' => 'Image',
-                        'IMAGE_TEXT' => 'Image & Text',
                     ])
                     ->required(),
                 Select::make('category_prog')

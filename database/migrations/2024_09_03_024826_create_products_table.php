@@ -15,13 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('title')->nullable();
+            $table->string('sub_title')->nullable();
+            $table->text('sub_description')->nullable();
             $table->text('description')->nullable();
             $table->longText('detail')->nullable();
             $table->string('photo')->nullable();
             $table->string('brochure')->nullable();
             $table->boolean('is_open');
             $table->boolean('is_promo');
-            $table->string('display')->nullable();
             $table->unsignedBigInteger('duration')->default(0);
             $table->unsignedBigInteger('seat_available')->default(0);
             $table->float('price_start_from')->default(0);
