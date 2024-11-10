@@ -34,12 +34,16 @@ class HotelResource extends Resource
                     ->required()
                     ->maxLength(255),
 
-                TextInput::make('rating')
-                    ->required()
-                    ->numeric(),
+                Select::make('rating')
+                    ->options([
+                        1 => 'Satu',
+                        2 => 'Dua',
+                        3 => 'Tiga',
+                        4 => 'Empat',
+                        5 => 'Lima',
+                    ]),
 
                 FileUpload::make('icon')
-                    ->required()
                     ->image()
                     ->disk('public')
                     ->optimize('webp')
@@ -50,7 +54,6 @@ class HotelResource extends Resource
 
                 FileUpload::make('photo')
                     ->image()
-                    ->required()
                     ->disk('public')
                     ->optimize('webp')
                     ->preserveFilenames()

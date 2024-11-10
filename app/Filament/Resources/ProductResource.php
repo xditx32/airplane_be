@@ -179,7 +179,7 @@ class ProductResource extends Resource
                         FALSE => 'No',
                     ])
                     ->required(),
-                Select::make('category_prog')
+                Select::make('category_packet')
                     ->options([
                         'BEST' => 'Best Paket',
                         'NEW' => 'New Paket',

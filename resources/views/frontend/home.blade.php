@@ -136,11 +136,11 @@
                 <div class="swiper-wrapper">
                     @foreach (@$category->products as $product)
 
-                        @if ($product->category_prog === 'BEST')
+                        @if ($product->category_packet === 'BEST')
                                 <div class="swiper-slide w-[300px] rounded-2xl overflow-hidden relative bg-primary">
                                         <div class="group w-full overflow-hidden relative min-h-[350px] bg-primary">
                                             <img src="{!! Storage::url( $product->photo ) !!}" class="w-full h-full max-h-[250px]" alt="{!! $product->name!!}">
-                                            <div class="p-5 w-full flex flex-col absolute h-full group-hover:-translate-y-[70%] transition ease-in-out duration-300 bg-primary">
+                                            <div class="p-4 w-full flex flex-col absolute h-full group-hover:-translate-y-[70%] transition ease-in-out duration-300 bg-primary">
                                                 <div class="flex flex-wrap items-center justify-between gap-y-4">
                                                     {{-- <div class="flex flex-col gap-y-2">
                                                         <div class="flex flex-wrap gap-2">
@@ -153,7 +153,7 @@
                                                             @endforelse
                                                         </div>
                                                     </div> --}}
-                                                    <div class="max-w-[150px]">
+                                                    <div class="w-[150px]">
                                                         <div class="text-xl font-semibold truncate">
                                                             @forelse ($product->ProductAirlines as $ProductAirline)
                                                                 <img class="w-full h-full max-w-[55%] bg-white rounded-xl" src="{!! Storage::url( $ProductAirline->airline->icon ) !!}" alt="">
@@ -167,7 +167,7 @@
                                                             Priode •  {!! $product->start_priode->format('d-m-Y') !!}
                                                         </p>
                                                     </div>
-                                                    <div class="max-w-[150px]">
+                                                    <div class="w-[100px]">
                                                         <p class="text-[10px] text-white pb-1">Harga Mulai</p>
                                                         <p class="text-xl font-semibold text-secondary bg-white rounded-md py-2 px-1">
                                                             {!! $product->price_start_from !!} Juta
@@ -547,69 +547,29 @@
     </div> --}}
 
     <div class="flex flex-wrap">
-        <div class="w-full px-4 md:w-1/2 lg:w-1/4">
-           <div class="mb-9 rounded-[20px] bg-secondary p-4 shadow-2 hover:shadow-lg md:px-7 xl:px-5">
-                <div class="bg-primary mb-5 flex h-[70px] w-[70px] items-center justify-center rounded-2xl mx-auto">
-                    <img class="w-[60px]" src="{!! asset('/assets/frontend/images/tawaf.png') !!}" alt="">
-                </div>
-                <h4 class="text-white mb-[14px] text-sm md:text-base text-center">
-                    Memiliki ijin resmi dari Kementrian Agama
-                </h4>
-                {{-- <p class="text-primary">
-                    We dejoy working with discerning clients, people for whom
-                    qualuty, service, integrity & aesthetics.
-                </p> --}}
-            </div>
-        </div>
 
-        <div class="w-full px-4 md:w-1/2 lg:w-1/4">
-           <div class="mb-9 rounded-[20px] bg-secondary p-4 shadow-2 hover:shadow-lg md:px-7 xl:px-5">
-                <div class="bg-primary mb-5 flex h-[70px] w-[70px] items-center justify-center rounded-2xl mx-auto">
-                    <img class="w-[60px]" src="{!! asset('/assets/frontend/images/passport.png') !!}" alt="">
+        @forelse ($services as $key => $service)
+            <div class="w-full px-4 md:w-1/2 lg:w-1/4">
+                <div class="mb-9 rounded-[20px] bg-secondary p-4 shadow-2 hover:shadow-lg md:px-7 xl:px-5">
+                    <div class="relative w-14 h-14 bg-primary rounded-full flex justify-center items-center text-center p-5 shadow-xl -mt-10 mx-auto mb-5 text-xl">
+                        {{-- <span class="absolute text-8xl left-0 top-0 text-purple-800">"
+                        </span> --}}
+                        {!! $key + 1 !!}
+                    </div>
+                    <div class="bg-primary mb-5 flex h-[70px] w-[70px] items-center justify-center rounded-2xl mx-auto">
+                        <img class="w-[60px]" src="{!! Storage::url( $service->icon ) !!}" alt="">
+                    </div>
+                    <h4 class="text-white mb-[14px] text-sm md:text-base text-center">
+                        {!! $service->description !!}
+                    </h4>
                 </div>
-                <h4 class="text-white text-primary mb-[14px] text-sm md:text-base text-center">
-                    Berpengalaman lebih dari 20 tahun menjalankan program umroh dan haji khusus
-                </h4>
-                {{-- <p class="text-primary">
-                    We dejoy working with discerning clients, people for whom
-                    qualuty, service, integrity & aesthetics.
-                </p> --}}
             </div>
-        </div>
 
-        <div class="w-full px-4 md:w-1/2 lg:w-1/4">
-           <div class="mb-9 rounded-[20px] bg-secondary p-4 shadow-2 hover:shadow-lg md:px-7 xl:px-5">
-                <div class="bg-primary mb-5 flex h-[70px] w-[70px] items-center justify-center rounded-2xl mx-auto">
-                    <img class="w-[60px]" src="{!! asset('/assets/frontend/images/man.png') !!}" alt="">
-                </div>
-                <h4 class="text-white mb-[14px] text-sm md:text-base text-center">
-                    Memiliki sumberdaya manusia yang handal dan terpercaya baik di Indonesia maupun di Saudi Arabia
-                </h4>
-                {{-- <p class="text-primary">
-                    We dejoy working with discerning clients, people for whom
-                    qualuty, service, integrity & aesthetics.
-                </p> --}}
-            </div>
-        </div>
+        @empty
 
-        <div class="w-full px-4 md:w-1/2 lg:w-1/4">
-            <div class="mb-9 rounded-[20px] bg-secondary p-4 shadow-2 hover:shadow-lg md:px-7 xl:px-5">
-                <div class="bg-primary mb-5 flex h-[70px] w-[70px] items-center justify-center rounded-2xl mx-auto">
-                    <img class="w-[60px]" src="{!! asset('/assets/frontend/images/5-pasti-umroh.png') !!}" alt="">
-                </div>
-                <h4 class="text-white mb-[14px] text-sm md:text-base text-center">
-                    5 pasti : pasti ijin travelnya, pasti tanggal keberangkatannya, pasti hotelnya, pasti maskapainya, pasti visa umrohnya
-                </h4>
-                {{-- <p class="text-primary">
-                    We dejoy working with discerning clients, people for whom
-                    qualuty, service, integrity & aesthetics.
-                </p> --}}
-            </div>
-        </div>
-
+        @endforelse
 
     </div>
-
 
 </section>
 

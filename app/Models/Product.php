@@ -32,7 +32,7 @@ class Product extends Model
         'category_id',
         'start_priode',
         'end_priode',
-        'category_prog',
+        'category_packet',
         'slug',
     ];
 

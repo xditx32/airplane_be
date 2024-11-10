@@ -69,6 +69,12 @@ class CategoryResource extends Resource
                         ])
                     ->columnSpanFull()
                     ->label('Deskripsi Kategori'),
+                Select::make('is_active')
+                    ->options([
+                        TRUE => 'Active',
+                        FALSE => 'Not Active',
+                    ])
+                ->required(),
             ]);
     }
 

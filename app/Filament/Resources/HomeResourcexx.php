@@ -36,18 +36,12 @@ class HomeResource extends Resource
                 Repeater::make('HomeSlider')
                     ->relationship('HomeSlider')
                     ->schema([
-                        TextInput::make('title')
-                            ->required(),
-                        TextInput::make('sub_title')
-                            ->required(),
-                        TextArea::make('description')
-                            ->required(),
-                        FileUpload::make('photo')
-                            ->required(),
-                        TextInput::make('button_title')
-                            ->required(),
-                        TextInput::make('button_link')
-                            ->required(),
+                        TextInput::make('title'),
+                        TextInput::make('sub_title'),
+                        TextArea::make('description'),
+                        FileUpload::make('photo'),
+                        TextInput::make('button_title'),
+                        TextInput::make('button_link'),
                         Select::make('is_active')
                             ->options([
                                 true => 'Active',

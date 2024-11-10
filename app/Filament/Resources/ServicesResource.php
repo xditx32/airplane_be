@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CategorySliderResource\Pages;
-use App\Filament\Resources\CategorySliderResource\RelationManagers;
-use App\Models\CategorySlider;
+use App\Filament\Resources\ServicesResource\Pages;
+use App\Filament\Resources\ServicesResource\RelationManagers;
+use App\Models\Services;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Tables\Columns\{TextColumn, ImageColumn, IconColumn};
@@ -15,35 +15,26 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class CategorySliderResource extends Resource
+class ServicesResource extends Resource
 {
-    protected static ?string $model = CategorySlider::class;
+    protected static ?string $model = Services::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
-    protected static ?string $navigationGroup = 'Slider';
-
-    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                //
-                TextInput::make('name')
-                    ->helpertext('Gunakan name data dengan tepat.')
-                    ->required()
-                    ->maxLength(255)
-                    ->label('Nama Kategori Slider'),
-
+                TextInput::make('title'),
                 FileUpload::make('icon')
                     ->image()
                     ->disk('public')
                     ->optimize('webp')
                     ->preserveFilenames()
-                    ->directory('assets/frontend/images/slider/icon')
+                    ->directory('assets/frontend/images/services')
                     ->maxSize(512)
-                    ->label('Icon Slider'),
+                    ->label('Icon Services'),
+                Textarea::make('description')
             ]);
     }
 
@@ -51,17 +42,13 @@ class CategorySliderResource extends Resource
     {
         return $table
             ->columns([
-                //
-                TextColumn::make('name')
-                    ->label('Nama Kategori Slider')
+                TextColumn::make('title')
                     ->searchable(),
 
-                ImageColumn::make('icon')
-                    ->label('Icon Kategori Slider'),
+                ImageColumn::make('icon'),
 
-                TextColumn::make('created_at')
-                    ->dateTime('d-M-Y H:i:s')
-                    ->label('Kategori Slider dibuat'),
+                TextColumn::make('description'),
+
             ])
             ->filters([
                 //
@@ -86,24 +73,14 @@ class CategorySliderResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCategorySliders::route('/'),
-            'create' => Pages\CreateCategorySlider::route('/create'),
-            'edit' => Pages\EditCategorySlider::route('/{record}/edit'),
+            'index' => Pages\ListServices::route('/'),
+            'create' => Pages\CreateServices::route('/create'),
+            'edit' => Pages\EditServices::route('/{record}/edit'),
         ];
     }
 
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
-    }
-
-    public static function getModelLabel(): string
-    {
-        return __('Kategori Slider');
-    }
-
-    public static function getPluralModelLabel(): string
-    {
-      return __('Kategori Slider');
     }
 }

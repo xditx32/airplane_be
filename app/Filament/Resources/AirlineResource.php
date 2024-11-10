@@ -44,7 +44,6 @@ class AirlineResource extends Resource
                     ->label('Icon Maskapai'),
                 FileUpload::make('photo')
                     ->image()
-                    ->required()
                     ->disk('public')
                     ->optimize('webp')
                     ->preserveFilenames()
