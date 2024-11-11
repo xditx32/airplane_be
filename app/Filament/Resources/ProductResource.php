@@ -67,7 +67,6 @@ class ProductResource extends Resource
                         ->optimize('webp')
                         ->preserveFilenames()
                         ->directory('assets/frontend/images/product/photo')
-                        ->maxSize(512)
                         ->label('Gambar'),
                     FileUpload::make('brochure')
                         ->image()
@@ -75,7 +74,6 @@ class ProductResource extends Resource
                         ->optimize('webp')
                         ->preserveFilenames()
                         ->directory('assets/frontend/images/product/brochure')
-                        ->maxSize(512)
                         ->label('Brosur'),
                     RichEditor::make('detail')
                         ->toolbarButtons([
@@ -107,7 +105,6 @@ class ProductResource extends Resource
                         ->optimize('webp')
                         ->preserveFilenames()
                         ->directory('assets/frontend/images/product')
-                        ->maxSize(512)
                         ]
                 )->label('Gambar Produk'),
                 Repeater::make('ProductBenefits')

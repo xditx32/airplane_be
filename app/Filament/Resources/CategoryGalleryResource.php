@@ -41,7 +41,6 @@ class CategoryGalleryResource extends Resource
                     ->optimize('webp')
                     ->preserveFilenames()
                     ->directory('assets/images/gallery/category')
-                    ->maxSize(512)
                     ->label('Icon Kategori'),
             ]);
     }

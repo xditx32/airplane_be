@@ -26,7 +26,7 @@ class BrochureResource extends Resource
         return $form
             ->schema([
                 //
-                 TextInput::make('name')
+                TextInput::make('name')
                     ->helpertext('Gunakan name data dengan tepat.')
                     ->required()
                     ->maxLength(255)
@@ -38,7 +38,6 @@ class BrochureResource extends Resource
                     ->optimize('webp')
                     ->preserveFilenames()
                     ->directory('assets/images/brosur')
-                    ->maxSize(512)
                     ->label('Gambar Brosur'),
                 Select::make('is_active')
                     ->options([

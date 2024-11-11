@@ -34,7 +34,6 @@ class PromoResource extends Resource
                     ->optimize('webp')
                     ->preserveFilenames()
                     ->directory('assets/frontend/images/promo')
-                    ->maxSize(512)
                     ->label('Gambar Promo'),
                 Select::make('is_active')
                     ->options([

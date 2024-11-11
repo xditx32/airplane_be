@@ -32,7 +32,6 @@ class ServicesResource extends Resource
                     ->optimize('webp')
                     ->preserveFilenames()
                     ->directory('assets/frontend/images/services')
-                    ->maxSize(512)
                     ->label('Icon Services'),
                 Textarea::make('description')
             ]);

@@ -40,7 +40,6 @@ class AirlineResource extends Resource
                     ->optimize('webp')
                     ->preserveFilenames()
                     ->directory('assets/frontend/images/airline/icon')
-                    ->maxSize(512)
                     ->label('Icon Maskapai'),
                 FileUpload::make('photo')
                     ->image()
@@ -48,7 +47,6 @@ class AirlineResource extends Resource
                     ->optimize('webp')
                     ->preserveFilenames()
                     ->directory('assets/frontend/images/airline')
-                    ->maxSize(512)
                     ->label('Gambar Maskapai'),
             ]);
     }

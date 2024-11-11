@@ -40,7 +40,6 @@ class CategoryResource extends Resource
                     ->optimize('webp')
                     ->preserveFilenames()
                     ->directory('assets/frontend/images/category/icon')
-                    ->maxSize(512)
                     ->label('Icon Kategori'),
                 FileUpload::make('photo')
                     ->image()
@@ -48,7 +47,6 @@ class CategoryResource extends Resource
                     ->optimize('webp')
                     ->preserveFilenames()
                     ->directory('assets/frontend/images/category')
-                    ->maxSize(512)
                     ->label('Gambar Kategori'),
                 RichEditor::make('description')
                     ->toolbarButtons([

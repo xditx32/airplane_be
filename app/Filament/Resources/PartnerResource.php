@@ -36,7 +36,6 @@ class PartnerResource extends Resource
                     ->optimize('webp')
                     ->preserveFilenames()
                     ->directory('assets/frontend/images/partner')
-                    ->maxSize(512)
             ]);
     }
 

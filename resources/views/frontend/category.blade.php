@@ -53,7 +53,7 @@
                                             Priode •  {!! $product->start_priode->format('d-m-Y') !!}
                                         </p>
                                     </div>
-                                    <div>
+                                    <div class="max-w-[105px]">
                                         <p class="text-[10px] text-white pb-1">Harga Mulai</p>
                                         <p class="text-xl font-semibold text-secondary bg-white rounded-md py-2 px-1">
                                             {!! $product->price_start_from !!} Juta

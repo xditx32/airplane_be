@@ -49,7 +49,6 @@ class HotelResource extends Resource
                     ->optimize('webp')
                     ->preserveFilenames()
                     ->directory('assets/frontend/images/hotel/icon')
-                    ->maxSize(512)
                     ->label('Icon Hotel'),
 
                 FileUpload::make('photo')
@@ -58,7 +57,6 @@ class HotelResource extends Resource
                     ->optimize('webp')
                     ->preserveFilenames()
                     ->directory('assets/frontend/images/hotel')
-                    ->maxSize(512)
                     ->label('Gambar Hotel'),
 
             ]);

@@ -167,7 +167,7 @@
                                                             Priode •  {!! $product->start_priode->format('d-m-Y') !!}
                                                         </p>
                                                     </div>
-                                                    <div class="w-[100px]">
+                                                    <div class="w-[105px]">
                                                         <p class="text-[10px] text-white pb-1">Harga Mulai</p>
                                                         <p class="text-xl font-semibold text-secondary bg-white rounded-md py-2 px-1">
                                                             {!! $product->price_start_from !!} Juta
@@ -339,7 +339,7 @@
                 <div class="swiper-wrapper">
                     @foreach (@$category->products as $product)
 
-                        @if ($product->category_prog === 'NEW')
+                        @if ($product->category_packet === 'NEW')
                                 <div class="swiper-slide w-[300px] rounded-2xl overflow-hidden relative bg-primary">
                                         <div class="group w-full overflow-hidden relative min-h-[350px] bg-primary">
                                             <img src="{!! Storage::url( $product->photo ) !!}" class="w-full h-full max-h-[250px]" alt="{!! $product->name!!}">
@@ -370,7 +370,7 @@
                                                             Priode •  {!! $product->start_priode->format('d-m-Y') !!}
                                                         </p>
                                                     </div>
-                                                    <div class="max-w-[150px]">
+                                                    <div class="max-w-[105px]">
                                                         <p class="text-[10px] text-white pb-1">Harga Mulai</p>
                                                         <p class="text-xl font-semibold text-secondary bg-white rounded-md py-2 px-1">
                                                             {!! $product->price_start_from !!} Juta

@@ -48,7 +48,6 @@ class GalleryResource extends Resource
                     ->optimize('webp')
                     ->preserveFilenames()
                     ->directory('assets/images/gallery')
-                    ->maxSize(512)
                     ->label('Gambar Galeri'),
 
             ]);

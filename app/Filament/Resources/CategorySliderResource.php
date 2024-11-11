@@ -42,7 +42,6 @@ class CategorySliderResource extends Resource
                     ->optimize('webp')
                     ->preserveFilenames()
                     ->directory('assets/frontend/images/slider/icon')
-                    ->maxSize(512)
                     ->label('Icon Slider'),
             ]);
     }
