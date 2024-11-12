@@ -169,7 +169,7 @@
                                                     </div>
                                                     <div class="w-[105px]">
                                                         <p class="text-[10px] text-white pb-1">Harga Mulai</p>
-                                                        <p class="text-xl font-semibold text-secondary bg-white rounded-md py-2 px-1">
+                                                        <p class="text-xl font-semibold text-secondary bg-white rounded-md py-2 px-1 text-center">
                                                             {!! $product->price_start_from !!} Juta
                                                         </p>
                                                     </div>
@@ -372,7 +372,7 @@
                                                     </div>
                                                     <div class="max-w-[105px]">
                                                         <p class="text-[10px] text-white pb-1">Harga Mulai</p>
-                                                        <p class="text-xl font-semibold text-secondary bg-white rounded-md py-2 px-1">
+                                                        <p class="text-xl font-semibold text-secondary bg-white rounded-md py-2 px-1 text-center">
                                                             {!! $product->price_start_from !!} Juta
                                                         </p>
                                                     </div>
@@ -582,20 +582,63 @@
 
     <div id="swiper_testimonial" class="swiper w-full">
         <div class="swiper-wrapper">
+            @forelse ($testimonials as $testimonial)
                 <div class="swiper-slide">
+                    <div class="lg:col-span-4 col-span-12">
+                        <div class="flex flex-col gap-4 bg-white p-5 rounded-lg">
+                            <div class="flex flex-row gap-4 items-center text-primary">
+                                    <img class="h-14 rounded-full" src="{!! Storage::url($testimonial->photo) !!}" alt="">
+                                <div class="flex flex-col">
+                                    <h4 class="text-base md:text-lg font-bold">{!!$testimonial->name !!}</h4>
+                                    <p>{!!$testimonial->title !!}</p>
+                                    </div>
+                            </div>
+                            <p class="text-sm md:text-base text-primary">{!!$testimonial->comments !!}
+                            </p>
+                            <div class="flex flex-row gap-x-1 text-secondary items-center justify-center text-xl">
+                                    @if ($testimonial->rating == 1)
+                                        <ion-icon name="star"></ion-icon>
+                                    @elseif($testimonial->rating == 2)
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                    @elseif($testimonial->rating == 3)
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                    @elseif($testimonial->rating == 4)
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                    @elseif($testimonial->rating == 5)
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                        <ion-icon name="star"></ion-icon>
+                                    @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            @empty
+
+            @endforelse
+                {{-- <div class="swiper-slide">
                     <div class="lg:col-span-4 col-span-12">
                         <div class="flex flex-col gap-4 bg-white p-5 rounded-lg">
                         <div class="flex flex-row gap-4 items-center text-primary">
                             <img class="h-12" src="./assets/images/testimonial/tria_member.png" alt="">
                             <div class="flex flex-col">
-                            <h4 class="text-base md:text-lg font-bold">Tri Prastia</h4>
+                            <h4 class="text-base md:text-lg font-bold">Yuni Asri</h4>
                             <p>Jamaah</p>
                             </div>
                         </div>
-                        <p class="text-sm md:text-base text-primary">alhamdilullah perjalan umroh berjalan lancar dan dipandung
-                            dengan baik oleh Alia
-                            Wisata, semoga bisa kembali lagi
-                            umroh bersama Alia Wisata
+                        <p class="text-sm md:text-base text-primary">Puji Syukur kepada Allah akhirnya saya bisa melaksanakan ibadah
+                            umroh, dan
+                            terimakasih buat Alia Wisata yang telah
+                            memberikan pelayanan terbaik hingga pulang ke tanah air
                         </p>
                         <div class="flex flex-row gap-x-1 text-secondary items-center justify-center text-xl">
                             <ion-icon name="star"></ion-icon>
@@ -653,31 +696,7 @@
                         </div>
                         </div>
                     </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="lg:col-span-4 col-span-12">
-                        <div class="flex flex-col gap-4 bg-white p-5 rounded-lg">
-                        <div class="flex flex-row gap-4 items-center text-primary">
-                            <img class="h-12" src="./assets/images/testimonial/tria_member.png" alt="">
-                            <div class="flex flex-col">
-                            <h4 class="text-base md:text-lg font-bold">Yuni Asri</h4>
-                            <p>Jamaah</p>
-                            </div>
-                        </div>
-                        <p class="text-sm md:text-base text-primary">Puji Syukur kepada Allah akhirnya saya bisa melaksanakan ibadah
-                            umroh, dan
-                            terimakasih buat Alia Wisata yang telah
-                            memberikan pelayanan terbaik hingga pulang ke tanah air
-                        </p>
-                        <div class="flex flex-row gap-x-1 text-secondary items-center justify-center text-xl">
-                            <ion-icon name="star"></ion-icon>
-                            <ion-icon name="star"></ion-icon>
-                            <ion-icon name="star"></ion-icon>
-                            <ion-icon name="star"></ion-icon>
-                        </div>
-                        </div>
-                    </div>
-                </div>
+                </div> --}}
 
         </div>
     </div>
@@ -711,61 +730,30 @@
 
     <div id="swiper_testimonial" class="swiper w-full">
         <div class="swiper-wrapper">
+            @forelse ($blogscraps as $blogscrap)
             <div class="swiper-slide">
-                <a href="https://amphuri.org/kementerian-haji-dan-umrah-dibutuhkan-umat/" target="_blank">
+                <a href="{!! $blogscrap->url !!}" target="_blank">
                     <div class="lg:col-span-4 col-span-12">
                         <div class="flex flex-col gap-4 bg-primary p-5 rounded-lg">
                             <div class="flex flex-row gap-4 items-center text-white">
-                                <img class="h-20" src="https://amphuri.org/wp-content/uploads/2024/10/Dr-ulul-albab-1024x573.jpg" alt="">
+                                <img class="h-20" src="{!! Storage::url($blogscrap->photo) !!}" alt="">
                                 <div class="flex flex-col">
-                                <h4 class="text-base font-bold">AMPHURI Usul Prabowo Bentuk Kementerian Haji dan Umrah</h4>
+                                <h4 class="text-base font-bold">{!! $blogscrap->title !!}</h4>
                                 {{-- <p>Jamaah</p> --}}
                                 </div>
                             </div>
                             <p class="text-sm md:text-base text-white">
-                                {!! substr('AMPHURI.ORG, JAKARTA–Dewan Pengurus Pusat Asosiasi Muslim Penyelenggara Haji dan Umrah Republik Indonesia (DPP AMPHURI) menilai penyelenggaraan haji dan umrah sangatlah kompleks, diperlukan koordinasi dan pengelolaan yang lebih fokus. Karena itu, AMPHURI mendesak Pemerintahan baru di bawah kepemimpinan Prabowo Subianto agar membentuk Kementerian Haji dan Umrah.', 0, 200) !!} {!! strlen('AMPHURI.ORG, JAKARTA–Dewan Pengurus Pusat Asosiasi Muslim Penyelenggara Haji dan Umrah Republik Indonesia (DPP AMPHURI) menilai penyelenggaraan haji dan umrah sangatlah kompleks, diperlukan koordinasi dan pengelolaan yang lebih fokus. Karena itu, AMPHURI mendesak Pemerintahan baru di bawah kepemimpinan Prabowo Subianto agar membentuk Kementerian Haji dan Umrah.') > 50 ? '...' : '' !!}
+                                {!! substr($blogscrap->detail, 0, 200) !!} {!! strlen($blogscrap->detail) > 50 ? '...' : '' !!}
 
                             </p>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="swiper-slide">
-                <a href="https://amphuri.org/amphuri-usul-prabowo-bentuk-kementerian-haji-dan-umrah/" target="_blank">
-                    <div class="lg:col-span-4 col-span-12">
-                        <div class="flex flex-col gap-4 bg-primary p-5 rounded-lg">
-                            <div class="flex flex-row gap-4 items-center text-white">
-                                <img class="h-20" src="https://amphuri.org/wp-content/uploads/2024/10/Sekjen-Zaky-a.jpg" alt="">
-                                <div class="flex flex-col">
-                                <h4 class="text-base font-bold">Kementerian Haji dan Umrah Dibutuhkan Umat</h4>
-                                {{-- <p>Jamaah</p> --}}
-                                </div>
-                            </div>
-                            <p class="text-sm md:text-base text-white">
-                                {!! substr('Kementerian Haji dan Umrah di Indonesia harus direalisasikan. Alasan yang paling mendesak adalah tentang “konteks”, yaitu berkaitan dengan kompleksitas pengelolaan serta jumlah jamaah yang terus bertambah dan tidak mungkin dihentikan. Pengelolaan haji dan umrah sangat kompleks, melibatkan pihak pemerintah, swasta, dan lainnya. Di pihak pemerintah, ada Kementerian Agama yang bertanggung jawab menyusun kebijakan, pelaksanaan teknis, pelayanan, bimbingan, serta pengelolaan sistem informasi terkait haji dan umrah.', 0, 200) !!} {!! strlen('Kementerian Haji dan Umrah di Indonesia harus direalisasikan. Alasan yang paling mendesak adalah tentang “konteks”, yaitu berkaitan dengan kompleksitas pengelolaan serta jumlah jamaah yang terus bertambah dan tidak mungkin dihentikan. Pengelolaan haji dan umrah sangat kompleks, melibatkan pihak pemerintah, swasta, dan lainnya. Di pihak pemerintah, ada Kementerian Agama yang bertanggung jawab menyusun kebijakan, pelaksanaan teknis, pelayanan, bimbingan, serta pengelolaan sistem informasi terkait haji dan umrah.') > 50 ? '...' : '' !!}
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="swiper-slide">
-                <a href="https://amphuri.org/menag-yaqut-temui-menhaj-tawfiq-bahas-persiapan-haji-2025/" target="_blank">
-                    <div class="lg:col-span-4 col-span-12">
-                        <div class="flex flex-col gap-4 bg-primary p-5 rounded-lg">
-                            <div class="flex flex-row gap-4 items-center text-white">
-                                <img class="h-20" src="https://amphuri.org/wp-content/uploads/2024/09/Menag-Menhaj-2024-1024x550.jpg" alt="">
-                                <div class="flex flex-col">
-                                <h4 class="text-base font-bold">Menag Yaqut Temui Menhaj Tawfiq, Bahas Persiapan Haji 2025</h4>
-                                {{-- <p>Jamaah</p> --}}
-                                </div>
-                            </div>
-                            <p class="text-sm md:text-base text-white">
-                                {!! substr('AMPHURI.ORG, JEDDAH–Menteri Agama Yaqut Cholil Qoumas bertemu dengan Menteri Haji dan Umrah Arab Saudi Tawfiq F Al Rabiah di kantor Kementerian Haji dan Umrah, Jeddah. Dalam pertemuan tersebut, Menag yang didampingi Dirjen Penyelenggaraan Haji dan Umrah Hilman Latief dan Konsul Haji KJRI Jeddah Nasrullah Jasam, sengaja menemui Menhaj Tawfiq untuk membahas persiapan penyelenggaraan ibadah haji 1446 H/2025 M.', 0, 200) !!} {!! strlen('AMPHURI.ORG, JEDDAH–Menteri Agama Yaqut Cholil Qoumas bertemu dengan Menteri Haji dan Umrah Arab Saudi Tawfiq F Al Rabiah di kantor Kementerian Haji dan Umrah, Jeddah. Dalam pertemuan tersebut, Menag yang didampingi Dirjen Penyelenggaraan Haji dan Umrah Hilman Latief dan Konsul Haji KJRI Jeddah Nasrullah Jasam, sengaja menemui Menhaj Tawfiq untuk membahas persiapan penyelenggaraan ibadah haji 1446 H/2025 M.') > 50 ? '...' : '' !!}
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
+
+            @empty
+
+            @endforelse
         </div>
     </div>
     {{-- <div id="swiper_promo" class="swiper w-full">

@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="max-w-[105px]">
                                         <p class="text-[10px] text-white pb-1">Harga Mulai</p>
-                                        <p class="text-xl font-semibold text-secondary bg-white rounded-md py-2 px-1">
+                                        <p class="text-xl font-semibold text-secondary bg-white rounded-md py-2 px-1 text-center">
                                             {!! $product->price_start_from !!} Juta
                                         </p>
                                     </div>

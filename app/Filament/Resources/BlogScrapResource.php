@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\TestimonialResource\Pages;
-use App\Filament\Resources\TestimonialResource\RelationManagers;
-use App\Models\Testimonial;
+use App\Filament\Resources\BlogScrapResource\Pages;
+use App\Filament\Resources\BlogScrapResource\RelationManagers;
+use App\Models\BlogScrap;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Tables\Columns\{TextColumn, ImageColumn, IconColumn};
@@ -14,10 +14,11 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\Section;
 
-class TestimonialResource extends Resource
+class BlogScrapResource extends Resource
 {
-    protected static ?string $model = Testimonial::class;
+    protected static ?string $model = BlogScrap::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -25,41 +26,28 @@ class TestimonialResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name'),
                 TextInput::make('title'),
+                TextArea::make('detail')
+                    ->columnSpanFull(),
                 FileUpload::make('photo')
                     ->image()
                     ->disk('public')
                     ->optimize('webp')
                     ->preserveFilenames()
-                    ->directory('assets/frontend/images/testimonial')
-                    ->label('photo jamah'),
-                Textarea::make('comments'),
-                Select::make('rating')
-                    ->options([
-                        1 => 'Satu',
-                        2 => 'Dua',
-                        3 => 'Tiga',
-                        4 => 'Empat',
-                        5 => 'Lima',
-                ]),
+                    ->directory('assets/frontend/images/blogscrap')
+                    ->label('Photo Blog'),
+                TextInput::make('url'),
             ]);
+
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('name')
+                TextColumn::make('title')
                     ->searchable(),
-
-                TextColumn::make('rating'),
-
                 ImageColumn::make('photo'),
-
-                TextColumn::make('created_at')
-                    ->dateTime('d-M-Y H:i:s')
-                    ->label('Created Comments'),
             ])
             ->filters([
                 //
@@ -84,9 +72,9 @@ class TestimonialResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListTestimonials::route('/'),
-            'create' => Pages\CreateTestimonial::route('/create'),
-            'edit' => Pages\EditTestimonial::route('/{record}/edit'),
+            'index' => Pages\ListBlogScraps::route('/'),
+            'create' => Pages\CreateBlogScrap::route('/create'),
+            'edit' => Pages\EditBlogScrap::route('/{record}/edit'),
         ];
     }
 

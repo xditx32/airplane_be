@@ -47,11 +47,11 @@
         <ul class="list-none space-y-2">
             <li class="flex flex-row gap-4 items-center">
                 <ion-icon class="text-secondary text-lg" name="logo-instagram"></ion-icon>
-                <a class="text-lg text-primary font-bold" href="//www.instagram.com/aliawisatatravel">@AliaWisataTravel</a>
+                <a class="text-sm md:text-base text-primary font-semibold" href="//www.instagram.com/aliawisatatravel">@AliaWisataTravel</a>
             </li>
             <li class="flex flex-row gap-4 items-center">
                 <ion-icon class="text-secondary text-lg" name="logo-youtube"></ion-icon>
-                <a class="text-lg text-primary font-bold" href="//www.youtube.com/@AliaChannel">@AliaChannel</a>
+                <a class="text-sm md:text-base text-primary font-semibold" href="//www.youtube.com/@AliaChannel">@AliaChannel</a>
             </li>
         </ul>
         <h5 class="tracking-wide text-lg md:text-xl font-bold py-4 text-primary">
