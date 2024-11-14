@@ -14,7 +14,9 @@ class Testimonial extends Model
         'title',
         'name',
         'comments',
-        'photo',
         'rating',
+        'photo',
+        'thumbnail',
+        'video',
     ];
 }

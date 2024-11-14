@@ -16,8 +16,10 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('name')->nullable();
             $table->text('comments')->nullable();
-            $table->string('photo')->nullable();
             $table->unsignedBigInteger('rating')->nullable();
+            $table->string('photo')->nullable();
+            $table->string('thumbnail')->nullable();
+            $table->string('video')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

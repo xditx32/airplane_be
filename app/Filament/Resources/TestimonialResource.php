@@ -27,14 +27,6 @@ class TestimonialResource extends Resource
             ->schema([
                 TextInput::make('name'),
                 TextInput::make('title'),
-                FileUpload::make('photo')
-                    ->image()
-                    ->disk('public')
-                    ->optimize('webp')
-                    ->preserveFilenames()
-                    ->directory('assets/frontend/images/testimonial')
-                    ->label('photo jamah'),
-                Textarea::make('comments'),
                 Select::make('rating')
                     ->options([
                         1 => 'Satu',
@@ -43,6 +35,29 @@ class TestimonialResource extends Resource
                         4 => 'Empat',
                         5 => 'Lima',
                 ]),
+                Textarea::make('comments'),
+                FileUpload::make('photo')
+                    ->image()
+                    ->disk('public')
+                    ->optimize('webp')
+                    ->preserveFilenames()
+                    ->directory('assets/frontend/images/testimonial')
+                    ->label('Photo Jamaah'),
+                FileUpload::make('thumbnail')
+                    ->image()
+                    ->disk('public')
+                    ->optimize('webp')
+                    ->preserveFilenames()
+                    ->directory('assets/frontend/images/testimonial')
+                    ->label('Thumbnai Video Jamaah'),
+                FileUpload::make('video')
+                    ->disk('public')
+                    ->preserveFilenames()
+                    //->acceptedFileTypes(['video/mp4', 'video/avi', 'video/mov', 'video/wmv', 'video/flv', 'video/mkv', 'video/webm'])
+                    // ->maxSize(551200)
+                    // ->previewable(true)
+                    ->directory('assets/frontend/video/testimonial')
+                    ->label('Video Jamaah'),
             ]);
     }
 
@@ -55,7 +70,7 @@ class TestimonialResource extends Resource
 
                 TextColumn::make('rating'),
 
-                ImageColumn::make('photo'),
+                // ImageColumn::make('photo'),
 
                 TextColumn::make('created_at')
                     ->dateTime('d-M-Y H:i:s')

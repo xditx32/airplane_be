@@ -202,6 +202,36 @@ const swiper_testimonial = new Swiper("#swiper_testimonial", {
     direction: "horizontal",
     spaceBetween: 16,
     slidesPerView: 1,
+    loop: false,
+    autoplay: false,
+    // slidesOffsetBefore: 20,
+    // slidesOffsetAfter: 20,
+    breakpoints: {
+        640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: false,
+            autoplay: false,
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+            loop: false,
+            autoplay: false,
+        },
+        1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            loop: false,
+            autoplay: false,
+        },
+    },
+});
+
+const swiper_blog = new Swiper("#swiper_blog", {
+    direction: "horizontal",
+    spaceBetween: 16,
+    slidesPerView: 1,
     loop: true,
     autoplay: true,
     // slidesOffsetBefore: 20,
@@ -261,7 +291,18 @@ const swiper_gallery = new Swiper("#swiper_gallery", {
     },
 });
 
-const player = new Plyr(document.getElementById("player"));
+const players = Array.from(document.querySelectorAll(".player")).map(
+    (p) => new Plyr(p)
+);
+const plyrs = Array.from(document.querySelectorAll(".js-plyr")).map(
+    (plyrs) => new Plyr(plyrs)
+);
+
+//const player = new Plyr(document.getElementById("player"));
+// document.addEventListener("DOMContentLoaded", () => {
+//     const controls = ["mute"];
+//     const player = Plyr.setup(".video", { controls, muted: true });
+// });
 
 // $carousel = $('#galleryCarousel')
 // let flickityPrevButton = $('#galleryCarousel .flickity-prev-next-button.previous')

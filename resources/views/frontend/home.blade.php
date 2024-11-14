@@ -583,45 +583,53 @@
     <div id="swiper_testimonial" class="swiper w-full">
         <div class="swiper-wrapper">
             @forelse ($testimonials as $testimonial)
-                <div class="swiper-slide">
-                    <div class="lg:col-span-4 col-span-12">
-                        <div class="flex flex-col gap-4 bg-white p-5 rounded-lg">
-                            <div class="flex flex-row gap-4 items-center text-primary">
-                                    <img class="h-14 rounded-full" src="{!! Storage::url($testimonial->photo) !!}" alt="">
-                                <div class="flex flex-col">
-                                    <h4 class="text-base md:text-lg font-bold">{!!$testimonial->name !!}</h4>
-                                    <p>{!!$testimonial->title !!}</p>
-                                    </div>
-                            </div>
-                            <p class="text-sm md:text-base text-primary">{!!$testimonial->comments !!}
-                            </p>
-                            <div class="flex flex-row gap-x-1 text-secondary items-center justify-center text-xl">
-                                    @if ($testimonial->rating == 1)
-                                        <ion-icon name="star"></ion-icon>
-                                    @elseif($testimonial->rating == 2)
-                                        <ion-icon name="star"></ion-icon>
-                                        <ion-icon name="star"></ion-icon>
-                                    @elseif($testimonial->rating == 3)
-                                        <ion-icon name="star"></ion-icon>
-                                        <ion-icon name="star"></ion-icon>
-                                        <ion-icon name="star"></ion-icon>
-                                    @elseif($testimonial->rating == 4)
-                                        <ion-icon name="star"></ion-icon>
-                                        <ion-icon name="star"></ion-icon>
-                                        <ion-icon name="star"></ion-icon>
-                                        <ion-icon name="star"></ion-icon>
-                                    @elseif($testimonial->rating == 5)
-                                        <ion-icon name="star"></ion-icon>
-                                        <ion-icon name="star"></ion-icon>
-                                        <ion-icon name="star"></ion-icon>
-                                        <ion-icon name="star"></ion-icon>
-                                        <ion-icon name="star"></ion-icon>
-                                    @endif
-                            </div>
+            <div class="swiper-slide">
+                    <div>
+                        <video class="player rounded-xl" playsinline crossorigin controls data-poster="{!! Storage::url($testimonial->thumbnail) !!}">
+                            <source src="{!! Storage::url($testimonial->video) !!}" type="video/mp4" />
+                    </div>
+                        {{-- <source src="/path/to/video.webm" type="video/webm" /> --}}
+
+                        <!-- Captions are optional -->
+                        {{-- <track kind="captions" label="English captions" src="/path/to/captions.vtt" srclang="en" default /> --}}
+                    </video>
+            </div>
+                {{-- <div class="lg:col-span-4 col-span-12">
+                    <div class="flex flex-col gap-4 bg-white p-5 rounded-lg">
+                        <div class="flex flex-row gap-4 items-center text-primary">
+                                <img class="h-14 rounded-full" src="{!! Storage::url($testimonial->photo) !!}" alt="">
+                            <div class="flex flex-col">
+                                <h4 class="text-base md:text-lg font-bold">{!!$testimonial->name !!}</h4>
+                                <p>{!!$testimonial->title !!}</p>
+                                </div>
+                        </div>
+                        <p class="text-sm md:text-base text-primary">{!!$testimonial->comments !!}
+                        </p>
+                        <div class="flex flex-row gap-x-1 text-secondary items-center justify-center text-xl">
+                                @if ($testimonial->rating == 1)
+                                    <ion-icon name="star"></ion-icon>
+                                @elseif($testimonial->rating == 2)
+                                    <ion-icon name="star"></ion-icon>
+                                    <ion-icon name="star"></ion-icon>
+                                @elseif($testimonial->rating == 3)
+                                    <ion-icon name="star"></ion-icon>
+                                    <ion-icon name="star"></ion-icon>
+                                    <ion-icon name="star"></ion-icon>
+                                @elseif($testimonial->rating == 4)
+                                    <ion-icon name="star"></ion-icon>
+                                    <ion-icon name="star"></ion-icon>
+                                    <ion-icon name="star"></ion-icon>
+                                    <ion-icon name="star"></ion-icon>
+                                @elseif($testimonial->rating == 5)
+                                    <ion-icon name="star"></ion-icon>
+                                    <ion-icon name="star"></ion-icon>
+                                    <ion-icon name="star"></ion-icon>
+                                    <ion-icon name="star"></ion-icon>
+                                    <ion-icon name="star"></ion-icon>
+                                @endif
                         </div>
                     </div>
-                </div>
-
+                </div> --}}
             @empty
 
             @endforelse
@@ -728,7 +736,7 @@
         <p class="text-base md:text-lg text-primary">Dapatkan berita menarik untuk perjalanan ibadah umroh sahabat semua.</p>
     </div>
 
-    <div id="swiper_testimonial" class="swiper w-full">
+    <div id="swiper_blog" class="swiper w-full">
         <div class="swiper-wrapper">
             @forelse ($blogscraps as $blogscrap)
             <div class="swiper-slide">
